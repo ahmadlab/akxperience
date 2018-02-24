@@ -1,0 +1,168 @@
+<script type="text/javascript">
+$(document).ready(function() 
+{
+    $(function() {
+        $('#dob').datepicker( {
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: $.datepicker.ISO_8601,
+            yearRange: '-60:+0'
+        });
+    });
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function() 
+{
+    $("a#delete-pic-image").click(function(){
+        var answer = confirm("Are you sure to delete this file ??");
+        if(answer)
+        {
+            $.ajax({
+                type: 'POST',
+                data: 'id={id_user}',
+                success: function(data){
+                    $("#print-picture-image").fadeOut('slow');
+                    $("#print-picture-image").fadeIn('slow');
+                    $("#print-picture-image").html(data);
+                    $("#print-picture-image").fadeOut('slow');
+                },
+                url: '{path_app}/delete_picture',
+                cache:false
+            },
+            $("#print-picture-image").fadeOut('slow')
+            );
+        }
+    });
+});
+</script>
+<!--CONTENT-->
+<div class="content" id="content">
+	
+    <ul class="breadcrumbs">
+        {breadcrumbs}
+            <li {class}><a href="{href}">{text}</a></li>
+        {/breadcrumbs}
+    </ul>
+	
+    <div class="panel">
+        <div class="twelve" style="margin-bottom:20px;">
+            <strong>Add/Edit {menu_title}</strong>
+        </div>
+        
+        {success_msg}
+
+        {error_msg}
+            {warning}
+            {activation_status}
+            {username}
+            {password}
+            {name}
+            {display_name}
+            {email}
+            {sex}
+            {dob}
+            {mobile}
+            {plurk}
+            {image}
+        {/error_msg}
+
+        <form id="form-{file_app}" name="form-{file_app}" action="{action}" method="post" class="nice" enctype="multipart/form-data">
+            {post}
+            <div class="row none-width" style="margin-bottom:20px;">
+                <div class="six">
+                    <label for="username">Username : </label>
+                    <input type="text" class="expand input-text" maxlength="250" size="50" value="{username}" name="username" id="username" readonly/>
+                    <br/>
+                    <label for="name">Name : </label>
+                    <input type="text" class="expand input-text" maxlength="250" size="50" value="{name}" name="name" id="name"/>
+                    <br/>
+                    <label for="display_name">Display Name : </label>
+                    <input type="text" class="expand input-text" maxlength="250" size="50" value="{display_name}" name="display_name" id="display_name"/>
+                    <br/>
+                    <label for="email">Email : </label>
+                    <input type="text" class="expand input-text" maxlength="250" size="50" value="{email}" name="email" id="email"/>
+                    <br/>
+                    <label for="sex">Gender : </label>
+                    <select name="sex" id="sex">
+                        <option value="">-------</option>
+                        {gender_list}
+                    </select>
+                    <br/>
+                    <label for="dob">DOB : </label>
+                    <input type="text" class="expand input-text" maxlength="250" size="50" value="{dob}" name="dob" id="dob"/>
+                    <br/>
+                    <label for="interested">Interested : </label>
+                    <input type="text" class="expand input-text" maxlength="250" size="50" value="{interested}" name="interested" id="interested"/>
+                    <br/>
+                    <label for="hometown">Hometown : </label>
+                    <input type="text" class="expand input-text" maxlength="250" size="50" value="{hometown}" name="hometown" id="hometown"/>
+                    <br/>
+                    <label for="relationship">Relationship : </label>
+                    <select name="relationship" id="relationship">
+                        <option value="">-------</option>
+                        {relationship_list}
+                    </select>
+                    <br/>
+                    <label for="mobile">Mobile : </label>
+                    <input type="text" class="expand input-text" maxlength="250" size="50" value="{mobile}" name="mobile" id="mobile"/>
+                    <br/>
+                    <label for="mobile2">Mobile 2 : </label>
+                    <input type="text" class="expand input-text" maxlength="250" size="50" value="{mobile2}" name="mobile2" id="mobile2"/>
+                    <br/>
+                    <label for="landline">Landline : </label>
+                    <input type="text" class="expand input-text" maxlength="250" size="50" value="{landline}" name="landline" id="landline"/>
+                    <br/>
+                    <label for="yahoo">Yahoo : </label>
+                    <input type="text" class="expand input-text" maxlength="250" size="50" value="{yahoo}" name="yahoo" id="yahoo"/>
+                    <br/>
+                    <label for="msn">MSN : </label>
+                    <input type="text" class="expand input-text" maxlength="250" size="50" value="{msn}" name="msn" id="msn"/>
+                    <br/>
+                    <label for="website">Website : </label>
+                    <input type="text" class="expand input-text" maxlength="250" size="50" value="{website}" name="website" id="website"/>
+                    <br/>
+                    <label for="blackberry">Blackberry Pin : </label>
+                    <input type="text" class="expand input-text" maxlength="250" size="50" value="{blackberry}" name="blackberry" id="blackberry"/>
+                    <br/>
+                    <label for="facebook">Facebook : </label>
+                    <input type="text" class="expand input-text" maxlength="250" size="50" value="{facebook}" name="facebook" id="facebook"/>
+                    <br/>
+                    <label for="friendster">Friendster : </label>
+                    <input type="text" class="expand input-text" maxlength="250" size="50" value="{friendster}" name="friendster" id="friendster"/>
+                    <br/>
+                    <label for="plurk">Plurk : </label>
+                    <input type="text" class="expand input-text" maxlength="250" size="50" value="{plurk}" name="plurk" id="plurk"/>
+                    <br/>
+                    <label for="twitter">Twitter : </label>
+                    <input type="text" class="expand input-text" maxlength="250" size="50" value="{twitter}" name="twitter" id="twitter"/>
+                    <br/>
+                    <label for="instagram">Instagram : </label>
+                    <input type="text" class="expand input-text" maxlength="250" size="50" value="{instagram}" name="instagram" id="instagram"/>
+                    <br/>
+                    <label>Status : </label>
+                    {status_list}
+                        <label for="{id}" class="{class}">
+                            <input type="radio" value="{val}" name="activation_status" id="{id}" {sel}/>
+                            {text}
+                        </label>
+                    {/status_list}
+                    <br/>
+                    
+                    <label for="image">Image : * max ({best_w}px x {best_h}px)</label>
+                    {pic_user}
+                    <input type="file" class="expand input-text" name="image" id="image"/><br/>
+                </div>
+            </div>
+
+            <div class="row none-width">
+                <div class="six text-right">
+                    <input type="submit" name="submit_save" id="{file_app}-submit" title="Submit" value="Submit" class="nice small radius green button"/>
+                    <input type="button" id="{file_app}-cancel" title="Cancel" value="Cancel" onClick="javascript:window.location='{cancel_btn}';" class="nice small radius green button"/>
+                </div>
+            </div> 
+            {/post}
+        </form>
+    </div>
+</div><!--CONTENT-->
+

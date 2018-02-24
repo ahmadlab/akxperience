@@ -1,0 +1,104 @@
+      
+<!--CONTENT-->
+<div class="content twelve columns" id="content">
+    <!--breadcrumbs-->
+    <ul class="breadcrumbs">
+        {breadcrumbs}
+        <li {class}><a href="{href}">{text}</a></li>
+        {/breadcrumbs}
+    </ul>
+    <!--breadcrumbs-->
+
+    <div class="panel">
+        <div class="row">
+            <div class="twelve columns">
+                <h5>Add/Edit {menu_title}</h5>
+
+                {error_msg}
+                {warning}
+                {ref_bank}
+                {ref_tenor}
+                {ref_dp}
+                {asuransi}
+                {administrasi}
+                {provisi}
+                {bunga}
+                {redudant}
+                {/error_msg}
+
+                <form id="form-{file_app}" name="form-{file_app}" action="{action}" method="post" class="custom" enctype="multipart/form-data">
+                    {post}
+                    <div class="row">
+						<div class="twelve columns">
+							<div class="row">
+								<div class="six columns">
+									<label for="ref_bank">Bank Account : </label>
+									<select name="ref_bank" id="ref_bank"  >
+									{banklist}
+									</select>
+									<label for="ref_tenor">Tenor : </label>
+									<select name="ref_tenor" id="ref_tenor"  >
+									{tenorlist}
+									</select>
+									<label for="ref_dp">Down Payment : </label>
+									<select name="ref_dp" id="ref_dp"  >
+									{dplist}
+									</select>
+									<label for="asuransi">Asuransi : </label>
+									<input type="text" name="asuransi" id="asuransi" class="required address" value="{asuransi}" />
+									<label for="administrasi">Administrasi : </label>
+									<input type="text" name="administrasi" id="administrasi" class="required address" value="{administrasi}" />
+									<label for="provisi">Provisi : </label>
+									<input type="text" name="provisi" id="provisi" class="required address" value="{provisi}" />
+									<label for="bunga">Bunga : </label>
+									<input type="text" name="bunga" id="bunga" class="required address" value="{bunga}" />
+								</div>
+							</div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="five columns text-right">
+                            <input type="submit" id="{file_app}-submit" title="Submit" value="Submit" class="medium radius success button"/>
+                            <a onClick="javascript:window.location='{cancel_btn}';" class="medium radius alert button">Cancel</a>
+                        </div>
+                    </div>
+                    {/post}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#form-{file_app}").validate({
+            rules: {
+                confpass: {
+                    equalTo: "#userpass"
+                }
+            }
+        });
+		$("a#delete-pic-thumbnail").click(function(){
+			var answer = confirm("Are you sure to delete this file ??"), id = $(this).attr('ida');
+			
+			if(answer) {
+				$.ajax({
+					type: 'POST',
+					data: 'id='+id,
+					success: function(data){
+						$("#print-picture-thumbnail").fadeOut('slow');
+						$("#print-picture-thumbnail").fadeIn('slow');
+						$("#print-picture-thumbnail").html(data);
+						$("#print-picture-thumbnail").fadeOut('slow');
+					},
+					url: '{path_app}/delete_gallery',
+					cache:false
+				},
+				$("#print-picture-thumbnail").fadeOut('slow')
+				);
+			}
+		});
+    });
+</script>
+<!--CONTENT-->

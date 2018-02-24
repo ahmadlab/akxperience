@@ -1,0 +1,253 @@
+ <style>
+ form.custom div.custom.dropdown {
+	margin-top:-20px;margin-left:10px;
+	display: block;
+    height: 28px;
+    margin-bottom: 9px;
+    position: relative;
+    width: auto !important;
+ }
+ </style>
+<!--CONTENT-->
+<div class="content twelve columns" id="content">
+    <!--breadcrumbs-->
+    <ul class="breadcrumbs">
+        {breadcrumbs}
+        <li {class}><a href="{href}">{text}</a></li>
+        {/breadcrumbs}
+    </ul>
+    <!--breadcrumbs-->
+
+    <div class="panel" >
+        <div class="row">
+            <div class="twelve columns">
+                <h5>Detail {menu_title}</h5>
+
+                {error_msg}
+                {warning}
+                {service_note}
+				{service}
+                {service_type}
+                {total_price}
+                {next_visit}
+                {status_book}
+				{eta}
+				{/error_msg}
+                <form id="form-{file_app}" name="form-{file_app}" action="{action}" method="post" class="custom" enctype="multipart/form-data">
+                    {post}
+					<table class="twelve">
+						<tr>
+							<td style="width:572px;">
+								<table class="twelve" cellspacing="0" cellpadding="0">
+									<thead>
+										<tr><th colspan="2"><br>&nbsp;Service Info</th></tr>
+										<tr><th colspan="2"></th></tr>
+									</thead>
+                                    {info}
+									<tr>
+										<td>Service Type </td>
+										<td>{service_type}</td>
+									</tr>
+									<!-- <tr>
+										<td>Service</td>
+										<td>{service}</td>
+									</tr> -->
+									<!-- <tr>
+										<td>Service Type </td>
+										<td><select name="service_type" data-customforms="disabled" onchange="crawl_ref('{path_app}/get_service',this.value,'service')">{refservlst}</select></td>
+									</tr> -->
+									<tr>
+										<td>Service</td>
+										<td><select name="service" id="service" data-customforms="disabled" {dcrc_disabled}>{servicelst}</select></td>
+									</tr>
+									<!-- <tr>
+										<td>Oil Refill</td>
+										<td><input disabled checked type="checkbox" name="oil_refill" {ocheck} value="1" data-customforms="disabled" /></td>
+									</tr>
+									<tr>
+										<td>Current Mileage</td>
+										<td>{current_mileage} </td>
+									</tr> -->
+									<tr>
+										<td style="vertical-align: middle;width:150px;">User Notes </td>
+										<td>{user_notes} </td>
+									</tr>
+                                    <tr>
+                                        <td>Estimated Time</td>
+                                        <td><input onkeypress='return event.charCode >= 48 && event.charCode <= 57' style="width:35px; float: left; margin-right: 10px" maxlength="2" name="eta_1" type="text" value="{eta_1}" />
+                                            <select style="width:150px; float: left" name="eta_2" id="eta" data-customforms="disabled" >{list_eta}</select></td>
+                                    </tr>
+									<tr>
+										<td style="vertical-align: middle;">Service Notes</td>
+										<td><textarea name="service_note" {dservice_note}>{service_notes}</textarea> </td>
+									</tr>
+									<tr>
+										<td>Service Price</td>
+										<td><input type="text" name="total_price" id="total_price" value="{total_price}" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/> </td>
+									</tr>
+									<tr>
+										<td>Next Visit</td>
+										<td><input type="text" name="next_visit" value="{next_visit}" border="0" {dnvisit} class="datepicker_now" {dcrc_disabled}/> </td>
+									</tr>
+									<thead>
+										<tr><th colspan="2"><br>Booking Info</th></tr>
+										<tr><th colspan="2"></th></tr>
+									</thead>
+									<tr>
+										<td>Date Time Booking </td>
+										<!-- <td>: 2013 12 30, at 08:00</td> -->
+										<td>{datetime_book}</td>
+									</tr>
+									<tr>
+										<td>Workshop Location</td>
+										<td>{location}</td>
+									</tr>
+									<tr>
+										<td>Current Status</td>
+										<td>{status_book}</td>
+									</tr>
+									<tr>
+										<td>Status Booking</td>
+
+										<td><select name="status_book" id="status_book" class="required" style="width:90%;" {dstat} data-customforms="disabled">
+											{l_status}
+											</select>
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td>
+								<table class="twelve {sales}" cellspacing="0" cellpadding="0" >
+                                    <thead>
+                                    <tr><th colspan="2"><br>Customer Info</th></tr>
+                                    <tr><th colspan="2"></th></tr>
+                                    </thead>
+                                    <tr>
+                                        <td>ID Card</td>
+                                        <td>{card_id}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>{uiname}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Birth of Date</td>
+                                        <td>{birthday}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Religion</td>
+                                        <td>{religion}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phone Number</td>
+                                        <td>{phone_number} </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>{uimail} </td>
+                                    </tr>
+                                    <tr>
+                                        <td>User Type</td>
+                                        <td>{user_type}</td>
+                                    </tr>
+									<thead>
+										<tr><th colspan="2"><br>Car Info</th></tr>
+										<tr><th colspan="2"></th></tr>
+									</thead>
+									<!-- <tr>
+										<td style="vertical-align: middle;">Thumb Drive Car</td>
+										<td><img src="{base_url}uploads/cars/{car_thumb}" /> </td>
+									</tr> -->
+									<tr>
+										<td>Car</td>
+										<td>{car}</td>
+									</tr>
+									<tr>
+										<td>Police Number</td>
+										<td>{police_number}</td>
+									</tr>
+									<tr>
+										<td>Vin Number</td>
+										<td>{vin_number}</td>
+									</tr>
+									<tr>
+										<td>STNK Date</td>
+										<td>{stnk_date}</td>
+									</tr>
+									<tr>
+										<td>Insurance Date</td>
+										<td>{insurance_date}</td>
+									</tr>
+									<tr>
+										<td>Point Reward</td>
+										<td>{point_reward}</td>
+									</tr>
+									<tr>
+										<td>Last Mileage</td>
+										<td>{last_mileage}</td>
+									</tr>
+									{/info}
+                                    <thead>
+                                    <tr><th colspan="2">Status Info</th></tr>
+                                    </thead>
+                                    {status_info}
+                                        {booked_by}
+                                        {confirmed_by}
+                                        {progress_by}
+                                        {done_by}
+                                        {finished_by}
+                                        {canceled_by}
+                                    {/status_info}
+								</table>
+							</td>
+						</tr>
+					</table>
+                    <div class="row">
+                        <div class="five columns text-right">
+                            <input type="submit" id="{file_app}-submit" title="Submit" value="Submit" class="medium radius success button"/>
+                            <a onClick="javascript:window.location='{cancel_btn}';" class="medium radius alert button">Cancel</a>
+                        </div>
+                    </div>
+                    {/post}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("form").submit(function() {
+            $("input").removeAttr("disabled");
+            $("select").removeAttr("disabled");
+        });
+        $("#form-{file_app}").validate({
+            rules: {
+                confpass: {
+                    equalTo: "#userpass"
+                }
+            }
+        });
+		$("a#delete-pic-thumbnail").click(function(){
+			var answer = confirm("Are you sure to delete this file ??"), id = $(this).attr('ida');
+
+			if(answer) {
+				$.ajax({
+					type: 'POST',
+					data: 'id='+id,
+					success: function(data){
+						$("#print-picture-thumbnail").fadeOut('slow');
+						$("#print-picture-thumbnail").fadeIn('slow');
+						$("#print-picture-thumbnail").html(data);
+						$("#print-picture-thumbnail").fadeOut('slow');
+					},
+					url: '{path_app}/delete_gallery',
+					cache:false
+				},
+				$("#print-picture-thumbnail").fadeOut('slow')
+				);
+			}
+		});
+    });
+</script>
+<!--CONTENT-->

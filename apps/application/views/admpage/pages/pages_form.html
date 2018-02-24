@@ -1,0 +1,312 @@
+      
+<!--CONTENT-->
+<div class="content twelve columns" id="content">
+    <!--breadcrumbs-->
+    <ul class="breadcrumbs">
+        {breadcrumbs}
+            <li {class}><a href="{href}">{text}</a></li>
+        {/breadcrumbs}
+    </ul>
+    <!--breadcrumbs-->
+
+    <div class="panel">
+        <div class="row">
+            <div class="twelve columns">
+                <h5>Add/Edit {menu_title}</h5>
+
+                {error_msg}
+                    {warning}
+                    {id_parent_pages}
+                    {menu}
+                    {title}
+                    {page_type}
+                    {fil_content}
+                    {id_ref_publish}
+                    {menu_path}
+                    {picture_header}
+                    {picture_content}
+                {/error_msg}
+
+                <form id="form-{file_app}" name="form-{file_app}" action="{action}" method="post" enctype="multipart/form-data" class="custom">
+                    {post}
+                    
+                    <div class="row none-width">
+                        <div class="twelve columns">
+                            <dl class="tabs contained">
+                                <dd class="active"><a href="#contentpage">Content</a></dd>
+                                <dd><a href="#status">Status / Options</a></dd>
+                                <dd><a href="#attachment">Attachment</a></dd>
+                                <dd><a href="#meta">Meta Data</a></dd>
+                            </dl>
+
+                            <ul class="tabs-content contained">
+                                <li class="active" id="contentpageTab">
+                                    <div class="row">
+                                        <div class="ten columns">
+                                            <label for="id_parent_pages">Parent Menu : </label>
+                                            <select name="id_parent_pages" id="id_parent_pages" class="changedSelectInput">
+                                                <option value="0">-- Main Menu --</option>
+                                                {parent_list}
+                                            </select>
+                                            <label for="menu_title">Menu Title : </label>
+                                            <input type="text" maxlength="250" size="50" value="{menu}" name="menu" id="menu_title" class="required" />
+                                            <label for="title">Page Title : </label>
+                                            <input type="text" maxlength="250" size="50" value="{title}" name="title" id="title" class="required" />
+
+                                            <div {mltilang_mode} >
+                                                <label for="title_in">Page Title (Indonesia) : </label>
+                                                <input type="text" maxlength="250" size="50" value="{title_in}" name="title_in" id="title_in"/>
+                                            </div>
+                                            <label>Page Type : </label>
+                                            {type_list}
+                                            <label for="{id}" class="{class}">
+                                                <input type="radio" value="{val}" name="page_type" id="{id}" {sel} data-customforms="disabled"/>
+                                                       {text} &nbsp;&nbsp;
+                                            </label>
+                                            {/type_list}<br/>
+                                            <div id="module-field">
+                                                <label for="module">Module : </label>
+                                                <select name="module" id="module" class="changedSelectInput">
+                                                    <option value="">-= Select Module =-</option>
+                                                    {module_list}
+                                                </select>
+                                                
+                                                <label for="intro">Short Description : </label>
+                                                <textarea rows="6" name="intro2" id="intro2">{intro}</textarea>
+                                                <label for="content_pages">Description : </label>
+                                                <textarea rows="6" name="content2" id="content_pages2">{content}</textarea>
+                                            </div>
+                                            <div id="content-field">
+                                                <label for="intro">Short Description : </label>
+                                                <textarea rows="6" name="intro" id="intro">{intro}</textarea>
+                                                <label for="content_pages">Description : </label>
+                                                <textarea rows="6" name="content" id="content_pages">{content}</textarea>
+
+                                                <div {mltilang_mode} >
+                                                    <label for="intro_in">Short Description (Indonesia) : </label>
+                                                    <textarea rows="6" name="intro_in" id="intro_in">{intro_in}</textarea>
+                                                    <label for="content_pages_in">Description (Indonesia) : </label>
+                                                    <textarea rows="6" name="content_in" id="content_pages_in">{content_in}</textarea>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            
+                                           <!--  <label for="id_services_category">Services Category : </label>
+                                            <select name="id_services_category" id="id_services_category" class="changedSelectInput">
+                                                <option value="0">-- Select --</option>
+                                                {services_category_list}
+                                            </select> -->
+                                        </div>
+                                    </div>
+                                </li>
+                                <li id="statusTab">
+                                    <div class="row">
+                                        <div class="six columns">
+                                            <label>Publish Status : </label>
+                                            {status_list}
+                                            <label for="{id}" class="{class}">
+                                                <input type="radio" value="{val}" name="id_ref_publish" id="{id}" {sel}/>
+                                                       {text} &nbsp;&nbsp;
+                                            </label>
+                                            {/status_list}
+
+                                            <br/>
+                                            <label>Sites : </label>
+                                            {site_list}
+                                            <label for="site_input_{id_site}" >
+                                                <input type="checkbox" name="site_input[]" id="site_input_{id_site}" value="{id_site}" {s_sel}/>
+                                                       {site_title} &nbsp; &nbsp;
+                                            </label>
+                                            {/site_list}
+
+                                            <div {widget_display}>
+                                                <label>Widget : </label>
+                                                {widget_list}
+                                                <label for="widget_input_{id_widget}" >
+                                                    <input type="checkbox" name="widget_input[]" id="widget_input_{id_widget}" value="{id_widget}" {w_sel}/>
+                                                           {widget_title} &nbsp; &nbsp;
+                                                </label>
+                                                {/widget_list}
+                                            </div>
+
+                                            <br/>
+                                            <label>Set as Header Menu : </label>
+                                            {header_list}
+                                            <label for="{id}" class="{class}">
+                                                <input type="radio" value="{val}" name="is_header" id="{id}" {sel}/>
+                                                       {text} &nbsp;&nbsp;
+                                            </label>
+                                            {/header_list}
+
+                                            <br/>
+                                            <label>Set as Footer Menu : </label>
+                                            {footer_list}
+                                            <label for="{id}" class="{class}">
+                                                <input type="radio" value="{val}" name="is_footer" id="{id}" {sel}/>
+                                                       {text} &nbsp;&nbsp;
+                                            </label>
+                                            {/footer_list}
+                                            
+                                            <br/>
+                                            <label>Landing Page</label>
+                                            {landing_list}
+                                            <label for="{id}" class="{class}">
+                                                <input type="radio" value="{val}" name="is_landing" id="{id}" {sel}/>
+                                                       {text} &nbsp;&nbsp;
+                                            </label>
+                                            {/landing_list}
+                                        </div>
+                                    </div>
+                                </li>
+                                <li id="attachmentTab">
+                                    <div class="row">
+                                        <div class="six columns">
+                                            <label for="file_content">File Content : </label>
+                                            {file_content}
+                                            <input type="file" name="file_content" id="file_content"/>
+                                            <br/><br/>
+                                            <label for="picture_content">Image Content : </label>
+                                            {pic_content}
+                                            <input type="file" name="picture_content" id="picture_content"/>
+                                            <br/><br/>
+                                            <label for="picture_header">Image Header : </label>
+                                            {pic_header}
+                                            <input type="file" name="picture_header" id="picture_header"/>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li id="metaTab">
+                                    <div class="row">
+                                        <div class="six columns">
+                                            <label for="menu_path">SEO Link {seo_label} : </label>
+                                            <input type="text" maxlength="250" size="50" value="{menu_path}" name="menu_path" id="menu_path"/>
+                                            <label for="meta_keyword">Meta Keyword : </label>
+                                            <input type="text" maxlength="250" size="50" value="{meta_keyword}" name="meta_keyword" id="meta_keyword">
+                                            <label for="meta_desc">Meta Description : </label>
+                                            <textarea rows="6" name="meta_desc" id="meta_desc">{meta_desc}</textarea>
+                                            <label for="css_id_name">CSS ID Name : </label>
+                                            <input type="text" maxlength="250" size="50" value="{css_id_name}" name="css_id_name" id="css_id_name"/>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="twelve columns text-right">
+                            <input type="submit" id="{file_app}-submit" title="Submit" value="Submit" class="medium radius success button"/>
+                            <a onClick="javascript:window.location='{cancel_btn}';" class="medium radius alert button">Cancel</a>
+                        </div>
+                    </div>
+                    {/post}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--CONTENT-->
+
+<script type="text/javascript">
+    print_ckeditor('content_pages');
+    print_ckeditor('content_pages2');
+    print_ckeditor('content_pages_in');
+
+    $(document).ready(function() {
+        $("#form-{file_app}").validate();
+    });
+
+    $(document).ready(function() 
+    {
+        $("a#delete-pic-header").click(function(){
+            var answer = confirm("Are you sure to delete this file ??");
+            if(answer)
+            {
+                $.ajax({
+                    type: 'POST',
+                    data: 'id={id_page}&type=header',
+                    success: function(data){
+                        $("#print-picture-header").fadeOut('slow');
+                        $("#print-picture-header").fadeIn('slow');
+                        $("#print-picture-header").html(data);
+                        $("#print-picture-header").fadeOut('slow');
+                    },
+                    url: '{path_app}/delete_picture',
+                    cache:false
+                },
+                $("#print-picture-header").fadeOut('slow')
+            );
+            }
+        });
+
+        $("a#delete-pic-content").click(function(){
+            var answer2 = confirm("Are you sure to delete this file ??");
+            if(answer2)
+            {
+                $.ajax({
+                    type: 'POST',
+                    data: 'id={id_page}&type=content',
+                    success: function(data){
+                        $("#print-picture-content").fadeOut('slow');
+                        $("#print-picture-content").fadeIn('slow');
+                        $("#print-picture-content").html(data);
+                        $("#print-picture-content").fadeOut('slow');
+                    },
+                    url: '{path_app}/delete_picture',
+                    cache:false
+                },
+                $("#print-picture-content").fadeOut('slow')
+            );
+            }
+        });	
+
+        $("a#delete-file").click(function(){
+            var answer2 = confirm("Are you sure to delete this file ??");
+            if(answer2)
+            {
+                $.ajax({
+                    type: 'POST',
+                    data: 'id={id_page}',
+                    success: function(data){
+                        $("#print-file").fadeOut('slow');
+                        $("#print-file").fadeIn('slow');
+                        $("#print-file").html(data);
+                        $("#print-file").fadeOut('slow');
+                    },
+                    url: '{path_app}/delete_file',
+                    cache:false
+                },
+                $("#print-file").fadeOut('slow')
+            );
+            }
+        });	
+    });
+
+    $(document).ready(function(){
+        if ($('input:radio[name=page_type]:checked').val() == '2') {
+            $("#content-field").fadeOut('fast');
+            $("#module-field").fadeIn('slow');
+        }
+        else
+        {
+            $("#module-field").fadeOut('fast');
+            $("#content-field").fadeIn('slow');
+        }
+
+        $("input[name='page_type']").bind("click",PageClicks)
+    });
+
+    function PageClicks()
+    {
+        if ($(this).val() == '2')
+        {
+            $("#content-field").fadeOut('fast');
+            $("#module-field").fadeIn('slow');
+        }
+        else
+        {
+            $("#module-field").fadeOut('fast');
+            $("#content-field").fadeIn('slow');
+        }
+    }
+</script>

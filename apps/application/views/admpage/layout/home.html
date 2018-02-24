@@ -1,0 +1,210 @@
+<!--content-->
+<style>
+table thead tr th, table tfoot tr td {font-size:8pt;}
+table thead tr th, table tfoot tr th, table tbody tr td, table tr td, table tfoot tr td { font-size:8pt; }
+#test {
+    width:100%;
+    height:100%;
+}
+.info_box {
+    width:200px;
+    height:75px;
+    font-size:12px;
+    float:left;
+    margin:0 5px 10px;
+    cursor: pointer; cursor: hand;
+    text-align: center;
+    left:-50%;
+    position: relative;
+}
+</style>
+<div class="twelve columns">
+    <div style="text-align: center;">
+        <h3>Welcome to AK Experience Content Management System</h3>
+    </div>
+    <div style="margin: 0 auto;position:relative;float:left;left:50%;">
+        <table id="cttdrive" class="info_box {hide_td}"><tr><th>Test Drive Booking</th></tr><tr><td style='text-align:center;font-size:20px;font-weight:bold;'>{ctdrive}</td></tr></table>
+        <table id="chservice" class="info_box {hide_hs}"><tr><th>Home Service Booking</th></tr><tr><td style='text-align:center;font-size:20px;font-weight:bold;'>{chservice}</td></tr></table>
+        <table id="cwservice" class="info_box {hide_ws}"><tr><th>Workshop Service Booking</th></tr><tr><td style='text-align:center;font-size:20px;font-weight:bold;'>{cwservice}</td></tr></table>
+        <table id="ctcomplain" class="info_box {hide_ch}"><tr><th>Complain Handling</th></tr><tr><td style='text-align:center;font-size:20px;font-weight:bold;'>{ctcomplain}</td></tr></table>
+        <table id="ctconsult" class="info_box {hide_tc}"><tr><th>Technical Consultation</th></tr><tr><td style='text-align:center;font-size:20px;font-weight:bold;'>{ctconsult}</td></tr></table>
+        <div style="clear: both"></div>
+    </div>
+</div>
+<!--<div class="twelve columns">-->
+  <!--&lt;!&ndash; <h3>Welcome Back {uname} </h3> &ndash;&gt;-->
+    <!--<div class="four columns {tdrive}">-->
+		<!--<table cellspacing="0" cellpadding="0">-->
+			<!--<thead>-->
+				<!--<tr>-->
+					<!--<th colspan="5" scope="col" class="text-center" style="background-color:gray;"> Test Drive Booking </th>-->
+				<!--</tr>-->
+			<!--</thead>-->
+			<!--<thead>-->
+				<!--<tr>-->
+					<!--<th scope="col" class="small">No.</th>-->
+					<!--<th scope="col" class="text-left">User</th>-->
+					<!--&lt;!&ndash; <th scope="col" class="text-left">Car</th> &ndash;&gt;-->
+					<!--<th scope="col" class="text-left">Time</th>-->
+					<!--<th scope="col" class="text-left">Status</th>-->
+					<!--<th scope="col" class="text-left">stamp</th>-->
+				<!--</tr>-->
+			<!--</thead>-->
+
+			<!--<tbody id="record-{id}">-->
+            <!--{ltdrive}-->
+				<!--<tr>-->
+					<!--<td scope="col" class="small">{no}.</td>-->
+					<!--<td><a href="{edit_href}">{user}</a></td>-->
+					<!--&lt;!&ndash; <td>{car} asdasdadas</td> &ndash;&gt;-->
+					<!--<td>{time}</td>-->
+					<!--<td>{status}</td>-->
+					<!--<td>{stamp}</td>-->
+				<!--</tr>-->
+            <!--{/ltdrive}-->
+			<!--</tbody>-->
+		<!--</table>-->
+	<!--</div>-->
+	<!---->
+	<!--<div class="four columns {hserve}">-->
+		<!--<table cellspacing="0" cellpadding="0">-->
+			<!--<thead>-->
+				<!--<tr>-->
+					<!--<th colspan="5" scope="col" class="text-center" style="background-color:gray;"> Home Service Booking </th>-->
+				<!--</tr>-->
+			<!--</thead>-->
+			<!--<thead>-->
+				<!--<tr>-->
+					<!--<th scope="col" class="small">No.</th>-->
+					<!--<th scope="col" class="text-left">User</th>-->
+					<!--&lt;!&ndash; <th scope="col" class="text-left">Car</th> &ndash;&gt;-->
+					<!--<th scope="col" class="text-left">Time</th>-->
+					<!--<th scope="col" class="text-left">Status</th>-->
+					<!--<th scope="col" class="text-left">stamp</th>-->
+				<!--</tr>-->
+			<!--</thead>-->
+
+			<!--<tbody id="record-{id}">-->
+            <!--{lhservice}-->
+				<!--<tr>-->
+					<!--<td scope="col" class="small">{no}.</td>-->
+					<!--<td><a href="{edit_href}">{user}</a></td>-->
+					<!--&lt;!&ndash; <td>{car} asdasdadas</td> &ndash;&gt;-->
+					<!--<td>{time}</td>-->
+					<!--<td>{status}</td>-->
+					<!--<td>{stamp}</td>-->
+				<!--</tr>-->
+            <!--{/lhservice}-->
+			<!--</tbody>-->
+		<!--</table>-->
+	<!--</div> -->
+   <!---->
+	<!--<div class="four columns {wserve}">-->
+	    <!--<table cellspacing="0" cellpadding="0">-->
+			<!--<thead>-->
+				<!--<tr>-->
+					<!--<th colspan="5" scope="col" class="text-center" style="background-color:gray;"> Workshop Service Booking </th>-->
+				<!--</tr>-->
+			<!--</thead>-->
+			<!--<thead>-->
+				<!--<tr>-->
+					<!--<th scope="col" class="small">No.</th>-->
+					<!--<th scope="col" class="text-left">User</th>-->
+					<!--&lt;!&ndash; <th scope="col" class="text-left">Car</th> &ndash;&gt;-->
+					<!--<th scope="col" class="text-left">Time</th>-->
+					<!--<th scope="col" class="text-left">Status</th>-->
+					<!--<th scope="col" class="text-left">stamp</th>-->
+				<!--</tr>-->
+			<!--</thead>-->
+
+			<!--<tbody id="record-{id}">-->
+            <!--{lwservice}-->
+				<!--<tr>-->
+					<!--<td scope="col" class="small">{no}.</td>-->
+					<!--<td><a href="{edit_href}">{user}</a></td>-->
+					<!--&lt;!&ndash; <td>{car} asdasdadas</td> &ndash;&gt;-->
+					<!--<td>{time}</td>-->
+					<!--<td>{status}</td>-->
+					<!--<td>{stamp}</td>-->
+				<!--</tr>-->
+            <!--{/lwservice}-->
+			<!--</tbody>-->
+		<!--</table>-->
+	<!--</div>-->
+<!--</div>-->
+
+<!--<div class="twelve columns ">-->
+	<!--<div class="six columns {tcomp}">-->
+		<!--<table cellspacing="0" cellpadding="0">-->
+			<!--<thead>-->
+				<!--<tr>-->
+					<!--<th colspan="7" scope="col" class="text-center" style="background-color:gray;"> Technical Complain </th>-->
+				<!--</tr>-->
+			<!--</thead>-->
+			<!--<thead>-->
+				<!--<tr>-->
+					<!--<th scope="col" class="small">No.</th>-->
+					<!--<th scope="col" class="text-left">Maker</th>-->
+					<!--&lt;!&ndash; <th scope="col" class="text-left">Car</th> &ndash;&gt;-->
+					<!--<th scope="col" class="text-left">Thread</th>-->
+					<!--<th scope="col" class="text-left">Message</th>-->
+					<!--<th scope="col" class="text-left">Last sender</th>-->
+					<!--<th scope="col" class="text-left">Status</th>-->
+					<!--<th scope="col" class="text-left">Workshop</th>-->
+				<!--</tr>-->
+			<!--</thead>-->
+
+			<!--<tbody id="record-{id}">-->
+            <!--{ltcomplain}-->
+				<!--<tr>-->
+					<!--<td scope="col" class="small">{no}.</td>-->
+					<!--<td><a href="{edit_href}">{maker}</a></td>-->
+					<!--&lt;!&ndash; <td>{car} asdasdadas</td> &ndash;&gt;-->
+					<!--<td>{title}</td>-->
+					<!--<td>{text}</td>-->
+					<!--<td>{from}</td>-->
+					<!--<td>{stat}</td>-->
+					<!--<td>{location}</td>-->
+				<!--</tr>-->
+            <!--{/ltcomplain}-->
+			<!--</tbody>-->
+		<!--</table>-->
+   <!--</div>-->
+   <!---->
+   <!--<div class="six columns {tcons}">-->
+		<!--<table cellspacing="0" cellpadding="0">-->
+			<!--<thead>-->
+				<!--<tr>-->
+					<!--<th colspan="7" scope="col" class="text-center" style="background-color:gray;"> Technical Consult </th>-->
+				<!--</tr>-->
+			<!--</thead>-->
+			<!--<thead>-->
+				<!--<tr>-->
+					<!--<th scope="col" class="small">No.</th>-->
+					<!--<th scope="col" class="text-left">Maker</th>-->
+					<!--&lt;!&ndash; <th scope="col" class="text-left">Car</th> &ndash;&gt;-->
+					<!--<th scope="col" class="text-left">Thread</th>-->
+					<!--<th scope="col" class="text-left">Message</th>-->
+					<!--<th scope="col" class="text-left">Last sender</th>-->
+					<!--<th scope="col" class="text-left">Status</th>-->
+					<!--<th scope="col" class="text-left">Workshop</th>-->
+				<!--</tr>-->
+			<!--</thead>-->
+
+			<!--<tbody id="record-{id}">-->
+            <!--{ltconsult}-->
+				<!--<tr>-->
+					<!--<td scope="col" class="small">{no}.</td>-->
+					<!--<td><a href="{edit_href}">{maker}</a></td>-->
+					<!--&lt;!&ndash; <td>{car} asdasdadas</td> &ndash;&gt;-->
+					<!--<td>{title}</td>-->
+					<!--<td>{text}</td>-->
+					<!--<td>{from}</td>-->
+					<!--<td>{stat}</td>-->
+					<!--<td>{location}</td>-->
+				<!--</tr>-->
+            <!--{/ltconsult}-->
+			<!--</tbody>-->
+		<!--</table>-->
+   <!--</div> -->
+<!--</div>&lt;!&ndash;content&ndash;&gt;-->

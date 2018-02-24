@@ -1,0 +1,1 @@
+Mozilla/5.0 (Windows NT 6.2; WOW64; rv:26.0) Gecko/20100101 Firefox/26.0Dalvik/1.6.0 (Linux; U; Android 4.3; GT-I9500 Build/JSS15J)Ford/1.0 CFNetwork/672.0.8 Darwin/14.0.0

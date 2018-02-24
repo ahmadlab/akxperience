@@ -1,0 +1,71 @@
+
+<!--CONTENT-->
+<div class="content nine columns" id="content">
+    <!--breadcrumbs-->
+    <ul class="breadcrumbs">
+        {breadcrumbs}
+            <li {class}><a href="{href}">{text}</a></li>
+        {/breadcrumbs}
+    </ul><!--breadcrumbs-->
+
+    <div class="panel">
+        <div class="row">
+            <div class="twelve columns">
+                <h5>Edit {menu_title}</h5>
+
+                {error_msg}
+                    {userpass}
+                    {name}
+                    {email}
+                    {phone}
+                {/error_msg}
+                {success_msg}
+                <form id="form-{file_app}" name="form-{file_app}" action="{action}" method="post" class="nice custom">
+                    {post}
+                    <div class="row" style="margin-bottom:20px;">
+                        <div class="five columns">
+                            <label for="username">Username : </label>
+                            <input type="text" class="expand input-text" maxlength="250" size="50" value="{username}" name="username" id="username" disabled="disabled"/>
+                            
+                            <label for="userpass">Password : </label>
+                            <input type="password" maxlength="250" size="50" value="" name="userpass" id="userpass" class="{err_c} {required}"/>{pass_msg}
+                            
+                            <label for="confpass">Confirm Password : </label>
+                            <input type="password" maxlength="250" size="50" value="" name="confpass" id="confpass" class="{required}"/>
+                            
+                            <label for="name">Name : </label>
+                            <input type="text" class="expand input-text required" maxlength="250" size="50" value="{name}" name="name" id="name"/>
+                            
+                            <label for="email">Email : </label>
+                            <input type="email" class="expand input-text required email" maxlength="250" size="50" value="{email}" name="email" id="email"/>
+                            
+                            <label for="phone">Phone : </label>
+                            <input type="text" class="expand input-text" maxlength="250" size="50" value="{phone}" name="phone" id="phone"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="five columns text-right">
+                            <input type="submit" id="{file_app}-submit" title="Submit" value="Submit" class="medium radius success button"/>
+                            <a onClick="javascript:window.location='{cancel_btn}';" class="medium radius alert button">Cancel</a>
+                        </div>
+                    </div>
+                    {/post}
+                </form>
+            </div>
+        </div>
+    </div>
+</div><!--CONTENT-->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#form-{file_app}").validate({
+            rules: {
+                confpass: {
+                    equalTo: "#userpass"
+                }
+            }
+        });
+    });
+</script>
+

@@ -1,0 +1,178 @@
+ <style>
+ form.custom div.custom.dropdown {
+	margin-top:-20px;margin-left:10px;
+	displayblock;
+    height28px;
+    margin-bottom9px;
+    positionrelative;
+    widthauto !important;
+ }
+ </style>
+<!--CONTENT-->
+<div class="content twelve columns" id="content">
+    <!--breadcrumbs-->
+    <ul class="breadcrumbs">
+        {breadcrumbs}
+        <li {class}><a href="{href}">{text}</a></li>
+        {/breadcrumbs}
+    </ul>
+    <!--breadcrumbs-->
+
+    <div class="panel" >
+        <div class="row">
+            <div class="twelve columns">
+                <h5>Detail {menu_title}</h5>
+
+                {error_msg}
+                {warning}
+                <!-- {car_types} -->
+                {/error_msg}
+
+                <form id="form-{file_app}" name="form-{file_app}" action="{action}" method="post" class="custom" enctype="multipart/form-data">
+                    {post}
+					<table class="twelve">
+						<tr>
+							<td style="width:572px;">
+								<table class="twelve" cellspacing="0" cellpadding="0">
+									<thead>
+										<tr><th colspan="2"><br>Customer Info</th></tr>
+										<tr><th colspan="2"></th></tr>
+									</thead>
+									{info}
+									<tr>
+										<td>Name</td> 
+										<td>{uiname}</td>
+									</tr>
+									<tr>
+										<td>Email</td> 
+										<td>{uimail} </td>
+									</tr>
+									<tr>
+										<td>Phone Number</td> 
+										<td>{client_phone_number} </td>
+									</tr>
+                                    <tr>
+                                        <td>User Notes</td>
+                                        <td>{notes} </td>
+                                    </tr>
+                                    <tr>
+                                        <td>User Comments</td>
+                                        <td>{comments} </td>
+                                    </tr>
+									<!-- <tr>
+										<td>User Type</td> 
+										<td>{user_type}</td>
+									</tr> -->
+									<thead>
+										<tr><th colspan="2"><br>Booking Info</th></tr>
+										<tr><th colspan="2"></th></tr>
+									</thead>
+									<tr>
+										<td>Date Time Booking :</td> 
+										<!-- <td>2013 12 30, at 08:00</td> -->
+										<td>{datetime_book}</td>
+									</tr>
+									<!-- <tr>
+										<td style="vertical-alignmiddle;">Thumb Drive Car</td> 
+										<td><img src="{base_url}uploads/cars/{car_thumb}" /> </td>
+									</tr> -->
+									<tr>
+										<td>Car</td> 
+										<td>{car}</td>
+									</tr>
+									
+									<tr>
+										<td>Workshop Location</td> 
+										<td>{location}</td>
+									</tr>
+									
+									<tr>
+										<td>Status Booking</td> 
+										
+										<td><select name="status_book" id="status_book" class="required" data-customforms="disabled" style="width:90%;" >
+											{l_status}
+											</select>
+										</td>
+									</tr>
+							
+								</table>
+							</td>
+							<td>
+								<table class="twelve {sales}" cellspacing="0" cellpadding="0" >
+									<thead>
+										<tr><th colspan="2"><br>&nbsp;Sales Info</th></tr>
+										<tr><th colspan="2"></th></tr>
+									</thead>
+									<tr>
+										<td>Name</td> 
+										<td>{username}</td>
+									</tr>
+									<tr>
+										<td>Email</td> 
+										<td>{ref_user_mail} </td>
+									</tr>
+									<tr>
+										<td>Phone Number</td> 
+										<td>{ref_phone_number}</td>
+									</tr>
+									<tr>
+										<td>User Type</td> 
+										<td>{user_type}</td>
+									</tr>
+									<!-- <thead>
+										<tr><th colspan="2"><br>Booking Info</th></tr>
+										<tr><th colspan="2"></th></tr>
+									</thead> -->
+									{/info}
+								</table>
+							</td>
+						</tr>
+					</table>
+					
+					
+						
+                    <div class="row">
+                        <div class="five columns text-right">
+                            <input type="submit" id="{file_app}-submit" title="Submit" value="Submit" class="medium radius success button"/>
+                            <a onClick="javascript:window.location='{cancel_btn}';" class="medium radius alert button">Cancel</a>
+                        </div>
+                    </div>
+                    {/post}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#form-{file_app}").validate({
+            rules{
+                confpass{
+                    equalTo"#userpass"
+                }
+            }
+        });
+		$("a#delete-pic-thumbnail").click(function(){
+			var answer = confirm("Are you sure to delete this file ??"), id = $(this).attr('ida');
+			
+			if(answer) {
+				$.ajax({
+					type'POST',
+					data'id='+id,
+					successfunction(data){
+						$("#print-picture-thumbnail").fadeOut('slow');
+						$("#print-picture-thumbnail").fadeIn('slow');
+						$("#print-picture-thumbnail").html(data);
+						$("#print-picture-thumbnail").fadeOut('slow');
+					},
+					url'{path_app}/delete_gallery',
+					cache:false
+				},
+				$("#print-picture-thumbnail").fadeOut('slow')
+				);
+			}
+		});
+    });
+</script>
+<!--CONTENT-->

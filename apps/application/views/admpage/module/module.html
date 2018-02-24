@@ -1,0 +1,118 @@
+<script type="text/javascript">
+    function set_action_module(id,url) {        
+        var answer = confirm("Are You sure to install/uninstall this module ?? You can't undo this action");
+        if(answer)
+        {
+            $.ajax({
+                type: 'POST',
+                data: 'id='+id,
+                success: function(data){
+                    $("#module-action"+id).fadeOut('slow');
+                    $("#module-action"+id).fadeIn('slow');
+                    $("#module-action"+id).html(data);
+                },
+                url: '{path_app}/set_action',
+                cache:false
+            },
+            $("#module-action"+id).fadeOut('slow')
+            );
+            //setTimeout("window.location=' "+ url +"'",3000);
+        }
+    }
+</script>
+
+<!--CONTENT-->
+<div class="content nine columns" id="content">
+    <!--breadcrumbs-->
+    <ul class="breadcrumbs">
+        {breadcrumbs}
+        <li {class}><a href="{href}">{text}</a></li>
+        {/breadcrumbs}
+    </ul>
+    <!--breadcrumbs-->    
+
+    <div class="panel">
+        <div class="panel-box">
+            <div class="row panel-title">
+                <div class="eleven columns text-left">
+                    <strong>Search {menu_title} </strong>
+                </div>
+                <div class="one columns text-right">
+                    <img src="{base_url}assets/images/admin/plus.png" alt="plus" class="plus-panel"/>
+                    <img src="{base_url}assets/images/admin/minus.png" alt="minus" class="min-panel"/>
+                </div>
+            </div>
+            <div class="row panel-form" id="panel-form">
+                <div class="twelve columns">
+                    <form id="search-{file_app}" name="search-{file_app}" action="{path_app}/search" method="post" class="custom">
+                        <div class="row">
+                            <div class="four columns">
+                                <label for="s_title">Title : </label>
+                                <input type="text" value="{s_title}" name="s_title" id="s_title"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns text-right">
+                                <input type="submit" value="Search" class="medium radius secondary button" title="Search" name="search"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {error_msg}
+    {success_msg}
+    {info_msg}
+
+    <div class="panel">
+        <div class="row">
+            <div class="twelve columns">
+                <h5><strong>List of {menu_title}</strong></h5>
+                <form id="form-{file_app}" name="form-{file_app}" action="#" method="post" class="">
+                    <table class="twelve" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="small">No.</th>
+                                <th scope="col" class="small"><input type="checkbox" onclick="javascript:checkedAll('form-{file_app}', true)" id="primary_check"/></th>
+                                <th scope="col" class="text-left">Module Name</th>
+                                <th scope="col" class="text-left">Module</th>
+                                <th scope="col" class="text-left">Module Link</th>
+                                <th scope="col" class="text-left">Action</th>
+                            </tr>
+                        </thead>
+
+                        {list_module}
+                        <tbody  id="record-{id_module}">
+                            <tr>
+                                <td scope="col" class="small">{no}.</td>
+                                <td scope="col" class="small">
+                                    <input type="checkbox" name="CheckBox_Delete_{id_module}" value="{id_module}" id="del{id_module}" class="delete" onclick="javascript:select_record('{id_module}');">
+                                </td>
+                                <td><a href="{edit_href}">{module_title}</a>&nbsp;</td> 
+                                <td>{module}</td> 
+                                <td>{module_link}</td> 
+                                <td><a id="module-action{id_module}" onclick="javascript:set_action_module('{id_module}','{current_url}')" style="cursor:pointer;">{status}</a></td>
+                            </tr>
+                        </tbody>
+                        {/list_module}
+                        <input type="hidden" id="temp_id" value=""/>
+                    </table>
+                    <div class="row">
+                        <div class="eight columns pagination">
+                            <span>Page : </span><br><br>
+                            {pagination}
+                        </div>
+                        <div class="four columns action-button text-right">
+                            <input type="button" id="{file_app}-add" title="Add" alt="Add" value="Add" onClick="javascript:window.location='{add_btn}';" class="medium radius success button"/>
+                            <input type="button" id="{file_app}-delete" title="Delete" alt="Delete" value="Delete"  onclick="javascript:delete_records('{path_app}','{current_url}')" class="medium radius alert button delete_button"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--CONTENT-->
+</article>

@@ -1,0 +1,31 @@
+<div class="six columns">
+	<div id="errormsg" style="display:none;color:red;"></div><br/><br/>
+	
+		<label for="car">Car :</label>
+        <input type="text" maxlength="250" size="50" value="{car-name}" id="car-acomplete" key="" />
+        <input type="hidden" id="car" name="car" value="{id_car}"/>
+        <label for="car_color">Car Color :</label>
+		<select name="car_color" id="car_color" data-customforms="disabled">{colorlst}</select>
+		<label for="police_number">Police Number :</label>
+		<input type="text" name="police_number" id="police number" value="{police_number}" />
+		<label for="vin_number">Vin Number :</label>
+		<input type="text" name="vin_number" id="vin number" value="{vin_number}" />
+		<label for="stnk_date">STNK Date :</label>
+		<input type="text" name="stnk_date" id="stnkdate" class="datepicker_now" value="{stnk_date}" />
+		<label for="insurance_date">Insurance Date :</label>
+		<input type="text" name="insurance_date" id="insurancedate" class="datepicker_now" value="{insurance_date}" />
+		<label for="last_mileage">Last Mileage :</label>
+		<input type="text" name="last_mileage" id="last mileage" value="{last_mileage}" />
+		<input type="hidden" name="id" id="idsc" value="{id}" />
+		<div id="bf" style="display:none;">
+			<label for="buy_from">Buy From :</label>
+			<input type="checkbox" id="buy_from" value="1" data-customforms="disabled" /><br/><br/>
+		</div>
+		<div class="row">
+			<div class="six columns text-left" style="float:left;">
+				<input type="button" id="addnew" title="Submit" value="Insert Car" class="medium radius success button"/><br/><br/>
+				<!-- <a onClick="javascript:window.location='{cancel_btn}';" class="medium radius alert button">Cancel</a><br/><br/> -->
+			</div>
+		</div>
+	
+</div>

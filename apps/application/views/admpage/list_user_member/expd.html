@@ -1,0 +1,51 @@
+<table style="width:100%;" cellspacing="0" cellpadding="0" border='1'>
+    <tr>
+        <th scope="col" class="small">No.</th>
+        <th scope="col" class="text-left">Card Id</th>
+        <th scope="col" class="text-left">Full Name</th>
+        <th scope="col" class="text-left">Email</th>
+        <th scope="col" class="text-left">User Type</th>
+        <th scope="col" class="text-left">Car Owned</th>
+        <th scope="col" class="text-left">Police Registration</th>
+        <th scope="col" class="text-left">Last Entry</th>
+        <th scope="col" class="text-left">Workshop</th>
+        <th scope="col" class="text-left">VIP Joined</th>
+        <th scope="col" class="text-left">Point Reward</th>
+        <th scope="col" class="text-left">Transaction</th>
+        <th scope="col" class="text-left">Expire</th>
+        <th scope="col" class="text-left">Status</th>
+        <th scope="col" class="text-left">Birthday</th>
+        <th scope="col" class="text-left">Religion</th>
+        <th scope="col" class="text-left">Gender</th>
+        <th scope="col" class="text-left">Phone 1</th>
+        <th scope="col" class="text-left">Phone 2</th>
+        <th scope="col" class="text-left">Address</th>
+    </tr>
+    {list_user_member}
+    {carsl}
+
+    <tr>
+        <td>{num}.</td>
+        <td>{card_id}</td>
+        <td>{username}</td>
+        <td>{email}</td>
+        <td>{vip}</td>
+        <td>{brands} {types}, {series} {model} {transmisi} {cc} cc {engine}</td>
+        <td>{pn}</td>
+        <td>{last_entry}</td>
+        <td>{workshop}</td>
+        <td>{dvip}</td>
+        <td>{points}</td>
+        <td>{total_transacion}</td>
+        <td>{expire}</td>
+        <td>{status}</td>
+        <td>{birthday}</td>
+        <td>{religion}</td>
+        <td>{sex}</td>
+        <td>{phone}</td>
+        <td>{hp}</td>
+        <td>{addr}</td>
+    </tr>
+    {/carsl}
+    {/list_user_member}
+</table>

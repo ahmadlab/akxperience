@@ -1,0 +1,294 @@
+@font-face {
+    font-family: 'Open-Bold';
+    src: url('../../fonts/admin/opensans-bold-webfont.eot');
+    src: url('../../fonts/admin/opensans-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/admin/opensans-bold-webfont.woff') format('woff'),
+         url('../../fonts/admin/opensans-bold-webfont.ttf') format('truetype'),
+         url('../../fonts/admin/opensans-bold-webfont.svg#Open-Bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open-BoldIta';
+    src: url('../../fonts/admin/opensans-bolditalic-webfont.eot');
+    src: url('../../fonts/admin/opensans-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/admin/opensans-bolditalic-webfont.woff') format('woff'),
+         url('../../fonts/admin/opensans-bolditalic-webfont.ttf') format('truetype'),
+         url('../../fonts/admin/opensans-bolditalic-webfont.svg#Open-BoldIta') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open-Ita';
+    src: url('../../fonts/admin/opensans-italic-webfont.eot');
+    src: url('../../fonts/admin/opensans-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/admin/opensans-italic-webfont.woff') format('woff'),
+         url('../../fonts/admin/opensans-italic-webfont.ttf') format('truetype'),
+         url('../../fonts/admin/opensans-italic-webfont.svg#Open-Ita') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open-Lite';
+    src: url('../../fonts/admin/opensans-light-webfont.eot');
+    src: url('../../fonts/admin/opensans-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/admin/opensans-light-webfont.woff') format('woff'),
+         url('../../fonts/admin/opensans-light-webfont.ttf') format('truetype'),
+         url('../../fonts/admin/opensans-light-webfont.svg#Open-Lite') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open-Reg';
+    src: url('../../fonts/admin/opensans-regular-webfont.eot');
+    src: url('../../fonts/admin/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/admin/opensans-regular-webfont.woff') format('woff'),
+         url('../../fonts/admin/opensans-regular-webfont.ttf') format('truetype'),
+         url('../../fonts/admin/opensans-regular-webfont.svg#Open-Reg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open-Semi';
+    src: url('../../fonts/admin/opensans-semibold-webfont.eot');
+    src: url('../../fonts/admin/opensans-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/admin/opensans-semibold-webfont.woff') format('woff'),
+         url('../../fonts/admin/opensans-semibold-webfont.ttf') format('truetype'),
+         url('../../fonts/admin/opensans-semibold-webfont.svg#Open-Semi') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	background: url(../../images/admin/bg.jpg);
+	font-family: 'Open-Reg';
+	font-size: 1.1em !important;
+}
+.row {
+	width: 100%;
+}
+
+header {
+	padding: 20px 0;
+}
+header .logo {
+	max-height: 56px;
+	padding-right: 20px;
+	display: inline-block;
+	vertical-align: middle;
+}
+header h1.cms {
+	font-size: 2em;
+	text-transform: uppercase;
+	padding: 0;
+	margin: 0;
+	line-height: inherit;
+	display: inline-block;
+}
+header.landing {
+	padding: 160px 0 0 0;
+}
+
+.login {
+	padding: 20px 0 160px;
+}
+.login span.prefix {
+	background-color: #33b5e5;
+	color: #fff;
+	font-family: 'Open-Semi';
+	font-size: 1.8em;
+	-moz-border-radius: 5px 0 0 5px;
+	-ms-border-radius: 5px 0 0 5px;
+	-o-border-radius: 5px 0 0 5px;
+	-webkit-border-radius: 5px 0 0 5px;
+	border-radius: 5px 0 0 5px; 
+	height: 40px;
+	line-height: 40px;
+}
+.login input[type=text], .login input[type=password] {
+	-moz-border-radius: 0 5px 5px 0; 
+	-ms-border-radius: 0 5px 5px 0; 
+	-o-border-radius: 0 5px 5px 0; 
+	-webkit-border-radius: 0 5px 5px 0; 
+	border-radius: 0 5px 5px 0; 
+	height: 40px;
+}
+.login input[type=submit] {
+	font-family: 'Open-Semi';
+}
+ul.breadcrumbs { 
+	display: block; 
+	background: #f2f2f2; 
+	padding: 6px 10px 7px; 
+	border: 1px solid #ccc; 
+	-webkit-border-radius: 2px; 
+	-moz-border-radius: 2px; 
+	-ms-border-radius: 2px; 
+	-o-border-radius: 2px; 
+	border-radius: 2px; 
+	overflow: hidden; 
+	margin-left: 0; 
+}
+
+.panel .plus-panel, .panel .min-panel {
+    cursor: pointer;
+}
+.panel .panel-form {
+    display: none;
+    padding-top: 20px;
+}
+.panel .min-panel {
+    display: none;
+}
+
+.tabs.vertical { 
+	height: auto; 
+	border-bottom: 1px solid #e6e6e6; 
+}
+.tabs.vertical dt, .tabs.vertical dd, .tabs.vertical li { 
+	float: none; 
+	height: auto; 
+}
+.tabs.vertical dd, .tabs.vertical li { 
+	border-left: 3px solid #cccccc; 
+}
+.tabs.vertical dd a, .tabs.vertical li a { 
+	background: #f2f2f2; 
+	border: none; 
+	border: 1px solid #e6e6e6; 
+	border-width: 1px 1px 0 0; 
+	color: #555; 
+	display: block; 
+	font-size: 14px; 
+	height: auto; 
+	line-height: 1; 
+	padding: 16px 24px; 
+	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset; 
+	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset; 
+	-ms-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset; 
+	-o-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset; 
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset; 
+}
+.tabs.vertical dd a:hover, .tabs.vertical li a:hover { 
+	background: #33b5e5; 
+	color: #fff;
+}
+.tabs.vertical dd a:focus, .tabs.vertical li a:focus {
+	color: #fff;
+	font-weight: normal;
+}
+.tabs.vertical dd.active, .tabs.vertical li.active { 
+	margin-top: 0; 
+	border-top: 1px solid #4d4d4d; 
+	border-left: 4px solid #1a1a1a; 
+}
+.tabs.vertical dd.active a, .tabs.vertical li.active a { 
+	background: #4d4d4d; 
+	border: none; 
+	color: #fff; 
+	height: auto; 
+	margin: 0; 
+	position: static; 
+	top: 0; 
+	-webkit-box-shadow: 0 0 0; 
+	-moz-box-shadow: 0 0 0; 
+	-ms-box-shadow: 0 0 0; 
+	-o-box-shadow: 0 0 0; 
+	box-shadow: 0 0 0; 
+	font-weight: normal;
+}
+.tabs.vertical dd:first-child a.active, .tabs.vertical li:first-child a.active { 
+	margin: 0; 
+}
+
+.tabs.vertical li ul {
+	margin-left: 0; 
+	padding-top: 0; 
+	padding-bottom: 0; 
+	border-left: solid 3px #ddd;
+	border-right: solid 1px #ddd; 
+	margin-left: -4px; 
+	-webkit-box-shadow: 1px 0 0 white inset; 
+	-moz-box-shadow: 1px 0 0 white inset; 
+	-ms-box-shadow: 1px 0 0 white inset; 
+	-o-box-shadow: 1px 0 0 white inset; 
+	box-shadow: 1px 0 0 white inset; 
+}
+.tabs.vertical li ul li { 
+	border: none; 
+}
+.tabs.vertical li ul li a { 
+	cursor: pointer !important; 
+	font-weight: normal; 
+	color: #666 !important; 
+	padding: 8px 0 8px 32px; 
+	background: #fff !important; 
+	font-size: 12px;
+}
+.tabs.vertical li ul li a:hover { 
+	color: #fff !important; 
+	background: #33b5e5 !important; 
+}
+.tabs.vertical li ul li.active { 
+	border: none; 
+}
+.tabs.vertical li ul li.active a { 
+	color: #09c !important; 
+	background: #f7f7f7 !important;
+	cursor: default !important;
+	font-weight: normal;
+}
+
+.tabs.vertical dd.title, .tabs.vertical li.title { 
+	margin-top: 0; 
+	border-top: 1px solid #09c; 
+	border-left: 4px solid #09c; 
+	cursor: default;
+	font-family: 'Open-Semi';
+}
+.tabs.vertical dd.title a, .tabs.vertical li.title a { 
+	background: #33b5e5; 
+	border: none; 
+	color: #fff; 
+	height: auto; 
+	margin: 0; 
+	position: static; 
+	top: 0; 
+	-webkit-box-shadow: 0 0 0; 
+	-moz-box-shadow: 0 0 0; 
+	-ms-box-shadow: 0 0 0; 
+	-o-box-shadow: 0 0 0; 
+	box-shadow: 0 0 0; 
+	cursor: default;
+}
+.tabs.vertical dd:first-child a.title, .tabs.vertical li:first-child a.title { 
+	margin: 0; 
+	cursor: default;
+}
+
+.tabs.vertical>dd>ul, .tabs.vertical>li>ul {
+	display: none;
+}
+.tabs.vertical>dd.active>ul, .tabs.vertical>li.active>ul {
+	display: block;
+}
+
+.sort_arrow {
+    cursor: pointer;
+}
+a.cke_button {
+    height: 23px !important;
+}
+
+footer {
+	padding: 20px 0;
+}
+.footer {
+	position: fixed;
+	bottom: 20px;
+}

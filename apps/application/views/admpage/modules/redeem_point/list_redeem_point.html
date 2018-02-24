@@ -1,0 +1,119 @@
+      
+<!--CONTENT-->
+<div class="content twelve columns" id="content">
+    <!--breadcrumbs-->
+    <ul class="breadcrumbs">
+        {breadcrumbs}
+        <li {class}><a href="{href}">{text}</a></li>
+        {/breadcrumbs}
+    </ul>
+    <!--breadcrumbs-->
+	
+    {error_msg}
+    {success_msg}
+    {info_msg}
+    <div class="panel">
+        <div class="panel-box">
+            <div class="row panel-title">
+                <div class="eleven columns text-left">
+                    <h5>Search {menu_title} </h5>
+                </div>
+                <div class="one columns text-right">
+                    <img src="{base_url}assets/images/admin/plus.png" alt="plus" class="plus-panel"/>
+                    <img src="{base_url}assets/images/admin/minus.png" alt="minus" class="min-panel"/>
+                </div>
+            </div>
+
+            <div class="row panel-form" id="panel-form" >
+                <div class="twelve columns">
+                    <form id="search-{file_app}" name="search-{file_app}" action="{path_app}/search" method="post" class="custom" onSubmit="return false;">
+                        <div class="row">
+                            <div class="four columns">
+                                <label for="card_id">Card Id : </label>
+                                <input type="text" value="{card_id}" name="card_id" id="card_id"/>
+								<label for="username">Username : </label>
+                                <input type="text" value="{username}" name="username" id="username"/>
+								<label for="police_number">Police Number : </label>
+                                <input type="text" value="{police_number}" name="police_number" id="police_number"/>
+								<label for="vin_number">Vin Number : </label>
+                                <input type="text" value="{vin_number}" name="vin_number" id="vin_number"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns text-right">
+                                <input type="submit" value="Search" class="medium radius secondary button" title="Search" name="search" id="srch" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="row">
+            <div class="twelve columns" id="dholer">
+                {data}
+            </div>
+        </div>
+    </div>
+</div>
+<div id="hist" class="reveal-modal xlarge">
+<h5>List of History Point</h5><hr>
+<div id="c" style="overflow-y:auto;height:350px;display:block;">Loading. . .</div>
+<a class="close-reveal-modal">&#215;</a>
+</div>
+
+<!--CONTENT-->
+
+<script>
+$('document').ready(function(){
+    $(".btnPrint").printPage();
+	$("#srch").on('click',function(){
+		var dfault = $('#srch').val();
+		if(dfault != 'Loading. . .') {
+			$.ajax({
+				type: 'POST',
+				data: $('#search-{file_app}').serialize(),
+				beforeSend : function(){ $('#srch').val('Loading. . .') },
+				success: function(res){
+					var bf = 'Not Found';
+					if(res != '0') {
+						bf = res;
+					}
+					$("#dholer").fadeOut(function() {
+						$(this).html(bf).fadeIn();
+					});
+					$('#srch').val(dfault);
+				},
+				url: '{path_app}/search'
+			});
+			
+		}else {
+			alert('Please wait till the process complete..');
+		}
+		
+	});	
+	
+});
+function show(id){
+    $("#hist").reveal({ "closed": function () { $('#c').html('') } });
+	$.ajax({
+		type: 'POST',
+		data: 'id='+id,
+		success: function(res){
+			var bf = 'Have no history';
+			if(res != '0') {
+				bf = res;
+			}
+			$("#c").fadeOut(function() {
+				$(this).html(bf).fadeIn();
+			});
+		},
+		url: '{path_app}/history'
+	});		
+		
+}
+
+
+
+</script>

@@ -1,0 +1,113 @@
+      
+<!--CONTENT-->
+<div class="content twelve columns" id="content">
+    <!--breadcrumbs-->
+    <ul class="breadcrumbs">
+        {breadcrumbs}
+        <li {class}><a href="{href}">{text}</a></li>
+        {/breadcrumbs}
+    </ul>
+    <!--breadcrumbs-->
+
+    <div class="panel">
+        <div class="row">
+            <div class="twelve columns">
+                <h5>{label} {menu_title}</h5>
+			   {error_msg}
+                {warning}
+                {title}
+                {content}
+                {img}
+                {file}
+                {/error_msg}
+
+				<div class="row">
+					<div class="twelve columns">
+						<div class="row">
+							<div class="twelve columns">
+								<div class="seven columns">
+									<!-- <div id="switcher">
+										<label for="type"> Input Method : </label><br>
+										<input type="radio" name="method" data-customforms="disabled" id="m" />&nbsp; Manual &nbsp;&nbsp;&nbsp;
+										<input type="radio" name="method" data-customforms="disabled" id="x" />&nbsp; From External Site
+									</div>
+									<br/><br/><br/><br/> -->
+									<div id="holderm" >
+										{post}
+										<form id="form-{file_app}" name="form-{file_app}" action="{action}" method="post" class="custom" enctype="multipart/form-data">
+											<label for="title"> Title : </label>
+											<input type="text" name="title" id="title" value="{title}" />
+											<!-- <label for="title"> Type : </label>
+											<select name="type" data-transform="disbaled">{type}</select> -->
+											<label for="title"> Content : </label>
+											<textarea name="content" id="txt">{content}</textarea><br/>
+											<br/><br/>
+											<label for="title"> Thumb : </label>
+											
+											<input type="file" name="thumb" id="ico" />
+											{pic_thumbnail}
+											
+											<br/><br/><br/><br/>
+											
+											<label for="file"> File : </label>
+											<input type="file" name="pdf" id="file" />
+											
+											
+											<br/><br/><br/><br/><br/><br/>
+											<div class="row">
+												<div class="five columns text-left">
+													<input type="submit" id="{file_app}-submit" title="Submit" value="Submit" class="medium radius success button"/>
+													<a onClick="javascript:window.location='{cancel_btn}';" class="medium radius alert button" style="padding: 9px 20px 13px;">Cancel</a>
+												</div>
+											</div>
+										</form>
+										{/post}
+									</div>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+		var iface = '{iface}';
+        $("#form-{file_app}").validate({
+            rules: {
+                confpass: {
+                    equalTo: "#userpass"
+                }
+            }
+        });
+		print_ckeditor('txt');
+		$("a#delete-pic-thumbnail,a#delete-file-thumbnail").click(function(){
+			
+			var answer = confirm("Are you sure to delete this file ??"), id = $(this).attr('ida');
+			var label  = $(this).attr('types');
+			var act    = label == 'file' ? 'delete_file' : 'delete_gallery';
+			if(answer) {
+				$.ajax({
+					type: 'POST',
+					data: 'id='+id,
+					success: function(data){
+						$("#print-"+label+"-thumbnail").fadeOut('slow');
+						$("#print-"+label+"-thumbnail").fadeIn('slow');
+						$("#print-"+label+"-thumbnail").html(data);
+						$("#print-"+label+"-thumbnail").fadeOut('slow');
+					},
+					url: '{path_app}/'+act,
+					cache:false
+				},
+				$("#print-"+label+"-thumbnail").fadeOut('slow')
+				);
+			}
+		});
+		
+    });
+</script>
+<!--CONTENT-->

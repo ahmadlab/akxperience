@@ -1,0 +1,355 @@
+      
+<!--CONTENT-->
+<div class="content twelve columns" id="content">
+    <!--breadcrumbs-->
+    <ul class="breadcrumbs">
+        {breadcrumbs}
+        <li {class}><a href="{href}">{text}</a></li>
+        {/breadcrumbs}
+    </ul>
+    <!--breadcrumbs-->
+
+    <div class="panel">
+        <div class="row">
+            <div class="twelve columns">
+                <h5>Add/Edit {menu_title}</h5>
+                {error_msg}
+                {warning}
+                {msc_code}
+                {car_brand}
+                {car_type}
+                {car_series}
+                {car_model}
+                {transmisi}
+                {car_cc}
+                {car_engine}
+                {stock}
+                {/error_msg}
+
+                <form id="form-{file_app}" name="form-{file_app}" action="{action}" method="post" class="custom" enctype="multipart/form-data">
+                    {post}
+                    <div class="row">
+						<div class="twelve columns">
+							<dl class="tabs data-tab contained">
+								<dd class="active"><a href="#detail">Car Detail</a></dd>
+                                <dd><a href="#color">Car Color</a></dd>
+                                <dd><a href="#price">Car Price</a></dd>
+							</dl>
+							<ul class="tabs-content contained">
+								<li class="active" id="detailTab">
+									<div class="row">
+										<div class="six columns">
+											<label for="msc_code">Msc Code : </label>
+											<input type="text" maxlength="250" size="50" value="{msc_code}" name="msc_code" id="msc_code" class="required"/>
+											<label for="car_brand">Brand : </label>
+											<select name="car_brand" id="car_brand" class="required" data-customforms="disabled" onchange="crawl_ref('{path_app}/get_type_car',this.value,'car_types');clear_ref();">
+											{brandlist}
+											</select>
+											<label for="car_types">Product : </label>
+											<select name="car_types" id="car_types" class="required" data-customforms="disabled" onchange="crawl_ref('{path_app}/get_series_car',this.value,'car_series')">
+											{typelist}
+											</select>
+											<label for="car_series">Type : </label>
+											<select name="car_series" id="car_series" class="required" data-customforms="disabled" onchange="crawl_ref('{path_app}/get_model_car',this.value,'car_model')">
+											{serieslist}
+											</select>
+											<label for="car_model">Varian : </label>
+											<select name="car_model" id="car_model" class="required" data-customforms="disabled">
+											{modellist}
+											</select>
+											<label for="transmisi">Transmission : </label>
+											<select name="transmisi" id="transmisi" class="required" data-customforms="disabled">
+											{translist}
+											</select>
+											<label for="car_cc">CC : </label>
+											<select name="car_cc" id="car_cc" class="required" data-customforms="disabled">
+											{cclist}
+											</select>
+											<label for="car_cc">Engine : </label>
+											<select name="car_engine" id="car_engine" class="required" data-customforms="disabled">
+											{enginelist}
+											</select>
+											<!--<label for="car_price">OTR : </label>-->
+											<!--<input type="text" name="car_price" id="car_price" class="required address" value="{car_price}" />-->
+											<!--<label for="stock">Stock : </label>-->
+											<!--<input type="text" maxlength="250" size="50" value="{stock}" name="stock" id="stock" class="required"/>-->
+											<label for="on_sale">On Sale : </label>
+											<select name="on_sale" id="on_sale" class="required" data-customforms="disabled">
+											{on_sale}
+											</select>
+											<label for="notes">Notes : </label>
+											<textarea name="notes" id="notes">{notes}</textarea>
+											<!-- <br/>
+											<label for="thumb">Car Thumb : </label>
+											<input type="file" maxlength="250" size="50" name="thumb" id="thumb"/>
+											{pic_thumbnail} -->
+										</div>
+										<div class="row">
+												<div class="twelve columns text-left"><br/><br/><br/>
+													<input type="submit" id="{file_app}-submit" title="Submit" value="Submit" class="medium radius success button"/>
+													<a onClick="javascript:window.location='{cancel_btn}';" class="medium radius alert button">Cancel</a>
+												</div>
+											</div>
+											{/post}
+										</form>
+									</div>
+								</li>
+								<li id="colorTab">
+									<div class="row">
+										&nbsp;&nbsp;&nbsp;&nbsp;<a onClick="javascript:void(0);" class="medium radius secondary button" id="insertc">Add Color</a><br><br>
+										<form id="colorf" method="post" action="" class="custom"  onSubmit="return false;" enctype="multipart/form-data" target="msgplace">
+										<div id="cform" name="cform" style="display:none;" >
+											<div class="six columns">
+												<div id="errormsg" style="display:none;color:red;"></div><br/><br/>
+												
+													<label for="color">Color :</label>
+													<select name="color" id="Color" >{refcolorlst}</select><br/>
+													<label for="status">Status :</label>
+													<select name="status" id="Status" >{statuslst}</select><br/>
+                                                    <label for="stock">Stock :</label>
+                                                    <input type="text" name="stock" id="stock" value="{stock}"/><br/>
+													<label for="color_thumb">Thumb Color:</label>
+													<input type="hidden" name="id_car" id="idc" value="{ids}" />
+													<input type="hidden" name="id_car_color" id="idcc" value="0" />
+													<input type="file" name="color_thumb" id="Color Thumb" />
+													<iframe id="msgplace" name="msgplace" class="fade" width="90px" height="20px" ></iframe><br/><br/>
+													<div class="row">
+														<div class="six columns text-left" style="float:left;"><br/>
+															<input type="submit" id="addnew" title="Submit" value="Insert Color" class="medium radius success button"/><br/><br/>
+														</div>
+													</div>
+												
+											</div>
+										</div>
+										</form>
+										<div class="twelve columns" id="colorlst">
+											{clist}
+											<div class="four columns" id='wrapper-{id_car_colors}-color' style="float:left;">
+												<div>&nbsp;<img src="{car_color_thumb}" class="img-{id_car_colors}-car" idcc="{id_car_colors}" idc="{id_car}" /></div>
+												<div style="margin-left:0px;">
+													<span style="font-size:8pt;display:inline;">{color}<br>Stock: {stock}<br>{stat}<br>{delete}</span>
+												</div><br>
+											</div>
+											{/clist}
+										</div>
+									</div>
+								</li>
+            <li id="priceTab">
+                <div class="row">
+                    <div class="six columns">
+                        {blist}
+                        <label>{location} : </label>
+                        <input type="text" maxlength="250" size="50" value="{price}" name="branch_{id_ref_location}" />
+                        {/blist}
+                    </div>
+                    <div class="row">
+                        <div class="twelve columns text-left"><br/><br/><br/>
+                            <input type="submit" id="{file_app}-submit" title="Submit" value="Submit" class="medium radius success button"/>
+                            <a onClick="javascript:window.location='{cancel_btn}';" class="medium radius alert button">Cancel</a>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </li>
+
+							</ul>
+                        </div>
+                    </div>
+
+                    
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+	function clearing() {
+		$('#idcc').val('0');
+		$('#imgt').remove();
+		$('#Status').val('0');
+		$('#Color').val('0');
+		$('#addnew').val('Insert Color');
+		
+	}
+	
+    $(document).ready(function() {
+        $("#form-{file_app}").validate({
+            rules: {
+                confpass: {
+                    equalTo: "#userpass"
+                }
+            }
+        });
+		$("a#delete-pic-thumbnail").click(function(){
+			var answer = confirm("Are you sure to delete this file ??"), id = $(this).attr('ida');
+			
+			if(answer) {
+				$.ajax({
+					type: 'POST',
+					data: 'id='+id,
+					success: function(data){
+						$("#print-picture-thumbnail").fadeOut('slow');
+						$("#print-picture-thumbnail").fadeIn('slow');
+						$("#print-picture-thumbnail").html(data);
+						$("#print-picture-thumbnail").fadeOut('slow');
+					},
+					url: '{path_app}/delete_gallery',
+					cache:false
+				},
+				$("#print-picture-thumbnail").fadeOut('slow')
+				);
+			}
+		});
+		$("#colorlst").on('click','a.delete_color',function(){
+				var id = $(this).attr('ida'),answer = confirm("Are you sure to delete this color ??");
+				if(answer) {
+					$(this).closest("#wrapper-"+id+"-color").hide(500);
+					$.ajax({
+						type: 'POST',
+						data: 'id='+id,
+						success: function(res){
+							if(res != '1') {
+								alert('error while deleting color, please try again');
+								$("#wrapper-"+id+"-color").show(500);
+							}else {
+								$("#wrapper-"+id+"-color").remove();
+							}
+						},
+						url: '{path_app}/delete_car_color'
+					});
+				}
+		});
+		$('#insertc').click(function(){
+			toggling_form('cform','insertc','Add Color');
+			clearing();
+			
+		});
+		$('#addnew').click(function(){
+			add_color();
+			return;
+
+			var dfault = $('#addnew').val(), wait = 'Please wait...', msg = '',id = $('#idc').val();
+			if(dfault != wait) {
+				$('#colorf').find(':input').each(function(){
+					var name = $(this).attr('name'),
+					label = $(this).attr('id');
+					if(name != 'Insert Color' && name != 'id_car') {
+						if($(this).val() == '' || $(this).val() == '0') {
+							msg += label + ', ';
+						}
+					}
+				});
+				if(msg != '' ) {
+					$('#errormsg').html(msg.substring(0,msg.length - 2) + ' is required').show().focus();
+				}else {
+					$('#colorf').removeAttr('onsubmit').submit();
+					$("#msgplace").unbind().load(function() {
+						resp = $.parseJSON($(this).contents().text());
+						if(resp.status == '200'){
+							$('#colorlst').append(resp.msg);
+							clear_form_elements('#colorf');
+							$('#idc').val(id);
+							toggling_form('cform','insertc','Add Color');
+						}else {
+							$('#errormsg').html(resp.msg).show();
+						}
+					});
+				}
+
+
+			}else {
+				alert('Please wait till the process completed. .');
+			}
+		});
+		$(document).on('click',"img[class^='img-']",function(event){
+			event.preventDefault();
+			var idc = $(this).attr('idc');
+			var idcc = $(this).attr('idcc');
+			if($('#cform').css('display') != 'block') {
+				toggling_form('cform','insertc','Add Color');
+			}
+			
+			$.ajax({
+				url : '{path_app}/get_color_car/',
+				type : 'post',
+				data : 'idc='+idc+'&idcc='+idcc,
+				beforeSend : function() { },
+				success :function(resp) {
+							
+							if(resp != 'false') {
+								$('#cform').html(resp);
+								$('#addnew').val('Update Color');
+								$('#addnew').click(function(){
+									//insert();
+									add_color();
+								});
+								
+							}
+				},
+				cache : false,
+			
+			});
+		});
+		function add_color() {
+			var dfault = $('#addnew').val(), wait = 'Please wait...', msg = '',id = $('#idc').val();
+			if(dfault != wait) {
+				$('#colorf').find(':input').each(function(){
+					var name = $(this).attr('name'),
+					label = $(this).attr('id');
+					
+					if($('#idcc').val() != '0') {
+						
+						if(name != 'id_car' && name != 'Update Color' && label != 'idcc' && name != 'color_thumb' ) {
+							if($(this).val() == '') {
+								msg += label + ', ';
+							}
+						}
+						
+					}else {
+						
+						if(name != 'id_car' && name != 'Insert Color' && label != 'idcc' ) {
+							if($(this).val() == '') {
+								msg += label + ', ';
+							}
+						}
+					}
+					
+				});
+				if(msg != '' ) {
+					$('#errormsg').html(msg.substring(0,msg.length - 2) + ' is required').show().focus(); 
+				}else {
+					var act = ($('#idcc').val() == '0') ? 'insert_car_color' : 'update_car_color';
+					$('#colorf').attr('action','{path_app}/'+act);
+					$('#colorf').removeAttr('onsubmit').submit();
+					$("#msgplace").unbind().load(function() {
+						resp = $.parseJSON($(this).contents().text());
+						if(resp.status == '200'){
+							if(resp.type == 'inserted') {
+
+								$('#colorlst').append(resp.msg);
+								clear_form_elements('#colorf');
+								$('#idc').val(id);
+								toggling_form('cform','insertc','Add Color');							
+							}else {
+								var d = $('#idcc').val();
+								$('#wrapper-'+d+'-color').html(resp.msg);
+								var f = $('#idc').val();
+								clear_form_elements('#colorf');
+								$('#imgt').remove();
+								toggling_form('cform','insertc','Add Color');
+								$('#idc').val(f);
+							}	
+						}else {
+							$('#errormsg').html(resp.msg).show();
+						}
+					});
+				}
+				
+				
+			}else {
+				alert('Please wait till the process completed. .');
+			}
+		}
+    });
+</script>
+<!--CONTENT-->

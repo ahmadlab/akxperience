@@ -1,0 +1,194 @@
+      
+<!--CONTENT-->
+<div class="content twelve columns" id="content">
+    <!--breadcrumbs-->
+    <ul class="breadcrumbs">
+        {breadcrumbs}
+        <li {class}><a href="{href}">{text}</a></li>
+        {/breadcrumbs}
+    </ul>
+    <!--breadcrumbs-->
+
+    <div class="panel">
+        <div class="row">
+            <div class="twelve columns">
+                <h5>Add/Edit {menu_title}</h5>
+
+                {error_msg}
+                {warning}
+                {username}
+                {userpass}
+                {email}
+                {user_type}
+                {phone_number}
+                {birthday}
+                {religion}
+                {card_id}
+                {/error_msg}
+
+                <form id="form-{file_app}" name="form-{file_app}" action="{action}" method="post" class="custom" enctype="multipart/form-data">
+                    {post}
+                    <div class="row">
+						<div class="twelve columns">
+							<!-- <dl class="tabs contained">
+								<dd class="active"><a href="#content">User Detail Info</a></dd>
+								<dd><a href="#car">User Cars</a></dd> -->
+								<!-- <dd><a href="#attachment">Attachment</a></dd> -->
+								<!-- <dd><a href="#meta">Meta Data</a></dd> -->
+							<!-- </dl> -->
+							<!-- <ul class="tabs-content contained">
+								<li class="active" id="contentTab"> -->
+									<div class="row">
+										<div class="six columns">
+											<label for="username">Full Name : </label>
+											<input type="text" maxlength="250" size="50" value="{username}" name="username" id="username" class="required"/>
+											<label for="userpass">Password : </label>
+											<input type="password" maxlength="250" size="50" value="" name="userpass" id="userpass" class="{err_c} {required}"/>{pass_msg}
+											<label for="confpass">Confirm Password : </label>
+											<input type="password" maxlength="250" size="50" value="" name="confpass" id="confpass" class="{required}"/>
+											<!-- <label for="user_type">User Type : </label>
+											<select name="user_type">
+												{usertypelist}
+											</select> -->
+											<label for="email">Email : </label>
+											<input type="text" maxlength="250" size="50" value="{email}" name="email" id="email" class="required email"/>
+											<label for="card_id">Card Id : </label>
+											<input type="text" maxlength="250" size="50" value="{card_id}" name="card_id" id="card_id" class="required card_id"/>
+											<label for="religion">Religion : </label>
+											<select name="religion">
+											{religion}
+											</select>
+											<label for="gender">Gender : </label>
+											<select name="sexlist">
+											{sexlist}
+											</select>
+											<label for="birthday">Date of Birth : </label>
+											<input type="text" maxlength="250" size="50" value="{birthday}" name="birthday" id="birthday" class="required datepicker_now birthday "/>
+											<label for="address">Address : </label>
+											<textarea name="address" id="address" class="required address">{address} </textarea>
+											<label for="phone_number">Phone : </label>
+											<input type="text" maxlength="250" size="50" value="{phone_number}" name="phone_number" id="phone_number" />
+											<label for="phone">Alternative Phone : </label>
+											<input type="text" maxlength="250" size="50" value="{phone}" name="phone" id="phone" />
+											<label for="ava">Avatar : </label>
+											<input type="file" maxlength="250" size="50" name="ava" id="ava"/>
+											{pic_thumbnail}
+										</div>
+										<div class="row">
+											<div class="twelve columns text-left"><br/><br/><br/>
+												<input type="submit" id="{file_app}-submit" title="Submit" value="Submit" class="medium radius success button"/>
+												<a onClick="javascript:window.location='{cancel_btn}';" class="medium radius alert button">Cancel</a>
+											</div>
+										</div>
+										{/post}
+										</form>
+									</div>
+								<!-- </li>
+							</ul> -->	
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+	
+    $(document).ready(function() {
+        $("#form-{file_app}").validate({
+            rules: {
+                confpass: {
+                    equalTo: "#userpass"
+                }
+            }
+        });
+		$("a#delete-pic-thumbnail").click(function(){
+			var answer = confirm("Are you sure to delete this file ??"), id = $(this).attr('ida');
+			
+			if(answer) {
+				$.ajax({
+					type: 'POST',
+					data: 'id='+id,
+					success: function(data){
+						$("#print-picture-thumbnail").fadeOut('slow');
+						$("#print-picture-thumbnail").fadeIn('slow');
+						$("#print-picture-thumbnail").html(data);
+						$("#print-picture-thumbnail").fadeOut('slow');
+					},
+					url: '{path_app}/delete_gallery',
+					cache:false
+				},
+				$("#print-picture-thumbnail").fadeOut('slow')
+				);
+			}
+		});
+		$("#carlst").on('click','a.delete_usercar',function(){
+				var id = $(this).attr('ida'),
+				answer = confirm("Are you sure to delete this car ??");
+				if(answer) {
+					$(this).closest("#wrapper-"+id+"-car").remove();
+					$.ajax({
+						type: 'POST',
+						data: 'id='+id,
+						success: function(res){
+							if(res == '1') {
+							
+							}else {
+								alert('error while deleting car, please try again');
+							}
+						},
+						url: '{path_app}/delete_user_car'
+					});
+					
+				}
+		});
+
+		
+		$('#insertc').click(function(){
+			toggling_form('cform','insertc','Add Car');
+		});
+		$('#addnew').click(function(){
+			var dfault = $('#addnew').val(), wait = 'Please wait...', msg = '';
+			if(dfault != wait) {
+				$('#carf').find(':input').each(function(){
+					var name = $(this).attr('name'),
+					label = $(this).attr('id');
+					if(name != 'Add Car') {
+						if($(this).val() == '' || $(this).val() == '0') {
+							msg += label + ', ';
+						}
+					}
+				});
+				if(msg != '' ) {
+					$('#errormsg').html(msg.substring(0,msg.length - 2) + ' cannot be empty').show().focus(); 
+				}else {
+					$.ajax({
+						url : '{path_app}/insert_user_car/',
+						type : 'post',
+						data : $('#carf').serialize()+'&id_user={id}',
+						beforeSend : function() { $('#addnew').val(wait); },
+						success :function(resp) {
+									if(resp != '0') {
+										$('#carlst').append(resp);
+										clear_form_elements('#carf');
+										toggling_form('cform','insertc','Add Car');
+										//setTimeout(function(){clear_form_elements('#carf');toggling_form();},3000);
+									}else {
+										$('#errormsg').html('an error occured while inserting car, please try again').show();
+									}
+									$('#addnew').val(dfault);
+									
+						}
+					
+					});
+				}
+				
+				
+			}else {
+				alert('Please wait till the process completed. .');
+			}
+		});
+	});
+</script>
+<!--CONTENT-->

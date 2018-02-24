@@ -1,0 +1,113 @@
+<style>
+img { height : 35px; }
+.plus-panel, .min-panel {
+	height:25px;
+}
+.sort_arrow img {
+	height:8px;
+	max-width:100%;
+}
+</style> 
+<!--CONTENT-->
+<div class="content twelve columns" id="content">
+    <!--breadcrumbs-->
+    <ul class="breadcrumbs">
+        {breadcrumbs}
+        <li {class}><a href="{href}">{text}</a></li>
+        {/breadcrumbs}
+    </ul>
+    <!--breadcrumbs-->
+
+    <div class="panel">
+        <div class="panel-box">
+            <div class="row panel-title">
+                <div class="eleven columns text-left">
+                    <h5>Search {menu_title} </h5>
+                </div>
+                <div class="one columns text-right">
+                    <img src="{base_url}assets/images/admin/plus.png" alt="plus" class="plus-panel"/>
+                    <img src="{base_url}assets/images/admin/minus.png" alt="minus" class="min-panel"/>
+                </div>
+            </div>
+
+            <div class="row panel-form" id="panel-form">
+                <div class="twelve columns">
+                    <form id="search-{file_app}" name="search-{file_app}" action="{path_app}/search" method="post" class="custom">
+                        <div class="row">
+                            <div class="four columns">
+                                <label for="s_twitter">Twitter Name : </label>
+                                <input type="text" name="s_twitter" id="s_twitter" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns text-right">
+                                <input type="submit" value="Search" class="medium radius secondary button" title="Search" name="search"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {error_msg}
+    {success_msg}
+    {info_msg}
+
+    <div class="panel">
+        <div class="row">
+            <div class="nine columns">
+                {search_query}
+                <h5>Total: {q_total}</h5>
+                <h5>List of {menu_title}</h5>
+                <form id="form-{file_app}" name="form-{file_app}" action="#" method="post" >
+                    <table class="nine" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="small">No.</th>
+                                <th scope="col" class="small"><input type="checkbox" onclick="javascript:checkedAll('form-{file_app}', true);" id="primary_check"/></th>
+                                <th scope="col" class="text-left">Twitter Name</th>
+                                <th scope="col" class="text-left">Twitter Username</th>
+                                <th scope="col" class="text-left">Sort </th>
+                                <th scope="col" class="text-left">Publish Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="record-{id}">
+                        {list_data}
+                            <tr>
+                                <td scope="col" class="small">{no}.</td>
+                                <td scope="col" class="small">
+									<input type="checkbox" name="CheckBox_Delete_{id}" value="{id}" id="del{id}" class="delete" onclick="javascript:select_record('{id}');">
+                                </td>
+                                <td><a href="{edit_href}">{name}</a></td>
+                                <td>{twitter_username}</td>
+                                <td>{sort_up} &nbsp; {sort_down}</td>
+                                <td><a id="pub{id}" onclick="javascript:change_publish('{id}','{path_app}')" style="cursor:pointer;">{is_published}</a></td>
+                            </tr>
+                        {/list_data}
+                        </tbody>
+                    </table>
+                    <input type="hidden" id="temp_id" value=""/>
+
+                    <div class="row">
+                        <div class="eight columns pagination">
+                            <span>Page : </span>
+                            <br>
+                            {pagination}
+                        </div>
+                        <div class="six columns action-button text-left" style="float:right;">
+                            <input type="button" id="{file_app}-add" title="Add" alt="Add" value="Add" onClick="javascript:window.location='{add_btn}';" class="medium radius success button"/>
+                            <input type="button" id="{file_app}-delete" title="Delete" alt="Delete" value="Delete"  onclick="javascript:delete_records('{path_app}','{current_url}')" class="medium radius alert button delete_button"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--CONTENT-->
+
+
+
+

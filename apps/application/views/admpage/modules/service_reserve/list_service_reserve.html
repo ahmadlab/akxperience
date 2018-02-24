@@ -1,0 +1,175 @@
+<style>
+ul#uwrap li {
+	margin-left:20px;
+	display:inline;
+	
+}
+
+.alert-box {
+background-color: #A0D3E8;
+    border-color: #74BFDD;
+    color: #4F4F4F;
+	border-radius: 3px;
+	padding: 8px 41px 8px 14px;
+	cursor: pointer;
+}
+.alert {
+	cursor: pointer;
+}
+</style>
+
+<!--CONTENT-->
+<div class="content twelve columns" id="content">
+    <!--breadcrumbs-->
+    <ul class="breadcrumbs">
+        {breadcrumbs}
+        <li {class}><a href="{href}">{text}</a></li>
+        {/breadcrumbs}
+    </ul>
+    <!--breadcrumbs-->
+
+    <div class="panel">
+        <div class="panel-box">
+            <div class="row panel-title">
+                <div class="eleven columns text-left">
+                    <strong>Search {menu_title} </strong>
+                </div>
+                <div class="one columns text-right">
+                    <img src="{base_url}assets/images/admin/plus.png" alt="plus" class="plus-panel"/>
+                    <img src="{base_url}assets/images/admin/minus.png" alt="minus" class="min-panel"/>
+                </div>
+            </div>
+
+            <div class="row panel-form" id="panel-form">
+                <div class="twelve columns">
+                    <form id="search-{file_app}" name="search-{file_app}" action="{path_app}/search" method="post" class="custom">
+                        <div class="row">
+                            <div class="four columns">
+                                <!-- <label for="s_date">Date : </label>
+                                <select name="s_date">
+								{l_date}
+								</select> -->
+								<!-- <label for="s_location">Location : </label>
+                                <select name="s_location">
+								{l_location}
+								</select> -->
+								<label for="s_status">Status Booking : </label>
+                                <select name="s_status">
+								{l_status}
+								</select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns text-right">
+                                <input type="submit" value="Search" class="medium radius secondary button" title="Search" name="search"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {error_msg}
+    {success_msg}
+    {info_msg}
+
+    <div class="panel">
+        <div class="row">
+            <div class="twelve columns">
+                <h5>List of {menu_title}</h5>
+				<dl class="tabs contained">
+					<dd class="active"><a href="#service">Service Book List</a></dd>
+					<dd><a href="#schedule">Schedule List</a></dd>
+				</dl>
+				<ul class="tabs-content contained">
+					<li class="active" id="serviceTab">
+						<form id="form-{file_app}" name="form-{file_app}" action="#" method="post" >
+							<table class="twelve" cellspacing="0" cellpadding="0">
+								<thead>
+									<tr>
+										<th scope="col" class="small">No.</th>
+										<th scope="col" class="small"><input type="checkbox" onclick="javascript:checkedAll('form-{file_app}', true);" id="primary_check"/></th>
+										<th scope="col" class="text-left">User</th>
+										<th scope="col" class="text-left">Car</th>
+										 <th scope="col" class="text-left">Time Book</th>
+										<th scope="col" class="text-left">Status</th>
+										<th scope="col" class="text-left">Create Date</th>
+									</tr>
+								</thead>
+
+								{list_data}
+								<tbody id="record-{id}">
+									<tr>
+										<td scope="col" class="small">{no}.</td>
+										<td scope="col" class="small">
+											<input type="checkbox" name="CheckBox_Delete_{id}" value="{id}" id="del{id}" class="delete" onclick="javascript:select_record('{id}');">
+										</td>
+										<td><a href="{edit_href}">{usr}</a></td>
+										<td>{car}</td>
+										<td>{timebook}</td>
+										<td>{status}</td>
+										<td>{create_date}</td>
+										
+									</tr>
+								</tbody>
+								{/list_data}
+							</table>
+							<input type="hidden" id="temp_id" value=""/>
+
+							<div class="row">
+								<div class="eight columns pagination">
+									<span>Page : </span>
+									<br><br>
+									{pagination}
+								</div>
+								<div class="four columns action-button text-right hide">
+									<input type="button" id="{file_app}-add" title="Add" alt="Add" value="Add" onClick="javascript:window.location='{add_btn}';" class="medium radius success button"/>
+									<input type="button" id="{file_app}-delete" title="Delete" alt="Delete" value="Delete"  onclick="javascript:delete_records('{path_app}','{current_url}')" class="medium radius alert button delete_button"/>
+								</div>
+							</div>
+						</form>
+					</li>
+					<li id="scheduleTab">
+						<ul id="uwrap">{datelist}</ul>
+						<br/>
+						<br/>
+						<table id="holder" class="three" cellspacing="10" cellpadding="10" style="margin-left:35px;display:none;">
+							<thead id="thead">
+								<th>No</th>
+								<th>Time</th>
+								<th>Status</th>
+							</thead>
+						</table>
+						<div style="margin:60px 139px; display:none;" id="splash"><img src="{base_url}assets/images/loading.gif" /> </div>
+					</li>
+				</ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--CONTENT-->
+<script>
+$('document').ready(function(){
+	$("#uwrap").on('click','li',function(){
+		$('.trecords').remove();
+		$('#holder').hide();
+		$('#splash').show();
+		$("#uwrap li").each(function(){
+			$(this).removeClass('primary').addClass('secondary');
+		});
+		$(this).removeClass('secondary').addClass('primary');
+		$.ajax({
+			type: 'POST',
+			data: 'time='+$(this).attr('time'),
+			beforeSend : function(){ },
+			success: function(res){
+				$('#thead').after(res);
+				$('#splash').hide();
+				$('#holder').show(500);
+			},
+			url: '{path_app}/get_schedule'
+		});
+	});
+});
+</script>

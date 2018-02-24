@@ -1,0 +1,96 @@
+      
+      <!--CONTENT-->
+      <div class="content twelve columns" id="content">
+        <!--breadcrumbs-->
+        <ul class="breadcrumbs">
+          {breadcrumbs}
+            <li {class}><a href="{href}">{text}</a></li>
+          {/breadcrumbs}
+        </ul>
+        <!--breadcrumbs-->
+          
+        <div class="panel">
+          <div class="panel-box">
+            <div class="row panel-title">
+              <div class="eleven columns text-left">
+                <strong>Search {menu_title} </strong>
+              </div>
+              <div class="one columns text-right">
+                <img src="{base_url}assets/images/admin/plus.png" alt="plus" class="plus-panel"/>
+                <img src="{base_url}assets/images/admin/minus.png" alt="minus" class="min-panel"/>
+              </div>
+            </div>
+            <div class="row panel-form" id="panel-form">
+              <div class="twelve columns">
+                <form id="search-{file_app}" name="search-{file_app}" action="{path_app}/search" method="post" class="custom">
+                  <div class="row">
+                    <div class="four columns">
+                      <label for="s_title">Widget Title : </label>
+                      <input type="text" value="{s_title}" name="s_title" id="s_title"/>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="four columns text-right">
+                      <input type="submit" value="Search" class="medium radius secondary button" title="Search" name="search"/>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        {error_msg}
+        {success_msg}
+        {info_msg}
+        
+        <div class="panel">
+          <div class="row">
+            <div class="twelve columns">
+              <h5><strong>List of {menu_title}</strong></h5>
+              <form id="form-{file_app}" name="form-{file_app}" action="#" method="post" class="nice">
+                <table class="twelve" cellspacing="0" cellpadding="0">
+                  <thead>
+                    <tr>
+                      <th scope="col" class="small">No.</th>
+                      <th scope="col" class="small"><input type="checkbox" onclick="javascript:checkedAll('form-{file_app}', true)" id="primary_check"/></th>
+                      <th scope="col" class="text-left">Title</th>
+                      <th scope="col" class="text-left">Position</th>
+                      <th scope="col" class="text-left">Create Date </th>
+                      <th scope="col" class="text-left">Sort </th>
+                    </tr>
+                  </thead>
+  
+                  {list_widget}
+                  <tbody id="record-{id_widget}">
+                    <tr>
+                      <td scope="col" class="small">{no}.</td>
+                      <td scope="col" class="small">
+                        <input type="checkbox" name="CheckBox_Delete_{id_widget}" value="{id_widget}" id="del{id_widget}" class="delete" onclick="javascript:select_record('{id_widget}');"/>
+                      </td>
+                      <td><a href="{edit_href}">{title}</a>&nbsp;</td> 
+                      <td>{position}</td> 
+                      <td>{create_date}</td> 
+                      <td>{sort_up} &nbsp; {sort_down}</td>
+                    </tr>
+                  </tbody>
+                  {/list_widget}
+                  <input type="hidden" id="temp_id" value=""/>
+                </table>
+                <div class="row">
+                  <div class="eight columns pagination">
+                    <span>Page : </span><br><br>
+                    {pagination}
+                  </div>
+                  <div class="four mobile-one columns action-button text-right">
+                    <input type="button" id="{file_app}-add" title="Add" alt="Add" value="Add" onClick="javascript:window.location='{add_btn}';" class="medium radius success button"/>
+                    <input type="button" id="{file_app}-delete" title="Delete" alt="Delete" value="Delete"  onclick="javascript:delete_records('{path_app}','{current_url}')" class="medium radius alert button delete_button"/>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--CONTENT-->
+    </article>

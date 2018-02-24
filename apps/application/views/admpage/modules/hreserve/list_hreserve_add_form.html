@@ -1,0 +1,197 @@
+<style>
+ form.custom div.custom.dropdown {
+	margin-top:-20px;margin-left:10px;
+	display: block;
+    height: 28px;
+    margin-bottom: 9px;
+    position: relative;
+    width: auto !important;
+ }
+ .ui-menu {
+        list-style:none;
+        padding: 2px;
+        margin: 0;
+        display:block;
+        float: left;
+}
+.ui-menu .ui-menu {
+        margin-top: -3px;
+}
+.ui-menu .ui-menu-item {
+        margin:0;
+        padding: 0;
+        zoom: 1;
+        float: left;
+        clear: left;
+        width: 100%;
+}
+.ui-menu .ui-menu-item a {
+        text-decoration:none;
+        display:block;
+        padding:.2em .4em;
+        line-height:1.5;
+        zoom:1;
+}
+.ui-menu .ui-menu-item a.ui-state-hover,
+.ui-menu .ui-menu-item a.ui-state-active {
+        font-weight: normal;
+        margin: -1px;
+}
+
+
+ </style>
+<!--CONTENT-->
+<div class="content twelve columns" id="content">
+    <!--breadcrumbs-->
+    <ul class="breadcrumbs">
+        {breadcrumbs}
+        <li {class}><a href="{href}">{text}</a></li>
+        {/breadcrumbs}
+    </ul>
+    <!--breadcrumbs-->
+
+    <div class="panel" >
+        <div class="row">
+            <div class="twelve columns">
+                <h5>Detail {menu_title}</h5>				
+				{error_msg}
+					{warning}
+					{service_note}
+					{service}
+					{service_type}
+					{total_price}
+					{next_visit}
+					{status_book}
+					{date}
+					{id_ref_location}
+					{ref_service}
+					{ref_user_cars}
+					{time}
+					{user}
+				{/error_msg}
+				<form id="form-{file_app}" name="form-{file_app}" action="{action}" method="post" class="custom" >
+                    {post}
+                    <div class="row">
+						<div class="twelve columns">
+							<div class="row">
+								<div class="six columns">
+									<label for="usern">Username : </label>
+									<input type="text" maxlength="250" size="50" value="{user}" name="usern" id="acomplete" class="required" key="" />
+									
+									<label for="ref_user_cars">Police Number : </label>
+									<select name="ref_user_cars" id="ref_user_cars" data-customforms="disabled">
+									{carlist}
+									</select>
+									
+									<label for="service">Type Of Service : </label>
+									<select name="service" id="service" data-customforms="disabled" onchange="crawl_ref('{path_app}/detail_service',this.value,'ref_service');clears('ref_service');">
+									{service}
+									</select>
+									<label for="ref_service">Service : </label>
+									<select name="ref_service" id="ref_service" data-customforms="disabled">
+									{ref_service}
+									</select>
+									<label for="id_ref_location">Workshop : </label>
+									<select name="id_ref_location" id="id_ref_location" data-customforms="disabled">
+									{ref_location}
+									</select>
+									<label for="date">Date : </label>
+									<select name="date" id="date" data-customforms="disabled">
+									{date}
+									</select>
+									<label for="time">Time : </label>
+									<select name="time" id="time" data-customforms="disabled">
+										{time}
+									</select>
+								</div>
+							</div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="five columns text-right">
+                            <input type="submit" id="{file_app}-submit" title="Submit" value="Submit" class="medium radius success button"/>
+                            <a onClick="javascript:window.location='{cancel_btn}';" class="medium radius alert button">Cancel</a>
+                        </div>
+                    </div>
+                    {/post}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#form-{file_app}").validate({
+            rules: {
+                confpass: {
+                    equalTo: "#userpass"
+                }
+            }
+        });
+		
+		$('#id_ref_location').change(function() {
+			$('#date').val("<option value='0'>--- Choice Date ---");
+			$('#time').val("<option value='0'>--- Choice Time ---");
+		});
+		$('#date').change(function() {
+			var locate = $('#id_ref_location').val();
+			if(locate != 'undefined' && locate != '') {
+				$.ajax({
+					type: 'POST',
+					data: 'id='+$(this).val()+'&locate='+locate,
+					success: function(data){
+						if(data != '0') {
+							$('#time').html(data);
+						}
+					},
+					url: '{path_app}/get_time',
+					cache:false
+				});
+			}else {
+				alert('Choice workshop first');
+				return false;
+			}
+		});
+		
+		$("a#delete-pic-thumbnail").click(function(){
+			var answer = confirm("Are you sure to delete this file ??"), id = $(this).attr('ida');
+			
+			if(answer) {
+				$.ajax({
+					type: 'POST',
+					data: 'id='+id,
+					success: function(data){
+						$("#print-picture-thumbnail").fadeOut('slow');
+						$("#print-picture-thumbnail").fadeIn('slow');
+						$("#print-picture-thumbnail").html(data);
+						$("#print-picture-thumbnail").fadeOut('slow');
+					},
+					url: '{path_app}/delete_gallery',
+					cache:false
+				},
+				$("#print-picture-thumbnail").fadeOut('slow')
+				);
+			}
+		});
+		$('#acomplete').on('blur change',function() {
+			$.ajax({
+				type: 'POST',
+				data: 'id='+$(this).attr('key'),
+				success: function(data){
+					if(data != '0') {
+						$("#ref_user_cars").html(data);
+					}
+				},
+				url: '{path_app}/get_car',
+				cache:false
+			});
+		});
+    });
+	function clears(what) {
+		//$('#ref_service').html('<option> --- Choice Service --- </option>');
+	}
+	var availableTags = JSON.parse('{code}'); 
+</script>
+<!--CONTENT-->

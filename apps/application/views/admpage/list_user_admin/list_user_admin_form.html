@@ -1,0 +1,84 @@
+      
+<!--CONTENT-->
+<div class="content twelve columns" id="content">
+    <!--breadcrumbs-->
+    <ul class="breadcrumbs">
+        {breadcrumbs}
+        <li {class}><a href="{href}">{text}</a></li>
+        {/breadcrumbs}
+    </ul>
+    <!--breadcrumbs-->
+
+    <div class="panel">
+        <div class="row">
+            <div class="twelve columns">
+                <h5>Add/Edit {menu_title}</h5>
+
+                {error_msg}
+                {warning}
+                {id_auth_user_group}
+                {id_site}
+                {username}
+                {userpass}
+                {name}
+                {email}
+                {phone}
+                {/error_msg}
+
+                <form id="form-{file_app}" name="form-{file_app}" action="{action}" method="post" class="custom">
+                    {post}
+                    <div class="row">
+                        <div class="five columns">
+                            <label for="customDropdown">Group : </label>
+                            <select name="id_auth_user_group" id="customDropdown" style="display:none;">
+                                <option value="">-- Please Select --</option>
+                                {group_list}
+                            </select>
+                            <label for="ref_location">Access Workshop : </label>
+                            <select name="ref_location" id="ref_location" style="width:100%;">
+                                {locationlst}
+                            </select>
+                            <label for="username">Username : </label>
+                            <input type="text" maxlength="250" size="50" value="{username}" name="username" id="username" class="required"/>
+
+                            <label for="userpass">Password : </label>
+                            <input type="password" maxlength="250" size="50" value="" name="userpass" id="userpass" class="{err_c} {required}"/>{pass_msg}
+                            <label for="confpass">Confirm Password : </label>
+                            <input type="password" maxlength="250" size="50" value="" name="confpass" id="confpass" class="{required}"/>
+                            <label for="name">Name : </label>
+                            <input type="text" maxlength="250" size="50" value="{name}" name="name" id="name" class="required"/>
+                            <label for="email">Email : </label>
+                            <input type="text" maxlength="250" size="50" value="{email}" name="email" id="email" class="required email"/>
+                            <label for="phone">Phone : </label>
+                            <input type="text" maxlength="250" size="50" value="{phone}" name="phone" id="phone" class="digits"/>
+                            <label for="phone2">Phone 2: </label>
+                            <input type="text" maxlength="250" size="50" value="{phone2}" name="phone2" id="phone2" class="digits"/>
+                            {superadmin_status}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="five columns text-right">
+                            <input type="submit" id="{file_app}-submit" title="Submit" value="Submit" class="medium radius success button"/>
+                            <a onClick="javascript:window.location='{cancel_btn}';" class="medium radius alert button">Cancel</a>
+                        </div>
+                    </div>
+                    {/post}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#form-{file_app}").validate({
+            rules: {
+                confpass: {
+                    equalTo: "#userpass"
+                }
+            }
+        });
+    });
+</script>
+<!--CONTENT-->

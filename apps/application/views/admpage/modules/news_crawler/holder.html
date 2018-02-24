@@ -1,0 +1,48 @@
+<div class="panel">
+	<div class="row">
+		<div class="twelve columns">
+			<h5>List of Results</h5>
+			<form id="form-{file_app}" name="form-{file_app}" action="#" method="post" >
+				<table class="twelve" cellspacing="0" cellpadding="0">
+					<thead>
+						<tr>
+							<th scope="col" class="small">No.</th>
+							<th scope="col" class="small"><input type="checkbox" onclick="javascript:checkedAll('form-{file_app}', true);" id="primary_check"/></th>
+							<th scope="col" class="text-left">Title</th>
+							<th scope="col" class="text-left">Content</th>
+							<th scope="col" class="text-left">Thumb</th>
+						</tr>
+					</thead>
+
+					{buff_list}
+					<tbody id="record-{id}">
+						<tr>
+							<td scope="col" class="small">{no}.</td>
+							<td scope="col" class="small">
+								<input type="checkbox" name="CheckBox_Delete_{id}" value="{id}" id="del{id}" class="delete" onclick="javascript:select_record('{id}');">
+							</td>
+							<td>{title}</td>
+							<td>{content}</td>
+							<td>{thumb}</td>
+							
+						</tr>
+					</tbody>
+					{/buff_list}
+				</table>
+				<input type="hidden" id="temp_id" value=""/>
+
+				<div class="row">
+					<div class="eight columns pagination">
+						<span>Page : </span>
+						<br><br>
+						{pagination}
+					</div>
+					<div class="four columns action-button text-right">
+						<input type="button" id="{file_app}-add" title="Add" alt="Add" value="Add" onClick="javascript:window.location='{add_btn}';" class="medium radius success button"/>
+						<input type="button" id="{file_app}-delete" title="Delete" alt="Delete" value="Delete"  onclick="javascript:delete_records('{path_app}','{current_url}')" class="medium radius alert button delete_button"/>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

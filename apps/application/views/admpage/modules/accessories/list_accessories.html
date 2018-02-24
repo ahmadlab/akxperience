@@ -1,0 +1,111 @@
+      
+<!--CONTENT-->
+<div class="content twelve columns" id="content">
+    <!--breadcrumbs-->
+    <ul class="breadcrumbs">
+        {breadcrumbs}
+        <li {class}><a href="{href}">{text}</a></li>
+        {/breadcrumbs}
+    </ul>
+    <!--breadcrumbs-->
+
+    <div class="panel">
+        <div class="panel-box">
+            <div class="row panel-title">
+                <div class="eleven columns text-left">
+                    <h5>Search {menu_title} </h5>
+                </div>
+                <div class="one columns text-right">
+                    <img src="{base_url}assets/images/admin/plus.png" alt="plus" class="plus-panel"/>
+                    <img src="{base_url}assets/images/admin/minus.png" alt="minus" class="min-panel"/>
+                </div>
+            </div>
+
+            <div class="row panel-form" id="panel-form">
+                <div class="twelve columns">
+                    <form id="search-{file_app}" name="search-{file_app}" action="{path_app}/search" method="post" class="custom">
+                        <div class="row">
+                            <div class="four columns">
+<!--                                 <label for="s_accessories_type">Accesories Type  : </label>
+                                <select name="s_accessories_type">
+								{l_accessories}
+								</select> -->
+								<label for="s_accessories">Accesories : </label>
+                                <input type="text" value="{s_accessories}" name="s_accessories" id="s_accessories"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns text-right">
+                                <input type="submit" value="Search" class="medium radius secondary button" title="Search" name="search"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {error_msg}
+    {success_msg}
+    {info_msg}
+
+    <div class="panel">
+        <div class="row">
+            <div class="twelve columns">
+                {search_query}
+                <h5>Total: {q_total}</h5>
+                <h5>List of {menu_title}</h5>
+                <form id="form-{file_app}" name="form-{file_app}" action="#" method="post" >
+                    <table class="twelve" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="small">No.</th>
+                                <th scope="col" class="small"><input type="checkbox" onclick="javascript:checkedAll('form-{file_app}', true);" id="primary_check"/></th>
+                                <th scope="col" class="text-left">Accessories</th>
+								<th scope="col" class="text-left">Vendor</th>
+                                <th scope="col" class="text-left">Type</th>
+                                <!--<th scope="col" class="text-left">Price</th>-->
+                                <th scope="col" class="text-left">Ref Publish</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="record-{id}">
+                        {list_data}
+                            <tr>
+                                <td scope="col" class="small">{no}.</td>
+                                <td scope="col" class="small">
+                                    <input type="checkbox" name="CheckBox_Delete_{id}" value="{id}" id="del{id}" class="delete" onclick="javascript:select_record('{id}');">
+                                </td>
+                                <td><a href="{edit_href}">{accessories}</a></td>
+								<td>{vendor}</td>
+                                <td>{type}</td>
+                                <!--<td>{price}</td>-->
+								<td><a id="pub{id}" onclick="javascript:change_publish('{id}','{path_app}')" style="cursor:pointer;">{ref_publish}</a></td>
+                                
+                            </tr>
+                        {/list_data}
+                        </tbody>
+                    </table>
+                    <input type="hidden" id="temp_id" value=""/>
+
+                    <div class="row">
+                        <div class="eight columns pagination">
+                            <span>Page : </span>
+                            <br><br>
+                            {pagination}
+                        </div>
+                        <div class="four columns action-button text-right">
+                            <input type="button" id="{file_app}-add" title="Add" alt="Add" value="Add" onClick="javascript:window.location='{add_btn}';" class="medium radius success button"/>
+                            <input type="button" id="{file_app}-delete" title="Delete" alt="Delete" value="Delete"  onclick="javascript:delete_records('{path_app}','{current_url}')" class="medium radius alert button delete_button"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--CONTENT-->
+
+
+
+

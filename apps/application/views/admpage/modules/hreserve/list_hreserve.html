@@ -1,0 +1,129 @@
+<!--CONTENT-->
+<div class="content twelve columns" id="content">
+    <!--breadcrumbs-->
+    <ul class="breadcrumbs">
+        {breadcrumbs}
+        <li {class}><a href="{href}">{text}</a></li>
+        {/breadcrumbs}
+    </ul>
+    <!--breadcrumbs-->
+
+    <div class="panel">
+        <div class="panel-box">
+            <div class="row panel-title">
+                <div class="eleven columns text-left">
+                    <h5>Search {menu_title} </h5>
+                </div>
+                <div class="one columns text-right">
+                    <img src="{base_url}assets/images/admin/plus.png" alt="plus" class="plus-panel"/>
+                    <img src="{base_url}assets/images/admin/minus.png" alt="minus" class="min-panel"/>
+                </div>
+            </div>
+
+            <div class="row panel-form" id="panel-form">
+                <div class="twelve columns">
+                    <form id="search-{file_app}" name="search-{file_app}" action="{path_app}/search" method="post" class="custom">
+                        <div class="row">
+                            <div class="four columns">
+                                <label for="s_name">Full Name : </label>
+                                <input type="text" value="{s_name}" name="s_name" id="s_name"/>
+								<!-- <label for="s_location">Location : </label>
+                                <select name="s_location">
+								{l_location}
+								</select> -->
+								<label for="s_status">Status Booking : </label>
+                                <select name="s_status">
+								{l_status}
+								</select>
+								<label for="s_sdate">Schedule Start: </label>
+								<input type="text" name="s_sdate" value="{s_sdate}" class="datepicker_now" />
+								<label for="s_sdate">Schedule End: </label>
+								<input type="text" name="s_edate" value="{s_edate}" class="datepicker_now" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns text-right">
+                                <input type="submit" value="Search" class="medium radius secondary button" title="Search" name="search"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {error_msg}
+    {success_msg}
+    {info_msg}
+
+    <div class="panel">
+        <div class="row">
+            <div class="twelve columns">
+                {search_query}
+                <h5>Total: {q_total}</h5>
+                <h5>List of {menu_title}</h5>
+				<form id="form-{file_app}" name="form-{file_app}" action="#" method="post" >
+					<table class="twelve" cellspacing="0" cellpadding="0">
+						<thead>
+							<tr>
+								<th scope="col" class="small">No.</th>
+								<th scope="col" class="small"><input type="checkbox" onclick="javascript:checkedAll('form-{file_app}', true);" id="primary_check"/></th>
+								<th scope="col" class="text-left">Customer</th>
+								<th scope="col" class="text-left">Car</th>
+                                <th scope="col" class="text-left">Location</th>
+                                <th scope="col" class="text-left">Schedule</th>
+								<th scope="col" class="text-left">Status</th>
+								<th scope="col" class="text-left">Create Date</th>
+							</tr>
+						</thead>
+
+						<tbody id="record-{id}">
+                        {list_data}
+							<tr>
+								<td scope="col" class="small">{no}.</td>
+								<td scope="col" class="small">
+									<input type="checkbox" name="CheckBox_Delete_{id}" value="{id}" id="del{id}" class="delete" onclick="javascript:select_record('{id}');">
+								</td>
+								<td><a href="{edit_href}">{usr}</a></td>
+								<td>{car}</td>
+                                <td>{location}</td>
+                                <td>{timebook}</td>
+								<td>{status}</td>
+								<td>{create_date}</td>
+								
+							</tr>
+                        {/list_data}
+						</tbody>
+					</table>
+					<input type="hidden" id="temp_id" value=""/>
+
+					<div class="row">
+						<div class="eight columns pagination">
+							<span>Page : </span>
+							<br><br>
+							{pagination}
+						</div>
+						<div class="four columns action-button text-right">
+							<input type="button" id="{file_app}-add" title="Add" alt="Add" value="Add" onClick="javascript:window.location='{add_btn}';" class="medium radius success button"/>
+							<input type="button" id="{file_app}-delete" title="Delete" alt="Delete" value="Delete"  onclick="javascript:delete_records('{path_app}','{current_url}')" class="medium radius alert button delete_button hide"/>
+							<input type="button" id="xtoxl" title="Export to excel" alt="Export to excel" value="Export to excel"  class="medium radius secondary button"/>
+						</div>
+					</div>
+				</form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--CONTENT-->
+<script>
+	$(function(){
+		$('#xtoxl').click(function() {
+			var url = document.URL;
+            if (url.indexOf("main") >= 0) {
+                window.location.href = url.replace('main','exportoxl');
+            } else {
+                window.location.href = url + '/exportoxl';
+            }
+		});
+	});
+</script>

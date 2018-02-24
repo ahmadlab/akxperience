@@ -1,0 +1,44 @@
+<div class="twelve columns"><br><br><br>
+	<h5>List of tmp news</h5>
+	<form id="form-{file_app}" name="form-{file_app}" action="#" method="post" >
+	<table class="twelve" cellspacing="0" cellpadding="0">
+	<thead>
+		<tr>
+			<th scope="col" class="small">No.</th>
+			<th scope="col" class="small"><input type="checkbox" onclick="javascript:checkedAll('form-{file_app}', true);" id="primary_check"/></th>
+			<th scope="col" class="text-left">Title</th>
+			<th scope="col" class="text-left">News</th>
+			<th scope="col" class="text-left">Thumb</th>
+		</tr>
+	</thead>
+
+	{list_data}
+	<tbody id="record-{id}">
+		<tr>
+			<td scope="col" class="small">{no}.</td>
+			<td scope="col" class="small">
+				<input type="checkbox" name="CheckBox_Delete_{id}" value="{id}" id="del{id}" class="delete" onclick="javascript:select_record('{id}');">
+			</td>
+			<td><a href="{edit_href}">{title}</a></td>
+			<td>{news}</td>
+			<td>{thumb}</td>
+			
+		</tr>
+	</tbody>
+	{/list_data}
+	</table>
+	<input type="hidden" id="temp_id" value=""/>
+
+	<div class="row">
+	<!-- <div class="eight columns pagination">
+		<span>Page : </span>
+		<br><br>
+		{pagination}
+	</div> -->
+	<div class="four columns action-button text-left">
+		<input type="button" id="{file_app}-add" title="Add" alt="Add" value="Move to News" onClick="javascript:window.location='{add_btn}';" class="medium radius success button"/>
+		<a onClick="javascript:window.location='{cancel_btn}';" class="medium radius alert button" style="padding: 9px 20px 13px;">Cancel</a>
+	</div>
+	</div>
+	</form>
+	</div>

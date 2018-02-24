@@ -1,0 +1,60 @@
+      
+<!--CONTENT-->
+<div class="content twelve columns" id="content">
+    <!--breadcrumbs-->
+    <ul class="breadcrumbs">
+        {breadcrumbs}
+        <li {class}><a href="{href}">{text}</a></li>
+        {/breadcrumbs}
+    </ul>
+    <!--breadcrumbs-->
+
+    <div class="panel">
+        <div class="row">
+            <div class="twelve columns">
+                <h5>Add/Edit {menu_title}</h5>
+
+                {error_msg}
+                {warning}
+                {id_parents_menu_admin}
+                {menu}
+                {file}
+                {/error_msg}
+
+                <form id="form-{file_app}" name="form-{file_app}" action="{action}" method="post" class="custom">
+                    {post}
+                    <div class="row">
+                        <div class="five columns">
+                            <label for="id_parents_menu_admin">Parent : </label>
+                            <select name="id_parents_menu_admin" id="id_parents_menu_admin">
+                                <option value="0">-- ROOT --</option>
+                                {list_parent_option}
+                            </select>
+                            <label for="menu">Menu : </label>
+                            <input type="text" class="required" maxlength="250" size="50" value="{menu}" name="menu" id="menu"/>
+                            <label for="file">File : </label>
+                            <input type="text" class="required" maxlength="250" size="50" value="{file}" name="file" id="file"/>
+                            {superadmin_status}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="five columns text-right">
+                            <input type="submit" id="{file_app}-submit" title="Submit" value="Submit" class="medium radius success button"/>
+                            <a onClick="javascript:window.location='{cancel_btn}';" class="medium radius alert button">Cancel</a>
+                        </div>
+                    </div>
+                    {/post}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--CONTENT-->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#form-{file_app}").validate();
+    });
+</script>
+

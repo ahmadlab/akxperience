@@ -1,0 +1,478 @@
+<style>
+    form.custom div.custom.dropdown {
+        margin-top:-20px;margin-left:10px;
+        display: block;
+        height: 28px;
+        margin-bottom: 9px;
+        position: relative;
+        width: auto !important;
+    }
+    .ui-menu {
+        list-style:none;
+        padding: 2px;
+        margin: 0;
+        display:block;
+        float: left;
+    }
+    .ui-menu .ui-menu {
+        margin-top: -3px;
+    }
+    .ui-menu .ui-menu-item {
+        margin:0;
+        padding: 0;
+        zoom: 1;
+        float: left;
+        clear: left;
+        width: 100%;
+    }
+    .ui-menu .ui-menu-item a {
+        text-decoration:none;
+        display:block;
+        padding:.2em .4em;
+        line-height:1.5;
+        zoom:1;
+    }
+    .ui-menu .ui-menu-item a.ui-state-hover,
+    .ui-menu .ui-menu-item a.ui-state-active {
+        font-weight: normal;
+        margin: -1px;
+    }
+    .car-details {
+        display: none;
+    }
+</style>
+<!--CONTENT-->
+<div class="content twelve columns" id="content">
+    <!--breadcrumbs-->
+    <ul class="breadcrumbs">
+        {breadcrumbs}
+        <li {class}><a href="{href}">{text}</a></li>
+        {/breadcrumbs}
+    </ul>
+    <!--breadcrumbs-->
+
+    <div class="panel">
+        <div class="row">
+            <div class="twelve columns">
+                <h5>Add/Edit {menu_title}</h5>
+                {error_msg}
+                {warning}
+                {username}
+                {userpass}
+                {email}
+                {user_type}
+                {city}
+                {phone_number}
+                {birthday}
+                {religion}
+                {card_id}
+                {/error_msg}
+
+                <form id="form-{file_app}" name="form-{file_app}" action="{action}" method="post" class="custom" enctype="multipart/form-data">
+                    {post}
+                    <div class="row">
+						<div class="twelve columns">
+							<dl class="tabs contained">
+								<dd class="active"><a href="#content">User Detail Info</a></dd>
+								<dd><a href="#car">User Cars</a></dd>
+								<!-- <dd><a href="#attachment">Attachment</a></dd> -->
+								<!-- <dd><a href="#meta">Meta Data</a></dd> -->
+							</dl>
+							<ul class="tabs-content contained">
+								<li class="active" id="contentTab">
+									<div class="row">
+										<div class="six columns">
+                                            <label class="{hide_add}" for="user_type">User Type : </label>
+                                            <div class="row {hide_add}">
+                                                <div class="nine columns">
+                                                    <input type="text" name="user_type" maxlength="250" size="50" value="{user_type}" id="user_type" readonly />
+                                                </div>
+                                                <div class="three columns">
+                                                    <input type="button" id="upgrade-vip" value="Upgrade to VIP" class="small radius success button pull-right" />
+                                                </div>
+                                            </div>
+                                            <label for="car_details" class="car-details">Car Details : </label>
+                                            <div class="row {hide_add}" class="car-details">
+                                                <div class="eight columns car-details">
+                                                    <select id="point-source" name="car_details" data-customforms="disabled" class="car-details">
+                                                        {car_details}
+                                                    </select>
+                                                </div>
+                                                <div class="four columns car-details">
+                                                    <input id="upgrade-with-point" type="button" value="Use This Point To Upgrade" class="small radius success button pull-right car-details" disabled/>
+                                                </div>
+                                            </div>
+                                            <div class="row {hide_add}" class="car-details">
+                                                <div class="eight columns car-details">
+                                                    <input type="text" name="invoice_number" maxlength="250" size="50" value="{invoice_number}" id="invoice_number" placeholder="Invoice Number" />
+                                                </div>
+                                                <div class="four columns car-details">
+                                                    <input id="first-time-upgrade" type="button" value="First Time Upgrade" class="small radius success button pull-right car-details" disabled/>
+                                                </div>
+                                            </div>
+
+											<label class="{hide_add}" for="expire">Expire date : </label>
+											<input type="text" maxlength="250" size="50" value="{expire}" id="expire" class="required {hide_add}" disabled readonly /><br/>
+											<label for="username">Full Name : </label>
+											<input type="text" maxlength="250" size="50" value="{username}" name="username" id="username" class="required"/>
+											<label for="userpass">Password : </label>
+											<input type="password" maxlength="250" size="50" value="" name="userpass" id="userpass" class="{err_c} {required}"/>{pass_msg}
+											<label for="confpass">Confirm Password : </label>
+											<input type="password" maxlength="250" size="50" value="" name="confpass" id="confpass" class="{required}"/>
+											<label for="email">Email : </label>
+											<input type="text" maxlength="250" size="50" value="{email}" name="email" id="email" class="required email"/>
+											<label for="card_id">Card Id : </label>
+											<input type="text" maxlength="250" size="50" value="{card_id}" name="card_id" id="card_id" class="required card_id"/>
+											<label for="religion">Religion : </label>
+											<select name="religion" data-customforms="disabled">
+											{religion}
+											</select>
+											<label for="gender">Gender : </label>
+											<select name="sexlist" data-customforms="disabled">
+											{sexlist}
+											</select>
+											<label for="birthday">Date of Birth : </label>
+											<input type="text" maxlength="250" size="50" value="{birthday}" name="birthday" id="birthday" class="required datepicker_now birthday "/>
+                                            <label for="address">Address : </label>
+                                            <textarea name="address" id="address" class="required address">{address} </textarea>
+                                            <label for="city">City : </label>
+                                            <select name="city" data-customforms="disabled">
+                                                {citylist}
+                                            </select>
+                                            <label for="nearest_workshop">Nearest Workshop : </label>
+                                            <select name="nearest_workshop" data-customforms="disabled">
+                                                {workshoplist}
+                                            </select>
+											<label for="phone_number">Phone : </label>
+											<input type="text" maxlength="250" size="50" value="{phone_number}" name="phone_number" id="phone_number" />
+											<label for="phone">Alternative Phone : </label>
+											<input type="text" maxlength="250" size="50" value="{phone}" name="phone" id="phone" />
+
+											<label for="ava">Avatar : </label>
+											<input type="file" maxlength="250" size="50" name="ava" id="ava"/>
+											{pic_thumbnail}
+										</div>
+										<div class="row">
+											<div class="twelve columns text-left"><br/><br/><br/>
+												<input type="submit" id="{file_app}-submit" title="Submit" value="Submit" class="medium radius success button"/>
+												<a onClick="javascript:window.location='{cancel_btn}';" class="medium radius alert button">Cancel</a>
+											</div>
+										</div>
+										{/post}
+										</form>
+									</div>
+								</li>
+								<li id="carTab">
+									<div class="row">
+										&nbsp;&nbsp;&nbsp;&nbsp;<a onClick="javascript:void(0);" class="medium radius secondary button" id="insertc">Add Car</a><br><br>
+										<form name="carf" id="carf" method="post" action="#" class="custom"  onSubmit="return false;">
+										<div id="cform" name="cform" style="display:none;" >
+											<div class="six columns">
+												<div id="errormsg" style="display:none;color:red;"></div><br/><br/>
+												
+													<label for="car">Car :</label>
+                                                    <input type="text" maxlength="250" size="50" value="{car-name}" id="car-acomplete" key="" />
+                                                    <input type="hidden" id="car" name="car" />
+													<label for="car_color">Car Color :</label>
+													<select name="car_color" id="car_color" data-customforms="disabled">{colorlst}</select>
+													<label for="police_number">Police Number :</label>
+													<input type="text" name="police_number" id="police number" />
+													<label for="vin_number">Vin Number :</label>
+													<input type="text" name="vin_number" id="vin number" />
+													<label for="stnk_date">STNK Date :</label>
+													<input type="text" name="stnk_date" id="stnkdate" class="datepicker_now" />
+													<label for="insurance_date">Insurance Date :</label>
+													<input type="text" name="insurance_date" id="insurancedate" class="datepicker_now" />
+													<label for="last_mileage">Last Mileage :</label>
+													<input type="text" name="last_mileage" id="last mileage" />
+													<input type="hidden" name="id" id="idsc" value="0" />
+													<div id="bf" style="display:none;">
+														<label for="buy_from">Buy From Auto Kencana:</label>
+														<input type="checkbox" id="buy_from" value="1" data-customforms="disabled" /><br/><br/>
+													</div>
+													<div class="row">
+														<div class="six columns text-left" style="float:left;">
+															<input type="button" id="addnew" title="Submit" value="Insert Car" class="medium radius success button"/><br/><br/>
+														</div>
+													</div>
+											</div>
+										</div>
+										</form>
+										<div class="twelve columns" id="carlst">
+											{carlist}
+											<div class="four columns" id="wrapper-{ids}-car" style="float: left">
+												<!-- <div><input type="checkbox" class="chk" name="cars[]" value="{id}" {chk} data-customforms="disabled" /> &nbsp;<img src="{thumb}" /></div> -->
+												<div>&nbsp;<img src="{thumb}" class="img-{ids}-car" idc="{idc}" idsc="{ids}" style="height: 200px" /></div>
+												<div style="margin-left:0px;">
+													<span style="font-size:8pt;display:inline;">
+														{brands} {types}, {series}<br> {model} {transmisi} {cc} cc {engine} <br>
+														Police Number : {pn}<br>
+														Vin Number	  : {vn}<br>
+														Stnk Date	  : {stnk}<br>
+														Insurance Date	: {ins_date}<br>
+														Last Mileage	: {lmileage}<br>
+														Points          : {points}<br>
+														Total Transaction: {total_transacion}<br>
+                                                        {is_from_ak}
+                                                        {delete}
+													</span>
+												</div>
+											</div>
+
+                                            {separator}
+											{/carlist}
+										</div>
+									</div>
+								</li>
+							</ul>	
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div id="pup" style="display:none;">Loading. . .</div>
+<script type="text/javascript">
+    var availableTags = JSON.parse('{carlst}');
+    $(document).ready(function() {
+
+        $('#upgrade-vip').click(function() {
+            if ($('#upgrade-vip').prop("disabled")) {
+                return false;
+            } else {
+                $('.car-details').toggle(1000);
+            }
+        });
+
+        $( "#point-source" ).change(function() {
+            if ($(this).find(':selected').data('point') >= 2) {
+                $("#upgrade-with-point").removeAttr('disabled');
+            } else {
+                $("#upgrade-with-point").attr('disabled','disabled');
+            }
+        });
+
+        $("#upgrade-with-point").click(function() {
+            var user_id = {id}, car_id = $('#point-source').find(':selected').val();
+            $.ajax({
+                'url' : '{path_app}/upgrade_vip',
+                'type' : 'POST', //the way you want to send data to your URL
+                'data' : {user_id : user_id, car_id : car_id},
+                'success' : function(data){ //probably this request will return anything, it'll be put in var "data"
+                    if(data == 'OK'){
+                        alert('Berhasil Upgrade Membership');
+                        location.reload();
+                    } else {
+                        alert('Something wrong. Please try again later.');
+                    }
+                }
+            });
+        });
+
+        $('#invoice_number').keyup(function() {
+            if ($(this).val() == '') {
+                $("#first-time-upgrade").attr('disabled','disabled');
+            } else {
+                $("#first-time-upgrade").removeAttr('disabled');
+            }
+        });
+
+        $("#first-time-upgrade").click(function() {
+            var user_id = {id}, invoice_number = $('#invoice_number').val();
+            $.ajax({
+                'url' : '{path_app}/upgrade_vip_first_time',
+                'type' : 'POST', //the way you want to send data to your URL
+                'data' : {user_id : user_id, invoice_number : invoice_number },
+                'success' : function(data){ //probably this request will return anything, it'll be put in var "data"
+                    if(data == 'OK'){
+                        alert('Berhasil Upgrade Membership');
+                        location.reload();
+                    } else {
+                        alert('Something wrong. Please try again later.');
+                    }
+                }
+            });
+        });
+
+        $('#car-acomplete').autocomplete({
+            source: availableTags,
+            select: function(event, ui) {
+                $("#car-acomplete").val(ui.item.val);
+                $("#car").val(ui.item.key);
+                $("#car-acomplete").attr('key',ui.item.key);
+                crawl_ref('{path_app}/get_color_car',ui.item.key,'car_color');
+                clears();
+            }
+        });
+
+		$("a#delete-pic-thumbnail").click(function(){
+			var answer = confirm("Are you sure to delete this file ??"), id = $(this).attr('ida');
+			
+			if(answer) {
+				$.ajax({
+					type: 'POST',
+					data: 'id='+id,
+					success: function(data){
+						$("#print-picture-thumbnail").fadeOut('slow');
+						$("#print-picture-thumbnail").fadeIn('slow');
+						$("#print-picture-thumbnail").html(data);
+						$("#print-picture-thumbnail").fadeOut('slow');
+					},
+					url: '{path_app}/delete_gallery',
+					cache:false
+				},
+				$("#print-picture-thumbnail").fadeOut('slow')
+				);
+			}
+		});
+		$("#carlst").on('click','a.delete_usercar',function(){
+				var id = $(this).attr('ida'),
+				answer = confirm("Are you sure to delete this car ??");
+				if(answer) {
+					$(this).closest("#wrapper-"+id+"-car").remove();
+					$.ajax({
+						type: 'POST',
+						data: 'id='+id,
+						success: function(res){
+							if(res == '1') {
+							
+							}else {
+								alert('error while deleting car, please try again');
+							}
+						},
+						url: '{path_app}/delete_user_car'
+					});
+					
+				}
+		});
+
+		
+		$('#insertc').click(function(){
+			clear_form_elements('#carf');
+			toggling_form('cform','insertc','Add Car');
+			$('#bf').show();
+			$('#buy_from').attr('name','buy_from');
+			$('#errormsg').html('');
+			$('#addnew').val('Insert Car');
+		});
+		$('#addnew').click(function(){
+			
+			insert();
+			
+		});
+		
+		function insert() {
+			var dfault = $('#addnew').val(), wait = 'Please wait...', msg = '';
+			
+			if(dfault != wait) {
+				$('#carf').find(':input').each(function(){
+					var name = $(this).attr('name'),
+					label = $(this).attr('id');
+					if(name != 'id' && name != 'Add Car' && name != 'Update Car' && name != 'insurance_date' && name != 'last_mileage') {  
+						if($(this).val() == '' || $(this).val() == '0') {
+							msg += label + ', ';
+						}
+					}
+				});
+				if(msg != '' ) {
+					$('#errormsg').html(msg.substring(0,msg.length - 2) + ' cannot be empty').show().focus(); 
+				}else {
+					
+					$.ajax({
+						url : '{path_app}/insert_user_car/',
+						type : 'post',
+						data : $('#carf').serialize()+'&id_user={id}',
+						beforeSend : function() { $('#addnew').val(wait); },
+						success :function(resp) {
+									
+									if(resp != '0') {
+										if(resp.substring(0,8) == 'inserted') {
+											$('#carlst').append(resp.substring(9));
+											clear_form_elements('#carf');
+											toggling_form('cform','insertc','Add Car');
+											
+										}else {
+											var d = $('#idsc').val();
+											$('#wrapper-'+d+'-car').html(resp.substring(8));
+											clear_form_elements('#carf');
+											toggling_form('cform','insertc','Add Car');
+											
+										}
+										
+									}else {
+										$('#errormsg').html('an error occured while inserting car, please try again').show();
+									}
+									$('#addnew').val(dfault);
+						}
+					
+					});
+				}
+				
+				
+			}else {
+				alert('Please wait till the process completed. .');
+			}
+		}
+		
+		$(document).on('click',"img[class^='img-']",function(event){
+			event.preventDefault();
+			var id = $(this).attr('idsc');
+			var idc = $(this).attr('idc');
+			if($('#cform').css('display') != 'block') {
+				toggling_form('cform','insertc','Add Car');
+			}
+			
+			
+			$('#idsc').val(id);
+			$.ajax({
+				url : '{path_app}/get_user_cars/',
+				type : 'post',
+				data : 'id='+id+'&idc='+idc,
+				beforeSend : function() { },
+				success :function(resp) {
+							
+							if(resp != 'false') {
+								$('#cform').html(resp);
+								$(".datepicker_now").datepicker({
+									dateFormat:'dd-mm-yy',
+									changeMonth: true,
+									changeYear: true,
+									yearRange: '1950:2020'
+								});								
+								if($('#bf').css('display') == 'block') {
+									$('#bf').hide();
+									$('#buy_from').removeAttr('name');
+								}
+								$('#addnew').click(function(){
+									insert();
+								});
+								$('#addnew').val('Update Car');
+
+                                $('#car-acomplete').autocomplete({
+                                    source: availableTags,
+                                    select: function(event, ui) {
+                                        $("#car-acomplete").val(ui.item.val);
+                                        $("#car").val(ui.item.key);
+                                        $("#car-acomplete").attr('key',ui.item.key);
+                                        crawl_ref('{path_app}/get_color_car',ui.item.key,'car_color');
+                                        clears();
+                                    }
+                                });
+							}
+				},
+				cache : false,
+			
+			});
+		});
+		
+	});
+	function clears() {
+		/*
+		$('#car_series').html('<option> --- Choice Series --- </option>');
+		$('#car_types').html('<option> --- Choice Type --- </option>');
+		*/
+		$('#car_color').html('<option> --- Choice car color --- </option>');
+	}
+</script>
+<!--CONTENT-->

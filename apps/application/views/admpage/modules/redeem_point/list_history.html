@@ -1,0 +1,57 @@
+
+<table class="twelve" cellspacing="0" cellpadding="0">
+	<thead>
+		<tr>
+			<th scope="col" class="text-left">Username</th>
+			<th scope="col" class="text-left">Car</th>
+			<th scope="col" class="text-left">Police Number</th>
+			<th scope="col" class="text-left">Vin Number</th>
+			<th scope="col" class="text-left">Current Point</th>
+		</tr>
+	</thead>
+
+	{list_user}
+	<tbody id="record-{id}">
+		<tr>
+			<td>{uname}</td>
+			<td>{car}</td>
+			<td>{pnumber}</td>
+			<td>{vnumber}</td>
+			<td>{reward}</td>
+		</tr>
+	</tbody>
+	{/list_user}
+</table>
+<table class="twelve" cellspacing="0" cellpadding="0">
+	<thead>
+		<tr>
+			<th scope="col" class="small">No.</th>
+			<th scope="col" class="text-left">Police Number</th>
+			<th scope="col" class="text-left">Redeem With</th>
+			<th scope="col" class="text-left">Point</th>
+			<!--<th scope="col" class="text-left">Last Point</th>-->
+			<th scope="col" class="text-left">Redeem Date</th>
+			<th scope="col" class="text-left">Print</th>
+		</tr>
+	</thead>
+
+	{list_point}
+	<tbody id="record-{id}">
+		<tr>
+			<td scope="col" class="small">{no}.</td>
+			<td>{pnumber}</td>
+			<td>{notes}</td>
+			<td>{point}</td>
+			<!--<td>{last_point}</td>-->
+			<td>{created}</td>
+			<td><a class="btnPrint" href="{path_app}/print_history?id={id_redeem}">Print</a></td>
+		</tr>
+	</tbody>
+	{/list_point}
+</table>
+
+<script>
+    $('document').ready(function() {
+        $(".btnPrint").printPage();
+    });
+</script>

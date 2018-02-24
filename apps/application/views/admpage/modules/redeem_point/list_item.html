@@ -1,0 +1,29 @@
+<h5>Point Summary</h5>
+	<table class="twelve" cellspacing="0" cellpadding="0">
+		<thead>
+			<tr>
+				<th scope="col" class="small">No.</th>
+				<th scope="col" class="text-left">Username</th>
+				<th scope="col" class="text-left">Car</th>
+				<th scope="col" class="text-left">Police Number</th>
+				<th scope="col" class="text-left">Vin Number</th>
+				<th scope="col" class="text-left">Current Point</th>
+				<th scope="col" class="text-left">History Point</th>
+			</tr>
+		</thead>
+
+		{list_data}
+		<tbody id="record-{id}">
+			<tr>
+				<td scope="col" class="small">{no}.</td>
+				<td><a href="{edit_href}">{uname}</a></td>
+				<td>{car}</td>
+				<td>{pnumber}</td>
+				<td>{vnumber}</td>
+				<td>{reward}</td>
+				<td>{hist}</td>
+			   
+			</tr>
+		</tbody>
+		{/list_data}
+    </table>

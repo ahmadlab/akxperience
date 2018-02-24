@@ -1,0 +1,85 @@
+a {
+  color: #0088cc;
+  text-decoration: none;
+}
+.sidenav {
+	display: block;
+	width: 100%;
+	color: #fff;
+	background-color: #0066a9;
+	border: none;
+	text-transform: uppercase;
+	text-align: left;
+	padding: 8px 16px;
+	border-bottom: solid 1px #ccc;
+}
+.sidenav:hover,
+.sidenav:active,
+.sidenav.active {
+	background-color: #4c94c3;
+	cursor: default;
+}
+.sub-sidenav {
+	display: block;
+	width: 100%;
+	color: #444;
+	background-color: #ececec;
+	border: none;
+	text-align: left;
+	padding: 8px 16px;
+	border-bottom: solid 1px #bbb;
+	font-size: .9em;
+}
+.sub-sidenav:hover,
+.sub-sidenav:active,
+.sub-sidenav.active {
+	background-color: #ccc;
+	cursor: default;
+}
+input,
+button,
+select,
+textarea,
+.navbar-search .search-query {
+  font-family: "OpenSansRegular";
+}
+label,
+input,
+button,
+select,
+textarea {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+}
+label,
+select,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+input[type="radio"],
+input[type="checkbox"] {
+  cursor: pointer;
+}
+button,
+input,
+select,
+textarea {
+  margin: 0;
+  font-size: 100%;
+  vertical-align: middle;
+}
+.collapse {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: height 0.35s ease;
+     -moz-transition: height 0.35s ease;
+       -o-transition: height 0.35s ease;
+          transition: height 0.35s ease;
+}
+
+.collapse.in {
+  height: auto;
+}

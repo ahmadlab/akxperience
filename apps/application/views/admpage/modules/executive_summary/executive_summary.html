@@ -1,0 +1,460 @@
+<!--CONTENT-->
+<div class="content twelve columns" id="content">
+    <!--breadcrumbs-->
+    <ul class="breadcrumbs">
+        {breadcrumbs}
+        <li {class}><a href="{href}">{text}</a></li>
+        {/breadcrumbs}
+    </ul>
+    <!--breadcrumbs-->
+
+    <div class="panel">
+        <div class="panel-box">
+            <div class="row panel-title">
+                <div class="eleven columns text-left">
+                    <h5>{menu_title} </h5>
+                </div>
+                <div class="one columns text-right">
+                    <img src="{base_url}assets/images/admin/plus.png" alt="plus" class="plus-panel"/>
+                    <img src="{base_url}assets/images/admin/minus.png" alt="minus" class="min-panel"/>
+                </div>
+            </div>
+
+            <div class="row panel-form" id="panel-form">
+                <div class="twelve columns">
+                    <form id="search-{file_app}" name="search-{file_app}" action="{path_app}" method="post" class="custom">
+                        <div class="row">
+                            <div class="four columns">
+                                <label for="s_year">Generate Report : </label>
+                                <select name="s_year">
+                                    {l_years}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns text-right">
+                                <input type="submit" value="Generate!" class="medium radius secondary button" name="generate"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel">
+        <div class="row">
+            <div class="twelve columns">
+                <h5>Member</h5>
+                <h5>Total: {totalUser}</h5>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="twelve columns">
+                <table class="twelve" cellspacing="0" cellpadding="0">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-left"></th>
+                            <th scope="col" class="text-left">JAN</th>
+                            <th scope="col" class="text-left">FEB</th>
+                            <th scope="col" class="text-left">MAR</th>
+                            <th scope="col" class="text-left">APR</th>
+                            <th scope="col" class="text-left">MEI</th>
+                            <th scope="col" class="text-left">JUN</th>
+                            <th scope="col" class="text-left">JUL</th>
+                            <th scope="col" class="text-left">AUG</th>
+                            <th scope="col" class="text-left">SEP</th>
+                            <th scope="col" class="text-left">OCT</th>
+                            <th scope="col" class="text-left">NOV</th>
+                            <th scope="col" class="text-left">DEC</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>{year}</td>
+                        <td>{totalUserMonth_1}</td>
+                        <td>{totalUserMonth_2}</td>
+                        <td>{totalUserMonth_3}</td>
+                        <td>{totalUserMonth_4}</td>
+                        <td>{totalUserMonth_5}</td>
+                        <td>{totalUserMonth_6}</td>
+                        <td>{totalUserMonth_7}</td>
+                        <td>{totalUserMonth_8}</td>
+                        <td>{totalUserMonth_9}</td>
+                        <td>{totalUserMonth_10}</td>
+                        <td>{totalUserMonth_11}</td>
+                        <td>{totalUserMonth_12}</td>
+                    </tr>
+                    <tr>
+                        <td>VIP</td>
+                        <td>{totalVIPMonth_1}</td>
+                        <td>{totalVIPMonth_2}</td>
+                        <td>{totalVIPMonth_3}</td>
+                        <td>{totalVIPMonth_4}</td>
+                        <td>{totalVIPMonth_5}</td>
+                        <td>{totalVIPMonth_6}</td>
+                        <td>{totalVIPMonth_7}</td>
+                        <td>{totalVIPMonth_8}</td>
+                        <td>{totalVIPMonth_9}</td>
+                        <td>{totalVIPMonth_10}</td>
+                        <td>{totalVIPMonth_11}</td>
+                        <td>{totalVIPMonth_12}</td>
+                    </tr>
+                    <tr>
+                        <td>REGULAR</td>
+                        <td>{totalRegulerMonth_1}</td>
+                        <td>{totalRegulerMonth_2}</td>
+                        <td>{totalRegulerMonth_3}</td>
+                        <td>{totalRegulerMonth_4}</td>
+                        <td>{totalRegulerMonth_5}</td>
+                        <td>{totalRegulerMonth_6}</td>
+                        <td>{totalRegulerMonth_7}</td>
+                        <td>{totalRegulerMonth_8}</td>
+                        <td>{totalRegulerMonth_9}</td>
+                        <td>{totalRegulerMonth_10}</td>
+                        <td>{totalRegulerMonth_11}</td>
+                        <td>{totalRegulerMonth_12}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="twelve columns">
+                <table class="two" cellspacing="0" cellpadding="0">
+                    <thead>
+                    <tr>
+                        <th>MALE</th>
+                        <th>FEMALE</th>
+                    </tr>
+                    </thead>
+                    <tr>
+                        <td>{totalMaleUser}</td>
+                        <td>{totalFemaleUser}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="twelve columns">
+                <table class="twelve" cellspacing="0" cellpadding="0">
+                    <thead>
+                    <tr>
+                        <th>{topCity_1}</th>
+                        <th>{topCity_2}</th>
+                        <th>{topCity_3}</th>
+                        <th>{topCity_4}</th>
+                        <th>{topCity_5}</th>
+                    </tr>
+                    </thead>
+                    <tr>
+                        <td>{topTotal_1}</td>
+                        <td>{topTotal_2}</td>
+                        <td>{topTotal_3}</td>
+                        <td>{topTotal_4}</td>
+                        <td>{topTotal_5}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="twelve columns">
+                <table class="twelve" cellspacing="0" cellpadding="0">
+                    <thead>
+                    <tr>
+                        <th>17 - 20</th>
+                        <th>21 - 30</th>
+                        <th>31 - 40</th>
+                        <th>41 - 50</th>
+                        <th>> 51</th>
+                    </tr>
+                    </thead>
+                    <tr>
+                        <td>{userAge17to20}</td>
+                        <td>{userAge21to30}</td>
+                        <td>{userAge31to40}</td>
+                        <td>{userAge41to50}</td>
+                        <td>{userAge50}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="twelve columns">
+                <h5>TEST DRIVE</h5>
+                <h5>Total: {totalTestDrive}</h5>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="twelve columns">
+                <table class="twelve" cellspacing="0" cellpadding="0">
+                    <thead>
+                    <tr>
+                        <th scope="col" class="text-left"></th>
+                        <th scope="col" class="text-left">JAN</th>
+                        <th scope="col" class="text-left">FEB</th>
+                        <th scope="col" class="text-left">MAR</th>
+                        <th scope="col" class="text-left">APR</th>
+                        <th scope="col" class="text-left">MEI</th>
+                        <th scope="col" class="text-left">JUN</th>
+                        <th scope="col" class="text-left">JUL</th>
+                        <th scope="col" class="text-left">AUG</th>
+                        <th scope="col" class="text-left">SEP</th>
+                        <th scope="col" class="text-left">OCT</th>
+                        <th scope="col" class="text-left">NOV</th>
+                        <th scope="col" class="text-left">DEC</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>REQUEST</td>
+                        <td>{totalTestDriveMonth_1}</td>
+                        <td>{totalTestDriveMonth_2}</td>
+                        <td>{totalTestDriveMonth_3}</td>
+                        <td>{totalTestDriveMonth_4}</td>
+                        <td>{totalTestDriveMonth_5}</td>
+                        <td>{totalTestDriveMonth_6}</td>
+                        <td>{totalTestDriveMonth_7}</td>
+                        <td>{totalTestDriveMonth_8}</td>
+                        <td>{totalTestDriveMonth_9}</td>
+                        <td>{totalTestDriveMonth_10}</td>
+                        <td>{totalTestDriveMonth_11}</td>
+                        <td>{totalTestDriveMonth_12}</td>
+                    </tr>
+                    <tr>
+                        <td>CANCELED</td>
+                        <td>{totalTestDriveCanceledMonth_1}</td>
+                        <td>{totalTestDriveCanceledMonth_2}</td>
+                        <td>{totalTestDriveCanceledMonth_3}</td>
+                        <td>{totalTestDriveCanceledMonth_4}</td>
+                        <td>{totalTestDriveCanceledMonth_5}</td>
+                        <td>{totalTestDriveCanceledMonth_6}</td>
+                        <td>{totalTestDriveCanceledMonth_7}</td>
+                        <td>{totalTestDriveCanceledMonth_8}</td>
+                        <td>{totalTestDriveCanceledMonth_9}</td>
+                        <td>{totalTestDriveCanceledMonth_10}</td>
+                        <td>{totalTestDriveCanceledMonth_11}</td>
+                        <td>{totalTestDriveCanceledMonth_12}</td>
+                    </tr>
+                    <tr>
+                        <td>FINISHED</td>
+                        <td>{totalTestDriveFinishedMonth_1}</td>
+                        <td>{totalTestDriveFinishedMonth_2}</td>
+                        <td>{totalTestDriveFinishedMonth_3}</td>
+                        <td>{totalTestDriveFinishedMonth_4}</td>
+                        <td>{totalTestDriveFinishedMonth_5}</td>
+                        <td>{totalTestDriveFinishedMonth_6}</td>
+                        <td>{totalTestDriveFinishedMonth_7}</td>
+                        <td>{totalTestDriveFinishedMonth_8}</td>
+                        <td>{totalTestDriveFinishedMonth_9}</td>
+                        <td>{totalTestDriveFinishedMonth_10}</td>
+                        <td>{totalTestDriveFinishedMonth_11}</td>
+                        <td>{totalTestDriveFinishedMonth_12}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="twelve columns">
+                <h5>WORKSHOP SERVICE</h5>
+                <h5>Total: {totalWorkshopService}</h5>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="twelve columns">
+                <table class="twelve" cellspacing="0" cellpadding="0">
+                    <thead>
+                    <tr>
+                        <th scope="col" class="text-left"></th>
+                        <th scope="col" class="text-left">JAN</th>
+                        <th scope="col" class="text-left">FEB</th>
+                        <th scope="col" class="text-left">MAR</th>
+                        <th scope="col" class="text-left">APR</th>
+                        <th scope="col" class="text-left">MEI</th>
+                        <th scope="col" class="text-left">JUN</th>
+                        <th scope="col" class="text-left">JUL</th>
+                        <th scope="col" class="text-left">AUG</th>
+                        <th scope="col" class="text-left">SEP</th>
+                        <th scope="col" class="text-left">OCT</th>
+                        <th scope="col" class="text-left">NOV</th>
+                        <th scope="col" class="text-left">DEC</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>REQUEST</td>
+                        <td>{totalWorkshopServiceMonth_1}</td>
+                        <td>{totalWorkshopServiceMonth_2}</td>
+                        <td>{totalWorkshopServiceMonth_3}</td>
+                        <td>{totalWorkshopServiceMonth_4}</td>
+                        <td>{totalWorkshopServiceMonth_5}</td>
+                        <td>{totalWorkshopServiceMonth_6}</td>
+                        <td>{totalWorkshopServiceMonth_7}</td>
+                        <td>{totalWorkshopServiceMonth_8}</td>
+                        <td>{totalWorkshopServiceMonth_9}</td>
+                        <td>{totalWorkshopServiceMonth_10}</td>
+                        <td>{totalWorkshopServiceMonth_11}</td>
+                        <td>{totalWorkshopServiceMonth_12}</td>
+                    </tr>
+                    <tr>
+                        <td>CANCELED</td>
+                        <td>{totalWorkshopServiceCanceledMonth_1}</td>
+                        <td>{totalWorkshopServiceCanceledMonth_2}</td>
+                        <td>{totalWorkshopServiceCanceledMonth_3}</td>
+                        <td>{totalWorkshopServiceCanceledMonth_4}</td>
+                        <td>{totalWorkshopServiceCanceledMonth_5}</td>
+                        <td>{totalWorkshopServiceCanceledMonth_6}</td>
+                        <td>{totalWorkshopServiceCanceledMonth_7}</td>
+                        <td>{totalWorkshopServiceCanceledMonth_8}</td>
+                        <td>{totalWorkshopServiceCanceledMonth_9}</td>
+                        <td>{totalWorkshopServiceCanceledMonth_10}</td>
+                        <td>{totalWorkshopServiceCanceledMonth_11}</td>
+                        <td>{totalWorkshopServiceCanceledMonth_12}</td>
+                    </tr>
+                    <tr>
+                        <td>FINISHED</td>
+                        <td>{totalWorkshopServiceFinishedMonth_1}</td>
+                        <td>{totalWorkshopServiceFinishedMonth_2}</td>
+                        <td>{totalWorkshopServiceFinishedMonth_3}</td>
+                        <td>{totalWorkshopServiceFinishedMonth_4}</td>
+                        <td>{totalWorkshopServiceFinishedMonth_5}</td>
+                        <td>{totalWorkshopServiceFinishedMonth_6}</td>
+                        <td>{totalWorkshopServiceFinishedMonth_7}</td>
+                        <td>{totalWorkshopServiceFinishedMonth_8}</td>
+                        <td>{totalWorkshopServiceFinishedMonth_9}</td>
+                        <td>{totalWorkshopServiceFinishedMonth_10}</td>
+                        <td>{totalWorkshopServiceFinishedMonth_11}</td>
+                        <td>{totalWorkshopServiceFinishedMonth_12}</td>
+                    </tr>
+                    <tr>
+                        <td>TRANSACTION (IDR)</td>
+                        <td>{totalWorkshopServicePriceMonth_1}</td>
+                        <td>{totalWorkshopServicePriceMonth_2}</td>
+                        <td>{totalWorkshopServicePriceMonth_3}</td>
+                        <td>{totalWorkshopServicePriceMonth_4}</td>
+                        <td>{totalWorkshopServicePriceMonth_5}</td>
+                        <td>{totalWorkshopServicePriceMonth_6}</td>
+                        <td>{totalWorkshopServicePriceMonth_7}</td>
+                        <td>{totalWorkshopServicePriceMonth_8}</td>
+                        <td>{totalWorkshopServicePriceMonth_9}</td>
+                        <td>{totalWorkshopServicePriceMonth_10}</td>
+                        <td>{totalWorkshopServicePriceMonth_11}</td>
+                        <td>{totalWorkshopServicePriceMonth_12}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="twelve columns">
+                <h5>HOME SERVICE</h5>
+                <h5>Total: {totalHomeService}</h5>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="twelve columns">
+                <table class="twelve" cellspacing="0" cellpadding="0">
+                    <thead>
+                    <tr>
+                        <th scope="col" class="text-left"></th>
+                        <th scope="col" class="text-left">JAN</th>
+                        <th scope="col" class="text-left">FEB</th>
+                        <th scope="col" class="text-left">MAR</th>
+                        <th scope="col" class="text-left">APR</th>
+                        <th scope="col" class="text-left">MEI</th>
+                        <th scope="col" class="text-left">JUN</th>
+                        <th scope="col" class="text-left">JUL</th>
+                        <th scope="col" class="text-left">AUG</th>
+                        <th scope="col" class="text-left">SEP</th>
+                        <th scope="col" class="text-left">OCT</th>
+                        <th scope="col" class="text-left">NOV</th>
+                        <th scope="col" class="text-left">DEC</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>REQUEST</td>
+                        <td>{totalHomeServiceMonth_1}</td>
+                        <td>{totalHomeServiceMonth_2}</td>
+                        <td>{totalHomeServiceMonth_3}</td>
+                        <td>{totalHomeServiceMonth_4}</td>
+                        <td>{totalHomeServiceMonth_5}</td>
+                        <td>{totalHomeServiceMonth_6}</td>
+                        <td>{totalHomeServiceMonth_7}</td>
+                        <td>{totalHomeServiceMonth_8}</td>
+                        <td>{totalHomeServiceMonth_9}</td>
+                        <td>{totalHomeServiceMonth_10}</td>
+                        <td>{totalHomeServiceMonth_11}</td>
+                        <td>{totalHomeServiceMonth_12}</td>
+                    </tr>
+                    <tr>
+                        <td>CANCELED</td>
+                        <td>{totalHomeServiceCanceledMonth_1}</td>
+                        <td>{totalHomeServiceCanceledMonth_2}</td>
+                        <td>{totalHomeServiceCanceledMonth_3}</td>
+                        <td>{totalHomeServiceCanceledMonth_4}</td>
+                        <td>{totalHomeServiceCanceledMonth_5}</td>
+                        <td>{totalHomeServiceCanceledMonth_6}</td>
+                        <td>{totalHomeServiceCanceledMonth_7}</td>
+                        <td>{totalHomeServiceCanceledMonth_8}</td>
+                        <td>{totalHomeServiceCanceledMonth_9}</td>
+                        <td>{totalHomeServiceCanceledMonth_10}</td>
+                        <td>{totalHomeServiceCanceledMonth_11}</td>
+                        <td>{totalHomeServiceCanceledMonth_12}</td>
+                    </tr>
+                    <tr>
+                        <td>FINISHED</td>
+                        <td>{totalHomeServiceFinishedMonth_1}</td>
+                        <td>{totalHomeServiceFinishedMonth_2}</td>
+                        <td>{totalHomeServiceFinishedMonth_3}</td>
+                        <td>{totalHomeServiceFinishedMonth_4}</td>
+                        <td>{totalHomeServiceFinishedMonth_5}</td>
+                        <td>{totalHomeServiceFinishedMonth_6}</td>
+                        <td>{totalHomeServiceFinishedMonth_7}</td>
+                        <td>{totalHomeServiceFinishedMonth_8}</td>
+                        <td>{totalHomeServiceFinishedMonth_9}</td>
+                        <td>{totalHomeServiceFinishedMonth_10}</td>
+                        <td>{totalHomeServiceFinishedMonth_11}</td>
+                        <td>{totalHomeServiceFinishedMonth_12}</td>
+                    </tr>
+                    <tr>
+                        <td>TRANSACTION (IDR)</td>
+                        <td>{totalHomeServicePriceMonth_1}</td>
+                        <td>{totalHomeServicePriceMonth_2}</td>
+                        <td>{totalHomeServicePriceMonth_3}</td>
+                        <td>{totalHomeServicePriceMonth_4}</td>
+                        <td>{totalHomeServicePriceMonth_5}</td>
+                        <td>{totalHomeServicePriceMonth_6}</td>
+                        <td>{totalHomeServicePriceMonth_7}</td>
+                        <td>{totalHomeServicePriceMonth_8}</td>
+                        <td>{totalHomeServicePriceMonth_9}</td>
+                        <td>{totalHomeServicePriceMonth_10}</td>
+                        <td>{totalHomeServicePriceMonth_11}</td>
+                        <td>{totalHomeServicePriceMonth_12}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--CONTENT-->
+
+
+
+

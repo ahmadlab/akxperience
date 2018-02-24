@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Auto Kencana - Reset Password</title>
+<meta charset="utf-8">
+<link href="{base_url}assets/css/mobile.css" rel='stylesheet' type='text/css' />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="{base_url}assets/js/jquery-1.8.2.js"></script>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+		<!--webfonts-->
+		<link href='http://fonts.googleapis.com/css?family=Raleway:500,300,400' rel='stylesheet' type='text/css'>
+		<!--//webfonts-->       
+</head>
+
+<body>
+	 <!-----start-main---->
+	 <div class="main">
+         <div class="head">
+             <img src="{base_url}assets/images/aklogo.png" alt=""/>
+         </div>
+		<div class="line"></div>
+		<div class="login-form">
+			<h1>Reset Your Password</h1>
+            <form id="rst" method="post" action="#" onsubmit="return false;">
+                <span id="errmsg" style="display:none;color:red;"></span>
+                    <!--<input type="text" class="text" value="USERNAME" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'USERNAME';}" >-->
+                <input type="password" name="pass" placeholder="New Password">
+                <input type="password" name="passconf" placeholder="Confirm Password">
+                <input type="hidden" value="{email}" name="email">
+                    <!--<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">-->
+                    <div class="submit">
+                        <input id="reset" type="submit" value="Reset" />
+                </div>
+                <!--<p><a href="#">Forgot Password ?</a></p>-->
+            </form>
+        </div>
+            
+            <footer class="footer-line">
+            <section class="copyright"><a href="http://www.autokencana.com/">Auto Kencana © 2014</a></section>
+                <!--<nav>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Jobs</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Developers</a></li>
+                    </ul>
+                </nav>-->
+			</footer>
+			<!--//End-login-form-->
+			 <!-----start-copyright---->
+   					<!--<div class="copy-right">
+						<p><a href="#">Auto Kencana</a></p>
+					</div>-->
+				<!-----//end-copyright---->
+		</div>
+			 <!-----//end-main---->
+
+</body>
+</html>
+
+<script type="text/javascript">
+    $('#reset').click(function(){
+
+        if($('#reset').val() != 'Loading') {
+            $('#errmsg').html('').hide();
+            $.ajax({
+                url : '{file_app}/act',
+                type : 'POST',
+                data : $('#rst').serialize(),
+                beforeSend : function() { $('#reset').val('Loading...') },
+                success : function(resp) {
+                    $('#reset').val('Reset');
+                    if(resp.substring(0,5) == 'error') {
+                        $('#errmsg').html(resp.substring(6)).show();
+
+                    }else {
+                        alert(resp);
+
+                    }
+                    return false;
+                }
+            });
+        }else {
+            alert('Please wait till the proccess completed');
+        }
+    });
+</script>

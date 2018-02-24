@@ -1,0 +1,172 @@
+      
+      <!--CONTENT-->
+      <div class="content twelve columns" id="content">
+        <!--breadcrumbs-->
+        <ul class="breadcrumbs">
+          {breadcrumbs}
+            <li {class}><a href="{href}">{text}</a></li>
+          {/breadcrumbs}
+        </ul>
+        <!--breadcrumbs-->
+      
+        <div class="panel">
+          <div class="row">
+            <div class="twelve columns">
+              <h5>Add/Edit {menu_title}</h5>
+              
+              {error_msg}
+                {warning}
+                {title}
+                {position}
+                {widget_type}
+                {id_page}
+                {content}
+                {widget_file}
+                {widget_picture}
+              {/error_msg}
+    
+              <form id="form-{file_app}" name="form-{file_app}" action="{action}" method="post" class="nice custom" enctype="multipart/form-data">
+                {post}
+                <div class="row none-width">
+                  <div class="six columns">
+                    <label for="title">Title : </label>
+                    <input type="text" class="required" maxlength="250" size="50" value="{title}" name="title" id="title"/>
+                      
+                    <div {mltilang_mode} >
+                      <label for="title_in">Title (Indonesia): </label>
+                      <input type="text" class="" maxlength="250" size="50" value="{title_in}" name="title_in" id="title_in"/>
+                    </div>
+                    <label for="position">Position : </label>
+                    <select name="position" id="position" class="width100 required">
+                    	{pos_list}
+                      <option value="{val}" {sel}>{text}</option>
+                    	{/pos_list}
+                    </select>
+                    <label>Widget Type : </label>
+                    {type_list}
+                    <label for="{id}" class="{class}">
+                      <input type="radio" value="{val}" name="widget_type" id="{id}" {sel} data-customforms="disabled"/>
+                      {text} &nbsp;&nbsp;
+                    </label>
+                    {/type_list}
+                    <br>
+                    <div id="pagelist-field">
+                      <label for="id_page">Parent of Page List : </label>
+                      <select name="id_page" id="id_page" class="width100">
+                        <option value="0">ROOT</option>
+                        {pages_list}
+                      </select>
+                    </div>
+                    <div id="content-field">
+                      <label for="content_widget">Content : </label>
+                      <textarea class="expand input-text" rows="6" name="content" id="content_widget">{content}</textarea>
+                      <div {mltilang_mode} >
+                        <label for="content_widget_in">Content (Indonesia) : </label>
+                        <textarea class="expand input-text" rows="6" name="content_in" id="content_widget_in">{content_in}</textarea> 
+                      </div>
+                      <label for="widget_file">File Content : </label>
+                      {file_content}
+                      <input type="file" class="expand input-text" name="widget_file" id="widget_file"/>
+                      <br><br>
+                      <label for="widget_picture">Image Content : </label>
+                      {pic_content}
+                      <input type="file" class="expand input-text" name="widget_picture" id="widget_picture"/>
+                      <br><br>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="six columns text-right">
+                    <input type="submit" id="{file_app}-submit" title="Submit" value="Submit" class="medium radius success button"/>
+                    <a onClick="javascript:window.location='{cancel_btn}';" class="medium radius alert button">Cancel</a>
+                  </div>
+                </div>
+                {/post}
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--CONTENT-->
+      
+      <script type="text/javascript">
+				print_ckeditor('content_widget');
+				print_ckeditor('content_widget_in');
+      
+				$(document).ready(function() 
+				{	
+					$("a#delete-pic-content").click(function(){
+						var answer2 = confirm("Are you sure to delete this file ??");
+						if(answer2)
+						{
+							$.ajax({
+								type: 'POST',
+								data: 'id={id_widget}',
+								success: function(data){
+									$("#print-picture-content").fadeOut('slow');
+									$("#print-picture-content").fadeIn('slow');
+									$("#print-picture-content").html(data);
+									$("#print-picture-content").fadeOut('slow');
+								},
+								url: '{path_app}/delete_picture',
+								cache:false
+							},
+							$("#print-picture-content").fadeOut('slow')
+							);
+						}
+					});	
+				
+					$("a#delete-file").click(function(){
+						var answer2 = confirm("Are you sure to delete this file ??");
+						if(answer2)
+						{
+							$.ajax({
+								type: 'POST',
+								data: 'id={id_widget}',
+								success: function(data){
+									$("#print-file").fadeOut('slow');
+									$("#print-file").fadeIn('slow');
+									$("#print-file").html(data);
+									$("#print-file").fadeOut('slow');
+								},
+								url: '{path_app}/delete_file',
+								cache:false
+							},
+							$("#print-file").fadeOut('slow')
+							);
+						}
+					});	
+				});
+				
+				$(document).ready(function(){
+					if ($('input:radio[name=widget_type]:checked').val() == '2') {
+						$("#content-field").fadeOut('fast');
+						$("#pagelist-field").fadeIn('slow');
+					}
+					else
+					{
+						$("#pagelist-field").fadeOut('fast');
+						$("#content-field").fadeIn('slow');
+					}
+					
+					$("input[name='widget_type']").bind("click",PageClicks)
+				});
+				
+				function PageClicks()
+				{
+					if ($(this).val() == '2')
+					{
+						$("#content-field").fadeOut('fast');
+						$("#pagelist-field").fadeIn('slow');
+					}
+					else
+					{
+						$("#pagelist-field").fadeOut('fast');
+						$("#content-field").fadeIn('slow');
+					}
+				}
+      </script>
+      
+    </article>
+      

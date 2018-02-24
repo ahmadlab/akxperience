@@ -1,0 +1,15 @@
+<form id="form-{file_app}" name="form-{file_app}" action="{action}" method="post" class="custom" enctype="multipart/form-data">
+	<label for="title"> Title : </label>
+	<input type="text" name="title" id="title" />
+	<label for="title"> Content : </label>
+	<textarea name="content" id="txt"></textarea><br/>
+	<label for="title"> Thumb : </label>
+	<input type="file" name="ico" id="ico" />
+	<br/><br/><br/><br/><br/><br/>
+	<div class="row">
+		<div class="five columns text-left">
+			<input type="submit" id="{file_app}-submit" title="Submit" value="Submit" class="medium radius success button"/>
+			<a onClick="javascript:window.location='{cancel_btn}';" class="medium radius alert button" style="padding: 9px 20px 13px;">Cancel</a>
+		</div>
+	</div>
+</form>

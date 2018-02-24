@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8" />
+
+        <!-- Set the viewport width to device width for mobile -->
+        <meta name="viewport" content="width=768"/>
+        <meta name="description" content="">
+        <meta content="Faisal Latada, Insan Sharif" name="author"/>
+        <meta name="robots" content="noindex, nofollow"/>
+        
+         <link rel="shortcut icon" type="image/x-icon" href="{base_url}assets/images/favicon.png">
+
+        <title>AK Experience CMS {head_title}</title>
+        
+        <link rel="stylesheet" href="{base_url}assets/css/admin/menu_front.css"/>
+        <!--<link rel="stylesheet" href="{base_url}assets/css/admin/font-awesome.css"/>-->
+        <link rel="stylesheet" href="{base_url}assets/css/admin/bootstrap.css"/>
+        <link rel="stylesheet" href="{base_url}assets/css/admin/foundation.css"/>
+        <link rel="stylesheet" href="{base_url}assets/css/admin/general_foundicons.css"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.2/css/jquery.dataTables.css">
+        
+        <!--[if lt IE 8]>
+          <link rel="stylesheet" href="{base_url}assets/css/admin/general_foundicons_ie7.css"/>
+        <![endif]-->
+        <link rel="stylesheet" href="{base_url}assets/css/admin/app.css"/>
+        
+
+        <script src="{base_url}assets/js/found/modernizr.foundation.js"></script>
+
+         <script src="{base_url}assets/js/jquery-1.8.2.js"></script> 
+		
+		<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script> -->
+		
+        <script src="{base_url}assets/js/jquery-ui-1.8.23.custom.min.js"></script>
+		
+        <!-- <script src="{base_url}assets/js/jquery-ui-1.10.4.min.js"></script> -->
+		
+		
+        <script type="text/javascript" src="{base_url}assets/js/bootstrap.js"></script>
+		 <script type="text/javascript">
+            var base_url = '{base_url}';
+			
+        </script>
+        <script type="text/javascript" src="{base_url}assets/js/common.js"></script>
+       
+        <script src="{base_url}assets/libs/ckeditor/ckeditor.js"></script>
+        <script type="text/javascript">
+            function print_ckeditor(id) {
+                CKEDITOR.replace( id,
+                {
+                    filebrowserBrowseUrl : base_url+'assets/libs/ckfinder/ckfinder.html',
+                    filebrowserImageBrowseUrl : base_url+'assets/libs/ckfinder/ckfinder.html?Type=Images',
+                    filebrowserFlashBrowseUrl : base_url+'assets/libs/ckfinder/ckfinder.html?Type=Flash',
+                    filebrowserUploadUrl : base_url+'assets/libs/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+                    filebrowserImageUploadUrl : base_url+'assets/libs/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+                    filebrowserFlashUploadUrl : base_url+'assets/libs/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+                    toolbar :
+					[
+                    ['Source','-','Preview','Templates','Cut','Copy','Paste','PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'],
+					['spellchecker'],[ 'Link', 'Unlink', 'Anchor' ],['Maximize'],[ 'Styles', 'Format', 'Font', 'FontSize' ],
+					['Bold','Italic','Underline','Strike','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','NumberedList','BulletedList','Subscript','Superscript','-'],
+                    '/',
+                    ['Link','Unlink','-','Image','Flash','Table','HorizontalRule','Smiley','SpecialChar'],['TextColor','BGColor','-','Font','FontSize']
+                    ]
+                    /*[
+                    ['Source','-','Preview','Templates','Cut','Copy','Paste'],['Bold','Italic','Underline','Strike','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','NumberedList','BulletedList','Subscript','Superscript','-'],
+                    '/',
+                    ['Link','Unlink','-','Image','Flash','Table','HorizontalRule','Smiley','SpecialChar'],['TextColor','BGColor','-','Font','FontSize']
+                    ]*/
+                }
+                );
+            }
+        </script>
+
+        <!-- IE Fix for HTML5 Tags -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="container">
+            <!--header-->
+            <header class="row">
+                <div class="eight columns">
+                    <!-- <img src="{base_url}assets/images/admin/nava-plus.png" alt="webcontrol logo" class="logo"/> -->
+                    <img src="{base_url}assets/images/client_img.png" alt="webcontrol logo" class="logo" width="120"  height="120" />
+                    <!-- <h1 class="cms">content management system</h1> -->
+                </div>
+                <div class="four columns text-right" style="line-height:56px">
+                    Welcome <a href="#" class="username"><b> {nama_admin} </b></a>
+                    &nbsp;|&nbsp;
+                    <!-- <a href="{base_url}" target="_blank">Front Page</a>
+                    &nbsp;|&nbsp; -->
+                  <!--   <a href="{profile_url}">Profile</a>
+                    &nbsp;|&nbsp; -->
+                    <a href="{logout_url}">Logout</a>
+                </div>
+            </header><!--header-->
+
+            <!--navigation-->
+            <nav class="top-bar" style="position: relative;">
+                <ul>
+                    <li class="name hide-for-large"><h1><a href="#">Main Menu</a></h1></li>
+                    <li class="toggle-topbar width100" style="width:100%;"><a href="#"></a></li>
+                </ul>
+                <section>
+                    <ul class="left">
+                        {menu}
+                    </ul>
+                </section>
+            </nav>
+            <br class="clearfix"/><!--navigation-->
+
+            <!--container-->
+            <article class="row">
+                <!--sidebar-->
+                <div class="three columns">
+                    <ul class="vertical tabs">
+                       <!--  <li class="title">
+                            <a>Front Page</a>
+                        </li> -->
+                        {menu_pages}
+                        <!--<li>
+                            <a href="#menu1">Tentang Kami</a>
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#menu2">Vertical Tab 2</a></li>
+                        <li><a href="#menu3">Vertical Tab 3</a></li>-->
+                    </ul>
+                </div><!--sidebar-->

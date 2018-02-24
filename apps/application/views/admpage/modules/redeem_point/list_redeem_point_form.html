@@ -1,0 +1,134 @@
+      
+<!--CONTENT-->
+<div class="content twelve columns" id="content">
+    <!--breadcrumbs-->
+    <ul class="breadcrumbs">
+        {breadcrumbs}
+        <li {class}><a href="{href}">{text}</a></li>
+        {/breadcrumbs}
+    </ul>
+    <!--breadcrumbs-->
+
+    <div class="panel">
+        <div class="row">
+            <div class="twelve columns">
+                <h5>Add/Edit {menu_title}</h5>
+
+                {error_msg}
+                {success_msg}
+                {warning}
+				{cpoint}
+                {/error_msg}
+
+                <form id="form-{file_app}" name="form-{file_app}" action="{action}" method="post" class="custom" enctype="multipart/form-data" >
+                    {post}
+                    <div class="row">
+						<div class="twelve columns">
+							<div class="row">
+								<div class="six columns">
+									{info}
+									<label for="username">Username : </label>
+									<input disabled readonly type="text" maxlength="250" size="50" value="{username}" id="username" />
+									<label for="email">Email : </label>
+									<input disabled readonly type="text" maxlength="250" size="50" value="{email}" id="email" />
+									<label for="point_reward">Current Point </label>
+									<input disabled readonly type="text" maxlength="250" size="50" value="{point_reward}" name="current_point" id="point_reward" />
+									{/info}
+									
+									<label for="type_list">Type : </label>
+									<select name="type_list" data-transform="disabled" id="typelst">
+									{typelst}
+									</select>
+									<div id="vipr" style="display:none;">
+										<label for="redeem_point">Redeem Point : </label>
+										<input type="text" maxlength="250" size="50" value="{redeem_point}" id="redeem_point" />
+										<label for="notes">Notes : </label>	
+										<textarea id="notes">{notes}</textarea>
+									</div>
+									<div id="otrs" style="display:none;">
+										<code>** This will reduce <span id="p"></span> point</code><br/><br/><br/>
+									</div>
+								</div>
+							</div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="five columns text-right">
+                            <input type="submit" title="Submit" value="Submit" class="medium radius success button" id="subs" />
+                            <a onClick="javascript:window.location='{cancel_btn}';" class="medium radius alert button">Cancel</a>
+                        </div>
+                    </div>
+                    {/post}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#form-{file_app}").submit(function() {
+            var current_point = $('#redeem_point').val(), point_needed = $('option:selected', this).attr('point');
+            $('#redeem_point').attr('disabled','disabled');
+            if (point_needed > current_point) {
+                alert('Insufficient Point, Redeem Failed');
+                return false;
+            } else {
+                var c = confirm("Are you sure want to redeem this point?");
+                return c;
+            }
+        });
+        $("#form-{file_app}").validate({
+            rules: {
+                confpass: {
+                    equalTo: "#userpass"
+                }
+            }
+        });
+		$("a#delete-pic-thumbnail").click(function(){
+			var answer = confirm("Are you sure to delete this file ??"), id = $(this).attr('ida');
+			
+			if(answer) {
+				$.ajax({
+					type: 'POST',
+					data: 'id='+id,
+					success: function(data){
+						$("#print-picture-thumbnail").fadeOut('slow');
+						$("#print-picture-thumbnail").fadeIn('slow');
+						$("#print-picture-thumbnail").html(data);
+						$("#print-picture-thumbnail").fadeOut('slow');
+					},
+					url: '{path_app}/delete_gallery',
+					cache:false
+				},
+				$("#print-picture-thumbnail").fadeOut('slow')
+				);
+			}
+		});
+		$('#typelst').change(function() {
+			if($(this).val() == '0') {
+				$('#vipr').hide();
+				$('#otrs').hide();
+			}else {
+				if($(this).val() != '99999') {
+					$('#vipr').hide();
+					$('#p').html($('option:selected', this).attr('point'));
+					$('#otrs').show();
+					$('#redeem_point').removeAttr('name');
+					$('#notes').removeAttr('name');
+				}else {
+					$('#vipr').show();
+					$('#otrs').hide();
+					$('#redeem_point').attr('name','redeem_point');
+					$('#notes').attr('name','notes');
+				}
+			}
+
+		});
+		$('#subs').click(function(){
+			$('#point_reward').removeAttr('disabled readonly');
+		});
+    });
+</script>
+<!--CONTENT-->

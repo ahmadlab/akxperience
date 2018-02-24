@@ -1,0 +1,301 @@
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 808a83ef792301f31f45d90a9ebf96da9dba852a3197a9fb6c6897b0f81ef6db 
+APNS DEBUG: APNS Message: Home Service is in progress for B12345R ETA: 2015-08-04 09:00, check menu Service Status 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 808a83ef792301f31f45d90a9ebf96da9dba852a3197a9fb6c6897b0f81ef6db 
+APNS DEBUG: APNS Message: test 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 808a83ef792301f31f45d90a9ebf96da9dba852a3197a9fb6c6897b0f81ef6db 
+APNS DEBUG: APNS Message: test 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 808a83ef792301f31f45d90a9ebf96da9dba852a3197a9fb6c6897b0f81ef6db 
+APNS DEBUG: APNS Message: You received new message on menu Technical Consultation 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 7b4f9529cd4da2414341be1e34f7197877d5c331aa58b1cdca41da412c4f88e2 
+APNS DEBUG: APNS Message: Workshop Service Booked for b1234 on 06-08-2015 08.00, check menu Service Status 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 7b4f9529cd4da2414341be1e34f7197877d5c331aa58b1cdca41da412c4f88e2 
+APNS DEBUG: APNS Message: Workshop Service Booked for b1234 on 06-08-2015 08.15, check menu Service Status 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 7b4f9529cd4da2414341be1e34f7197877d5c331aa58b1cdca41da412c4f88e2 
+APNS DEBUG: APNS Message: Workshop Service Booked for b1234 on 06-08-2015 08.30, check menu Service Status 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 7b4f9529cd4da2414341be1e34f7197877d5c331aa58b1cdca41da412c4f88e2 
+APNS DEBUG: APNS Message: Workshop Service Booked for b1234 on 06-08-2015 09.00, check menu Service Status 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 7b4f9529cd4da2414341be1e34f7197877d5c331aa58b1cdca41da412c4f88e2 
+APNS DEBUG: APNS Message: Workshop Service Booked for b1234 on 06-08-2015 09.30, check menu Service Status 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 7b4f9529cd4da2414341be1e34f7197877d5c331aa58b1cdca41da412c4f88e2 
+APNS DEBUG: APNS Message: Test Drive Booked on 06-08-2015 08:00, check menu Service Status 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 7b4f9529cd4da2414341be1e34f7197877d5c331aa58b1cdca41da412c4f88e2 
+APNS DEBUG: APNS Message: Test Drive Booked on 06-08-2015 08:30, check menu Service Status 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 808a83ef792301f31f45d90a9ebf96da9dba852a3197a9fb6c6897b0f81ef6db 
+APNS DEBUG: APNS Message: test 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 808a83ef792301f31f45d90a9ebf96da9dba852a3197a9fb6c6897b0f81ef6db 
+APNS DEBUG: APNS Message: test 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 808a83ef792301f31f45d90a9ebf96da9dba852a3197a9fb6c6897b0f81ef6db 
+APNS DEBUG: APNS Message: Test Drive Booked on 06-08-2015 08:00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 808a83ef792301f31f45d90a9ebf96da9dba852a3197a9fb6c6897b0f81ef6db 
+APNS DEBUG: APNS Message: Workshop Service Booked for F415AL on 06-08-2015 08.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 808a83ef792301f31f45d90a9ebf96da9dba852a3197a9fb6c6897b0f81ef6db 
+APNS DEBUG: APNS Message: Workshop Service Booked for F415AL on 07-08-2015 08.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 808a83ef792301f31f45d90a9ebf96da9dba852a3197a9fb6c6897b0f81ef6db 
+APNS DEBUG: APNS Message: Workshop Service Booked for F415AL on 08-08-2015 08.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 808a83ef792301f31f45d90a9ebf96da9dba852a3197a9fb6c6897b0f81ef6db 
+APNS DEBUG: APNS Message: Workshop Service Booked for F415AL on 08-08-2015 11.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 808a83ef792301f31f45d90a9ebf96da9dba852a3197a9fb6c6897b0f81ef6db 
+APNS DEBUG: APNS Message: Test Drive Booked on 08-08-2015 12:00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 808a83ef792301f31f45d90a9ebf96da9dba852a3197a9fb6c6897b0f81ef6db 
+APNS DEBUG: APNS Message: Test Drive Booked on 08-08-2015 08:00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 808a83ef792301f31f45d90a9ebf96da9dba852a3197a9fb6c6897b0f81ef6db 
+APNS DEBUG: APNS Message: Test Drive Booked on 08-08-2015 11:00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 808a83ef792301f31f45d90a9ebf96da9dba852a3197a9fb6c6897b0f81ef6db 
+APNS DEBUG: APNS Message: Test Drive Booked on 08-08-2015 10:00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 808a83ef792301f31f45d90a9ebf96da9dba852a3197a9fb6c6897b0f81ef6db 
+APNS DEBUG: APNS Message: Workshop Service Booked for F415AL on 08-08-2015 10.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 808a83ef792301f31f45d90a9ebf96da9dba852a3197a9fb6c6897b0f81ef6db 
+APNS DEBUG: APNS Message: Workshop Service Booked for F415AL on 08-08-2015 10.30, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 808a83ef792301f31f45d90a9ebf96da9dba852a3197a9fb6c6897b0f81ef6db 
+APNS DEBUG: APNS Message: Workshop Service Booked for F415AL on 08-08-2015 11.15, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 808a83ef792301f31f45d90a9ebf96da9dba852a3197a9fb6c6897b0f81ef6db 
+APNS DEBUG: APNS Message: Workshop Service Booked for F415AL on 08-08-2015 09.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 808a83ef792301f31f45d90a9ebf96da9dba852a3197a9fb6c6897b0f81ef6db 
+APNS DEBUG: APNS Message: Workshop Service Booked for F415AL on 08-08-2015 13.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 11fb10d0607e384048bae67a0309b9b9aaf69721021609be132d1d5f2eb9b5ed 
+APNS DEBUG: APNS Message: Workshop Service Booked for B 72 BL on 22-08-2015 08.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 808a83ef792301f31f45d90a9ebf96da9dba852a3197a9fb6c6897b0f81ef6db 
+APNS DEBUG: APNS Message: Workshop Service Booked for F415AL on 17-08-2015 10.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 09fc75383b64d4158c47fb23e6b7ebf8982809c9fc49a54d5103a6825d16477c 
+APNS DEBUG: APNS Message: Workshop Service Booked for B 1622 URU on 25-08-2015 08.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 428d225535c9b31b25c2f28a2807b4756a9cb34c1f5b97ac22304bcb1504fe74 
+APNS DEBUG: APNS Message: Workshop Service Booked for B 2678 RM on 29-08-2015 08.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: f12712adf6e90161ee66746b5d942ad74bdd3422c6466581328171de121340a2 
+APNS DEBUG: APNS Message: Workshop Service Booked for B 1511 ZFA on 14-09-2015 08.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: dedd823a5f2f50f395edf0d8f6e2e683d26fd11698c6543061d60017973d385d 
+APNS DEBUG: APNS Message: Workshop Service Booked for B 1257 BIF on 02-10-2015 08.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: dedd823a5f2f50f395edf0d8f6e2e683d26fd11698c6543061d60017973d385d 
+APNS DEBUG: APNS Message: Workshop Service Confirmed for B 1257 BIF on 2015-10-02 08:00:00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 11fb10d0607e384048bae67a0309b9b9aaf69721021609be132d1d5f2eb9b5ed 
+APNS DEBUG: APNS Message: You received new message on menu Customer Relation 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 7b2e9d1153e50dd8707cf7fae02d48fab04804a81f747a4bc381888d2ee74f9b 
+APNS DEBUG: APNS Message: Workshop Service Booked for F415AL on 03-10-2015 08.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 808a83ef792301f31f45d90a9ebf96da9dba852a3197a9fb6c6897b0f81ef6db 
+APNS DEBUG: APNS Message: Workshop Service Booked for F415AL on 07-10-2015 10.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 808a83ef792301f31f45d90a9ebf96da9dba852a3197a9fb6c6897b0f81ef6db 
+APNS DEBUG: APNS Message: Workshop Service Booked for F415AL on 06-10-2015 08.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 9cccf8a0198ef3e51dabd5581c0cb222f2604d5f108e266da0a698d16a4cc1e3 
+APNS DEBUG: APNS Message: Workshop Service Booked for B 1030 URW on 05-10-2015 10.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: c5d53f027344faffd4692a2fe9122e6816436483504b3783210865ed47b4c51d 
+APNS DEBUG: APNS Message: Workshop Service Booked for B 1082 SIC on 07-10-2015 08.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 808a83ef792301f31f45d90a9ebf96da9dba852a3197a9fb6c6897b0f81ef6db 
+APNS DEBUG: APNS Message: Workshop Service Canceled for F415AL on 2015-10-07 10:00:00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 8d246713d4dbd6ddec773048efff57a364e7bf985d2bed3a8b9db58e1e803a71 
+APNS DEBUG: APNS Message: Workshop Service Booked for B 1795 SII on 21-10-2015 10.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 8d246713d4dbd6ddec773048efff57a364e7bf985d2bed3a8b9db58e1e803a71 
+APNS DEBUG: APNS Message: Test Drive Booked on 21-10-2015 10:00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: dd208f6d52da5163d3649f0d4a569a86a800beff4cec49514bd8868bbdafca52 
+APNS DEBUG: APNS Message: Test Drive Booked on 20-10-2015 08:00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 8d246713d4dbd6ddec773048efff57a364e7bf985d2bed3a8b9db58e1e803a71 
+APNS DEBUG: APNS Message: Test Drive Booked on 23-10-2015 10:00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 8d246713d4dbd6ddec773048efff57a364e7bf985d2bed3a8b9db58e1e803a71 
+APNS DEBUG: APNS Message: Workshop Service Confirmed for B 1795 SII on 2015-10-31 09:00:00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 8d246713d4dbd6ddec773048efff57a364e7bf985d2bed3a8b9db58e1e803a71 
+APNS DEBUG: APNS Message: Workshop Service is in progress for B 1795 SII ETA: 2015-10-31 12:00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 8d246713d4dbd6ddec773048efff57a364e7bf985d2bed3a8b9db58e1e803a71 
+APNS DEBUG: APNS Message: Workshop Service is done for B 1795 SII, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 8d246713d4dbd6ddec773048efff57a364e7bf985d2bed3a8b9db58e1e803a71 
+APNS DEBUG: APNS Message: You received 2 Reward Points from your last transaction, check your dashboard. 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 808a83ef792301f31f45d90a9ebf96da9dba852a3197a9fb6c6897b0f81ef6db 
+APNS DEBUG: APNS Message: Test Drive Booked on 31-10-2015 08:00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 9fdac611da06904b2153ff499e79289121151d99c22b95a3fde6f2947bfacc45 
+APNS DEBUG: APNS Message: Workshop Service Booked for F 1131 DU on 07-11-2015 08.30, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 9fdac611da06904b2153ff499e79289121151d99c22b95a3fde6f2947bfacc45 
+APNS DEBUG: APNS Message: Workshop Service Confirmed for F 1131 DU on 2015-11-07 08:30:00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 41e45d29130e58f4a0ca70735fc0809b9c42f9a8def3104f7cf6781efc7300ba 
+APNS DEBUG: APNS Message: Home Service Booked for B 8005 OR on 05-11-2015 08.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: f12712adf6e90161ee66746b5d942ad74bdd3422c6466581328171de121340a2 
+APNS DEBUG: APNS Message: Workshop Service Booked for B 1511 ZFA on 07-11-2015 08.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 41e45d29130e58f4a0ca70735fc0809b9c42f9a8def3104f7cf6781efc7300ba 
+APNS DEBUG: APNS Message: Home Service Confirmed for B 8005 OR on 2015-11-05 08:00:00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 2f7170ecb56df706c11c1fa8f4cac6f21a302eec3ac50a22f0686cf35b21a03d 
+APNS DEBUG: APNS Message: You received new message on menu Customer Relation 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: bd794869a4650a7aa12656679f71414d5ebc3e68020be66f796d885ce207e556 
+APNS DEBUG: APNS Message: Workshop Service Booked for B2316SFB on 05-12-2015 10.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: bd794869a4650a7aa12656679f71414d5ebc3e68020be66f796d885ce207e556 
+APNS DEBUG: APNS Message: Workshop Service Confirmed for B2316SFB on 2015-12-05 10:00:00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: d295b40b5a3a28953d9f2c63f84f3efdfed53f55ccfc556e6c157be883e9e365 
+APNS DEBUG: APNS Message: Workshop Service Booked for B 1164 BIF on 17-12-2015 08.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: (null) 
+APNS DEBUG: APNS Message: Workshop Service Booked for B1855UZF on 22-12-2015 08.00, check menu Service Status 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: e53e8e8fe4a0f99470b44422ca06a1a3f8fa243183308faf8bd5936c0d754b8c 
+APNS DEBUG: APNS Message: Workshop Service Booked for B 1030 URW on 04-01-2016 09.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: (null) 
+APNS DEBUG: APNS Message: Workshop Service Booked for B1855UZF on 06-01-2016 08.30, check menu Service Status 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 11fb10d0607e384048bae67a0309b9b9aaf69721021609be132d1d5f2eb9b5ed 
+APNS DEBUG: APNS Message: Workshop Service Booked for B 72 BL on 16-01-2016 08.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: (null) 
+APNS DEBUG: APNS Message: Workshop Service Booked for B 1189 POO on 21-01-2016 08.30, check menu Service Status 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: (null) 
+APNS DEBUG: APNS Message: Workshop Service Confirmed for B 1189 POO on 2016-01-21 08:30:00, check menu Service Status 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: (null) 
+APNS DEBUG: APNS Message: Workshop Service is in progress for B 1189 POO ETA: 2016-01-21 09:30, check menu Service Status 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: (null) 
+APNS DEBUG: APNS Message: Workshop Service is done for B 1189 POO, check menu Service Status 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: (null) 
+APNS DEBUG: APNS Message: You received 15 Reward Points from your last transaction, check your dashboard. 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: dc8c11668999eb3d8e7053ca213782d8262011c1a3bed08ad47bd178a83c50c1 
+APNS DEBUG: APNS Message: Workshop Service Booked for B 1705 PYB on 27-01-2016 09.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: dc8c11668999eb3d8e7053ca213782d8262011c1a3bed08ad47bd178a83c50c1 
+APNS DEBUG: APNS Message: Workshop Service Confirmed for B 1705 PYB on 2016-01-27 09:00:00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 11fb10d0607e384048bae67a0309b9b9aaf69721021609be132d1d5f2eb9b5ed 
+APNS DEBUG: APNS Message: Workshop Service Booked for B 72 BL on 30-01-2016 08.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: (null) 
+APNS DEBUG: APNS Message: Workshop Service Booked for b 23 dil on 01-02-2016 09.00, check menu Service Status 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: dedd823a5f2f50f395edf0d8f6e2e683d26fd11698c6543061d60017973d385d 
+APNS DEBUG: APNS Message: Workshop Service Booked for B 1257 BIF on 05-02-2016 08.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: ce24975dec702930fd5e1de8e9f558b5cc29a4a574ce60529594afc585519ca1 
+APNS DEBUG: APNS Message: Workshop Service Booked for B 1970 TYN on 02-02-2016 08.30, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 6a65ac4686ff00933d70f86e54ec09648772ce45fef3c505503a4e2d4776ad16 
+APNS DEBUG: APNS Message: Workshop Service Booked for B 1299 TYW on 11-03-2016 10.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 2f7170ecb56df706c11c1fa8f4cac6f21a302eec3ac50a22f0686cf35b21a03d 
+APNS DEBUG: APNS Message: Workshop Service Booked for B 1931 BIW on 04-06-2016 08.00, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 2f7170ecb56df706c11c1fa8f4cac6f21a302eec3ac50a22f0686cf35b21a03d 
+APNS DEBUG: APNS Message: Workshop Service Booked for B 1931 BIW on 04-06-2016 08.15, check menu Service Status 
+APNS DEBUG: APNS STOP 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 2f7170ecb56df706c11c1fa8f4cac6f21a302eec3ac50a22f0686cf35b21a03d 
+APNS DEBUG: APNS Message: Workshop Service Booked for B 1931 BIW on 10-08-2016 08.00, check menu Service Status 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 2f7170ecb56df706c11c1fa8f4cac6f21a302eec3ac50a22f0686cf35b21a03d 
+APNS DEBUG: APNS Message: Workshop Service Booked for B 1931 BIW on 11-08-2016 08.00, check menu Service Status 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 4bc2d76216fea08840b438d8657998964a2ed622b340c04033827c6517bb90eb 
+APNS DEBUG: APNS Message: Workshop Service Booked for B 2462 RFP on 27-04-2017 11.00, check menu Service Status 
+APNS DEBUG: APNS START 
+APNS DEBUG: APNS Token: 4bc2d76216fea08840b438d8657998964a2ed622b340c04033827c6517bb90eb 
+APNS DEBUG: APNS Message: Test Drive Booked on 30-04-2017 09:30, check menu Service Status 

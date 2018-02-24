@@ -1,0 +1,122 @@
+      
+<!--CONTENT-->
+<div class="content twelve columns" id="content">
+    <!--breadcrumbs-->
+    <ul class="breadcrumbs">
+        {breadcrumbs}
+            <li {class}><a href="{href}">{text}</a></li>
+        {/breadcrumbs}
+    </ul>
+    <!--breadcrumbs-->
+
+    <div class="panel">
+        <div class="panel-box">
+            <div class="row panel-title">
+                <div class="eleven columns text-left">
+                    <strong>Search {menu_title} </strong>
+                </div>
+                <div class="one columns text-right">
+                    <img src="{base_url}assets/images/admin/plus.png" alt="plus" class="plus-panel"/>
+                    <img src="{base_url}assets/images/admin/minus.png" alt="minus" class="min-panel"/>
+                </div>
+            </div>
+            <div class="row panel-form" id="panel-form">
+                <div class="twelve columns">
+                    <form id="search-{file_app}" name="search-{file_app}" action="{path_app}/search" method="post" class="custom">
+                        <div class="row">
+                            <div class="four columns">
+                                <label for="s_title">Menu Title : </label>
+                                <input type="text" value="{s_title}" name="s_title" id="s_title"/>
+                                <label for="s_parent">Parent Menu : </label>
+                                <select id="s_parent" name="s_parent" style="height:auto;">
+                                    <option value="">-- Select --</option>
+                                    <option value="0" {root_sel}>-- ROOT --</option>
+                                    {parent_list}
+                                </select>
+                                <label for="s_ref_publish">Status : </label>
+                                <select id="s_ref_publish" name="s_ref_publish">
+                                    <option value="">-- Select --</option>
+                                    {publish_list}
+                                </select>
+                                <label>Site : </label>
+                                
+                                <select id="s_site" name="s_site">
+                                    <option value="">-- Select --</option>
+                                    {site_list}
+                                </select>
+                                
+                                <!--{site_list}
+                                    <label for="s_site">
+                                        <input type="radio" name="s_site" id="s_site" value="{value}" {checked}>&nbsp;{label}
+                                    </label>
+                                {/site_list}-->
+                                
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns text-right">
+                                <input type="submit" value="Search" class="medium radius secondary button" title="Search" name="search"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {error_msg}
+    {success_msg}
+    {info_msg}
+
+    <div class="panel">
+        <div class="row">
+            <div class="twelve columns">
+                <h5><strong>List of {menu_title}</strong></h5>
+                <form id="form-{file_app}" name="form-{file_app}" action="#" method="post" >
+                    <table class="twelve" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="small">No.</th>
+                                <th scope="col" class="small"><input type="checkbox" onclick="javascript:checkedAll('form-{file_app}', true)" id="primary_check"/></th>
+                                <th scope="col" class="text-left">Menu Title</th>
+                                <th scope="col" class="text-left">Parent</th>
+                                <th scope="col" class="text-left">Sites</th>
+                                <th scope="col" class="text-left">Publish </th>
+                                <th scope="col" class="text-left">Create Date </th>
+                                <th scope="col" class="text-left">Sort </th>
+                            </tr>
+                        </thead>
+                        {list_pages}
+                        <tbody id="record-{id_page}">
+                            <tr id="record-{id_page}">
+                                <td scope="col" class="small">{no}.</td>
+                                <td scope="col" class="small">
+                                    <input type="checkbox" name="CheckBox_Delete_{id_page}" value="{id_page}" id="del{id_page}" class="delete" onclick="javascript:select_record('{id_page}');">
+                                </td>
+                                <td><a href="{edit_href}">{title}</a>&nbsp;</td> 
+                                <td>{parent}</td> 
+                                <td>{sites}</td> 
+                                <td><a id="pub{id_page}" onclick="javascript:change_publish('{id_page}','{path_app}')" style="cursor:pointer;">{publish}</a></td>
+                                <td>{create_date}</td> 
+                                <td width="75">{sort_up} &nbsp; {sort_down}</td>
+                            </tr>
+                        </tbody>
+                        {/list_pages}
+                    </table>
+                    <input type="hidden" id="temp_id" value=""/>
+                    <div class="row">
+                        <div class="eight columns pagination">
+                            <span>Page : </span><br><br>
+                            {pagination}
+                        </div>
+                        <div class="four columns action-button text-right">
+                            <input type="button" id="{file_app}-add" title="Add" alt="Add" value="Add" onClick="javascript:window.location='{add_btn}';" class="medium radius success button"/>
+                            <input type="button" id="{file_app}-delete" title="Delete" alt="Delete" value="Delete"  onclick="javascript:delete_records('{path_app}','{current_url}')" class="medium radius alert button delete_button"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--CONTENT-->

@@ -1,0 +1,301 @@
+<style>
+    ul#uwrap li {
+        margin-left:20px;
+        display:inline;
+
+    }
+
+    .alert-box {
+        background-color: #A0D3E8;
+        border-color: #74BFDD;
+        color: #4F4F4F;
+        border-radius: 3px;
+        padding: 8px 41px 8px 14px;
+        cursor: pointer;
+    }
+    .alert {
+        cursor: pointer;
+    }
+</style>
+<!--CONTENT-->
+<div class="content twelve columns" id="content">
+    <!--breadcrumbs-->
+    <ul class="breadcrumbs">
+        {breadcrumbs}
+        <li {class}><a href="{href}">{text}</a></li>
+        {/breadcrumbs}
+    </ul>
+    <!--breadcrumbs-->
+
+    <div class="panel">
+        <div class="panel-box">
+            <div class="row panel-title">
+                <div class="eleven columns text-left">
+                    <h5>Search {menu_title} </h5>
+                </div>
+                <div class="one columns text-right">
+                    <img src="{base_url}assets/images/admin/plus.png" alt="plus" class="plus-panel"/>
+                    <img src="{base_url}assets/images/admin/minus.png" alt="minus" class="min-panel"/>
+                </div>
+            </div>
+
+            <div class="row panel-form" id="panel-form">
+                <div class="twelve columns">
+                    <form id="search-{file_app}" name="search-{file_app}" action="{path_app}/search" method="post" class="custom">
+                        <div class="row">
+                            <div class="four columns">
+                                <label for="s_name">Full Name : </label>
+                                <input type="text" value="{s_name}" name="s_name" id="s_name"/>
+								<!-- <label for="s_location">Location : </label>
+                                <select name="s_location">
+								{l_location}
+								</select> -->
+								<label for="s_status">Status Booking : </label>
+                                <select name="s_status">
+								{l_status}
+								</select>
+                                <label for="s_sdate">Schedule Start: </label>
+                                <input type="text" name="s_sdate" value="{s_sdate}" class="datepicker_now" />
+                                <label for="s_sdate">Schedule End: </label>
+                                <input type="text" name="s_edate" value="{s_edate}" class="datepicker_now" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns text-right">
+                                <input type="submit" value="Search" class="medium radius secondary button" title="Search" name="search"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {error_msg}
+    {success_msg}
+    {info_msg}
+
+    <div class="panel">
+        <div class="row">
+            <div class="twelve columns">
+                {search_query}
+                <h5>Total: {q_total}</h5>
+                <h5>List of {menu_title}</h5>
+				<dl class="tabs contained">
+					<dd class="active"><a href="#service">Request List</a></dd>
+					<dd class="{sa_hide}"><a href="#schedule">Schedule Availability</a></dd>
+					<dd class="{sa_hide}"><a href="#interval">Schedule Interval</a></dd>
+				</dl>
+				<ul class="tabs-content contained">
+					<li class="active" id="serviceTab">
+						<form id="form-{file_app}" name="form-{file_app}" action="#" method="post" >
+							<table class="twelve" cellspacing="0" cellpadding="0">
+								<thead>
+									<tr>
+										<th scope="col" class="small">No.</th>
+										<th scope="col" class="small"><input type="checkbox" onclick="javascript:checkedAll('form-{file_app}', true);" id="primary_check"/></th>
+										<th scope="col" class="text-left">Customer</th>
+                                        <th scope="col" class="text-left">Car</th>
+                                        <th scope="col" class="text-left">Location</th>
+										<th scope="col" class="text-left">Schedule</th>
+										<th scope="col" class="text-left">Status</th>
+										<th scope="col" class="text-left">Create Date</th>
+									</tr>
+								</thead>
+
+								<tbody id="record-{id}">
+                                {list_data}
+									<tr>
+										<td scope="col" class="small">{no}.</td>
+										<td scope="col" class="small">
+											<input type="checkbox" name="CheckBox_Delete_{id}" value="{id}" id="del{id}" class="delete" onclick="javascript:select_record('{id}');">
+										</td>
+										<td><a href="{edit_href}">{usr}</a></td>
+                                        <td>{car}</td>
+                                        <td>{location}</td>
+										<td>{timebook}</td>
+										<td>{status}</td>
+										<td>{create_date}</td>
+										
+									</tr>
+                                {/list_data}
+								</tbody>
+							</table>
+							<input type="hidden" id="temp_id" value=""/>
+
+							<div class="row">
+								<div class="eight columns pagination">
+									<span>Page : </span>
+									<br><br>
+									{pagination}
+								</div>
+								<div class="four columns action-button text-right">
+									<!--<input type="button" id="{file_app}-add" title="Add" alt="Add" value="Add" onClick="javascript:window.location='{add_btn}';" class="medium radius success button"/>-->
+									<!--<input type="button" id="{file_app}-delete" title="Delete" alt="Delete" value="Delete"  onclick="javascript:delete_records('{path_app}','{current_url}')" class="medium radius alert button delete_button"/>-->
+                                    <input type="button" id="xtoxl" title="Export to excel" alt="Export to excel" value="Export to excel"  class="medium radius secondary button"/>
+								</div>
+							</div>
+						</form>
+					</li>
+					<li id="scheduleTab" class="{sa_hide}">
+						<div class="four ">
+							Choice Workshop : <select id="locate" name="location" data-transform="disabled" style="margin-top:11px;width:66%;">{locate}</select><br/><br/>
+						</div>
+						<div id="dt" style="display:none;">
+							<ul id="uwrap">{datelist}</ul>
+						</div>
+						<br/>
+						<br/>
+						<table id="holder" class="three" cellspacing="10" cellpadding="10" style="margin-left:35px;display:none;">
+							<thead id="thead">
+								<th>No</th>
+								<th>Time</th>
+								<th>Status</th>
+							</thead>
+						</table>
+						<input type="hidden" name="idl" id="idl" value="0" />
+						<div style="margin:60px 139px; display:none;" id="splash"><img src="{base_url}assets/images/loading.gif" /> </div>
+					</li>
+                    <li id="intervalTab" class="{sa_hide}">
+                        <div class="row">
+                            <form id="setter" onSubmit="return false;">
+                                <div class="fourth columns">
+                                    <div id="errormsg" style="display:none;color:red;"></div><br>
+                                    <label for="workshop">Choice Workshop : </label>
+                                    <select id="location" name="wlocation" data-transform="disabled" style="margin-top:11px;width:66%;">{locate}</select>
+                                    <label for="starttime">Start Time : <em style="font-size:7.5pt;">&nbsp;(24 hours)</em></label>
+                                    <input type="text" maxlength="250" size="50" value="" name="starttime" id="starttime" class="required"/>
+                                    <label for="endtime">End Time : <em style="font-size:7.5pt;">&nbsp;(24 hours)</em></label>
+                                    <input type="text" maxlength="250" size="50" value="" name="endtime" id="endtime" class="required"/>
+                                    <label for="interval">Interval : <em style="font-size:7.5pt;">&nbsp;(minutes)</em></label>
+                                    <input type="text" maxlength="250" size="50" value="" name="interval" id="interval" class="required"/>
+                                    <input type="submit" class="medium radius success button" value="Create" title="Submit" id="set">
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+				</ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--CONTENT-->
+<script>
+$('document').ready(function(){
+    $('#xtoxl').click(function() {
+        var url = document.URL;
+        if (url.indexOf("main") >= 0) {
+            window.location.href = url.replace('main','exportoxl');
+        } else {
+            window.location.href = url + '/exportoxl';
+        }
+    });
+	$("#uwrap").on('click','li',function(){
+		$('.trecords').remove();
+		$('#splash').show();
+		$('#holder').hide();
+		$("#uwrap li").each(function(){
+			$(this).removeClass('primary').addClass('secondary');
+		});
+		$(this).removeClass('secondary').addClass('primary');
+		if($('#idl').val() !== '' && $('#idl').val() != '0') {
+			
+			$.ajax({
+				type: 'POST',
+				data: 'time='+$(this).attr('time')+'&locate='+$('#idl').val(),
+				beforeSend : function(){ },
+				success: function(res){
+					$('#thead').after(res);
+					$('#splash').hide();
+					$('#holder').show(500);
+				},
+				url: '{path_app}/get_schedule'
+			});
+		}else {
+			alert('choice location first');
+		}
+	});
+	$('#locate').change(function(){
+		if($(this).val() != '') {
+			$('#idl').val($(this).val());
+			$('#dt').show();
+		}else {
+			$('#idl').val('0');
+		}
+	});
+
+    $('#location').change(function() {
+        if($('#set').val() != 'Please wait...') {
+            if($(this).val() != '') {
+                $.ajax({
+                    url : '{path_app}/get_worktime',
+                    type: 'POST',
+                    data : 'wlocation='+$(this).val(),
+                    beforeSend : function() { $('#set').val('Please wait...'); },
+                    success : function(res) {
+                        var resp = JSON.parse(res);
+                        if(resp.status != '0') {
+                            $('#starttime').val(resp.start);
+                            $('#endtime').val(resp.end);
+                            $('#interval').val(resp.intval);
+                            $('#set').val('Update');
+                        }else {
+                            $('#set').val('Create');
+                            clearschedule();
+
+
+                        }
+                    }
+                });
+            }
+        }else {
+            alert('Please wait till the process completed. .');
+        }
+    });
+
+    $('#set').click(function() {
+        var dfault = $('#set').val(), wait = 'Please wait...', msg = '';
+        if(dfault != wait) {
+            $('#setter').find(':input').each(function(){
+                var name = $(this).attr('name'),
+                        label    = $(this).attr('id');
+                if(label != 'set') {
+                    if($(this).val() == '' || $(this).val() == '0') {
+                        msg += label + ', ';
+                    }
+                }
+            });
+            if(msg != '' ) {
+                $('#errormsg').html(msg.substring(0,msg.length - 2) + ' is required').show().focus();
+            }else {
+                $.ajax({
+                    url : '{path_app}/store_worktime',
+                    type: 'POST',
+                    data : $('#setter').serialize(),
+                    beforeSend : function() { $('#set').val('Please wait...'); },
+                    success : function(res) {
+                        var resp = JSON.parse(res);
+                        if(resp.status != '0') {
+                            $('#set').val('Create');
+//                            clearschedule();
+                            alert(resp.msg);
+                        }else {
+                            $('#set').val('Create');
+                            alert('an error occurred while store, please try again');
+                        }
+                    }
+                });
+
+            }
+        }else {
+            alert('Please wait till the process completed. .');
+        }
+    });
+});
+
+function clearschedule() {
+    $('#starttime').val('');
+    $('#endtime').val('');
+    $('#interval').val('');
+}
+</script>

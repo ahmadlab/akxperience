@@ -1,0 +1,25 @@
+<div class="six columns">
+	<div id="errormsg" style="display:none;color:red;"></div><br/><br/>
+	
+		<label for="color">Color :</label>
+		<select name="color" id="Color" data-customforms="disabled">{refcolorlst}</select><br/>
+		<label for="status">Status :</label>
+		<select name="status" id="Status" >{statuslst}</select><br/>
+        <label for="stock">Stock :</label>
+        <input type="text" name="stock" id="stock" value="{stock}"/><br/>
+		<label for="color_thumb">Thumb Color:</label>
+		<input type="hidden" name="id_car" id="idc" value="{ids}" />
+		<input type="hidden" name="id_car_color" id="idcc" value="{idcc}" />
+		<input type="file" name="color_thumb" id="Color Thumb" />
+		<div id="imgt">
+			<img src="{thumb}" width="200"/><br/>
+			<span style="color:gray;font-size:9pt;font-style:italic;">* Replace if you wanna change the thumb color </span>
+		</div>
+		<iframe id="msgplace" name="msgplace" class="fade" width="90px" height="20px" ></iframe><br/><br/>
+		<div class="row">
+			<div class="six columns text-left" style="float:left;"><br/>
+				<input type="submit" id="addnew" title="Submit" value="Insert Color" class="medium radius success button"/><br/><br/>
+			</div>
+		</div>
+	
+</div>
